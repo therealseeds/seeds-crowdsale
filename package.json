@@ -1,0 +1,51 @@
+{
+  "name": "seeds-logic-api",
+  "version": "1.0.0",
+  "description": "API with business logic endpoints",
+  "scripts": {
+    "start": "nodemon --watch src/ --watch config/ --exec babel-node -- src/index.js",
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register",
+    "lint": "eslint src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therealseeds/seeds-logic-api.git"
+  },
+  "author": "Seeds Inc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/therealseeds/seeds-logic-api/issues"
+  },
+  "homepage": "https://github.com/therealseeds/seeds-logic-api#readme",
+  "dependencies": {
+    "babel-cli": "6.18.0",
+    "babel-core": "6.20.0",
+    "babel-eslint": "7.1.1",
+    "babel-plugin-module-resolver": "2.4.0",
+    "babel-plugin-transform-es2015-classes": "6.18.0",
+    "babel-polyfill": "6.20.0",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^3.5.0",
+    "config": "^1.20.1",
+    "eth-lightwallet": "^2.5.6",
+    "ethereumjs-tx": "^1.3.3",
+    "ethereumjs-util": "^5.1.2",
+    "express": "^4.15.5",
+    "lodash": "^4.17.2",
+    "mongodb": "^2.2.31",
+    "nodemon": "1.11.0",
+    "sinon": "^1.17.6",
+    "web3": "^1.0.0-beta.22",
+    "winston": "2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "3.12.1",
+    "eslint-config-airbnb-base": "11.0.0",
+    "eslint-import-resolver-babel-module": "2.2.1",
+    "eslint-plugin-babel": "4.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-mocha": "4.7.0",
+    "mocha": "3.2.0",
+    "node-mocks-http": "^1.6.5"
+  }
+}
