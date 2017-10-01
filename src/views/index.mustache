@@ -1,0 +1,55 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/countdown.js"></script>
+  <script src="js/progressbar.min.js"></script>
+  <script src="js/progressbar.js"></script>
+  <script src="js/init.js"></script>
+	<title>Seeds crowdsale</title>
+</head>
+<body onload="init({{deadline}}, {{percentageCompleted}})">
+
+  <div id="progressbar"></div>
+
+  <div id="price" class="component">
+    <h1>Price</h1>
+    <div>
+      <span>1 SDS = {{price}} ETH</span>
+    </div>
+  </div>
+
+  <div id="raised" class="component">
+    <h1>Total raised</h1>
+    <div>
+      <span>{{totalRaised}} ETH</span>
+    </div>
+  </div>
+
+  <div id="clockdiv">
+    <h1>Ends in</h1>
+    <div>
+      <span class="days"></span>
+      <div class="smalltext">Days</div>
+    </div>
+    <div>
+      <span class="hours"></span>
+      <div class="smalltext">Hours</div>
+    </div>
+    <div>
+      <span class="minutes"></span>
+      <div class="smalltext">Minutes</div>
+    </div>
+    <div>
+      <span class="seconds"></span>
+      <div class="smalltext">Seconds</div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

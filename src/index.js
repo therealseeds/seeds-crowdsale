@@ -1,14 +1,16 @@
 import express from "express";
+import mustacheExpress from "mustache-express";
 import winston from "winston";
 import config from "config";
-import routes from "api/routes";
+import { crowdsale } from "api/controllers/crowdsale";
 
 export const app = express();
 
-const NODE_ENV = process.env.NODE_ENV;
+app.engine("mustache", mustacheExpress());
+app.set('view engine', 'mustache');
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/views/public'));
 
-if (NODE_ENV !== "test") {
-  app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
-}
+app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
 
-routes(app);
+app.get("/", crowdsale);
