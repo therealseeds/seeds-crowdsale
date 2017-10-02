@@ -8,7 +8,7 @@ const buildMongoUrl = ({ host, port, user, password, database, replica }) => {
 };
 
 const mongoUrl = buildMongoUrl(config.mongo);
-winston.info(`Trying to connect to ${mongoUrl}`);
+winston.info(`Trying to connect to ${config.mongo.database}`);
 const mongoDbPromise = new MongoClient.connect(mongoUrl)
   .catch((err) => winston.error(`Could not connect to mongodb ${config.mongo.database}:` + err));
 

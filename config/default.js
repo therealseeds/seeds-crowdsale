@@ -1,5 +1,5 @@
 module.exports = {
-  port: process.env.PORT || 8080,
+  port: process.env.PORT || 3000,
   ethereum_node_url: "https://rinkeby.infura.io",
   crowdsale_address: process.env.CROWDSALE_ADDRESS,
   ether: 1000000000000000000,
