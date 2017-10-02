@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "API with business logic endpoints",
   "scripts": {
-    "start": "nodemon --watch src/ --watch config/ --exec babel-node -- src/index.js",
+    "start": "nodemon --watch src/ --watch config/ --exec babel-node -- server.js",
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register",
     "lint": "eslint src/"
   },
