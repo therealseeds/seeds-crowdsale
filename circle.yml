@@ -1,3 +1,8 @@
+dependencies:
+  pre:
+    # update locally with:
+    # openssl aes-256-cbc -e -in deploy/secret-env-plain -out deploy/secret-env-cipher -k $KEY
+    - openssl aes-256-cbc -d -in deploy/secret-env-cipher -k $KEY >> ~/.circlerc
 test:
   post:
     - rm -rf node_modules

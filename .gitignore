@@ -1,3 +1,5 @@
+deploy/secret-env-plain
+
 # Logs
 logs
 *.log

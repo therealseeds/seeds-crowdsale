@@ -4,7 +4,6 @@
   "description": "API with business logic endpoints",
   "scripts": {
     "start": "nodemon --watch src/ --watch config/ --exec babel-node -- src/server.js",
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register",
     "lint": "eslint src/"
   },
   "repository": {
