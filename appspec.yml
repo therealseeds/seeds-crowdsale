@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/server
+hooks:
+  AfterInstall:
+    - location: deploy/prepareServer.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: deploy/startServer.sh
+      timeout: 300
+      runas: root

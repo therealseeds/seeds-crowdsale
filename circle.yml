@@ -1,0 +1,13 @@
+test:
+  post:
+    - rm -rf node_modules
+deployment:
+  production:
+    branch: master
+    codedeploy:
+      metrics-cd-app:
+        deployment_group: crowdsale-master-cd-grp
+general:
+  branches:
+    only:
+      - master
