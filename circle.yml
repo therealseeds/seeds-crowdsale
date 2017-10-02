@@ -5,8 +5,8 @@ deployment:
   production:
     branch: master
     codedeploy:
-      metrics-cd-app:
-        deployment_group: crowdsale-master-cd-grp
+      crowdsale:
+        deployment_group: crowdsale-dg
 general:
   branches:
     only:
