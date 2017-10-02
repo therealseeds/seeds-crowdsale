@@ -1,8 +1,9 @@
+import winston from "winston";
 import config from "config";
 import { MongoClient } from 'mongodb';
 
 const buildMongoUrl = ({ host, port, user, password, database, replica }) => {
-  const options = replica ? `?replicaSet=${replica}` : '';
+  const options = (replica && replica != "null") ? `?replicaSet=${replica}` : '';
   return `mongodb://${encodeURIComponent(user)}:${encodeURIComponent(password)}@${host}:${port}/${encodeURIComponent(database)}${options}`;
 };
 

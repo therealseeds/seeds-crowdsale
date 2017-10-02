@@ -25,6 +25,7 @@
     "babel-plugin-transform-es2015-classes": "6.18.0",
     "babel-polyfill": "6.20.0",
     "babel-preset-env": "^1.6.0",
+    "body-parser": "^1.18.2",
     "chai": "^3.5.0",
     "config": "^1.20.1",
     "eth-lightwallet": "^2.5.6",

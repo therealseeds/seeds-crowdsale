@@ -1,0 +1,119 @@
+/*body{
+	text-align: center;
+	background: #00ECB9;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+*/
+
+h1 {
+  color: rgb(153, 153, 153);
+  font-weight: 100;
+  font-size: 40px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+h2 {
+  color: rgb(153, 153, 153);
+  font-weight: 100;
+  font-size: 30px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+#logo {
+  text-align: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+#logo > img {
+  height: 200px;
+}
+
+#clockdiv{
+  margin: 10px 0;
+  width: 100%;
+	font-family: sans-serif;
+	color: #fff;
+	display: block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+}
+
+#clockdiv > div {
+	padding: 10px;
+	border-radius: 3px;
+	background: #00BF96;
+	display: inline-block;
+}
+
+#clockdiv > div > div{
+	padding: 0px;
+	border-radius: 3px;
+	background: #00BF96;
+	display: inline-block;
+}
+
+#clockdiv div > div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: #00816A;
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
+}
+
+#address {
+  display: block;
+  text-align: center;
+  margin: 40px 0;
+  color: #6e6e6e;
+}
+
+#address > div {
+  display: inline-block;
+  width: 30%;
+  background: #eee;
+  padding: 30px;
+  border-radius: 3px;
+}
+
+#progressbar {
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  height: 35px;
+  position: relative;
+}
+
+#buy-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn.btn-lg {
+    padding: 15px 40px;
+    font-size: 25px;
+}
+
+.light-blue.darken-3 {
+  background-color: #134a5f!important
+}
+
+/*.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  background-color: #0f72af!important
+}
+
+.btn-info, .btn-info:active, .btn-info:focus, .btn-info:hover {
+  background-color: #0f72af!important
+}*/
