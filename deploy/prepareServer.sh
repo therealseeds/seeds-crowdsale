@@ -2,4 +2,4 @@
 
 cd /home/ubuntu/server
 
-sudo npm install
+npm install
