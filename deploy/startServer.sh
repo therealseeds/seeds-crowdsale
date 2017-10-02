@@ -9,4 +9,5 @@ start \
 -al forever.log \
 -ao out.log \
 -ae err.log \
+-c node_modules/.bin/babel-node \
 src/server.js
