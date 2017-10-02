@@ -7,7 +7,9 @@ const buildMongoUrl = ({ host, port, user, password, database, replica }) => {
   return `mongodb://${encodeURIComponent(user)}:${encodeURIComponent(password)}@${host}:${port}/${encodeURIComponent(database)}${options}`;
 };
 
-const mongoDbPromise = new MongoClient.connect(buildMongoUrl(config.mongo))
+const mongoUrl = buildMongoUrl(config.mongo);
+winston.info(`Trying to connect to ${mongoUrl}`);
+const mongoDbPromise = new MongoClient.connect(mongoUrl)
   .catch((err) => winston.error(`Could not connect to mongodb ${config.mongo.database}:` + err));
 
 export const addUserEmail = async (email) => {
