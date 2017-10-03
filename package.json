@@ -33,6 +33,7 @@
     "mustache": "^2.3.0",
     "mustache-express": "^1.2.5",
     "nodemon": "1.11.0",
+    "qr-image": "^3.2.0",
     "sinon": "^1.17.6",
     "web3": "^1.0.0-beta.22",
     "winston": "2.3.0"

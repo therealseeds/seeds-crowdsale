@@ -5,19 +5,26 @@
 
 	<title>Seeds crowdsale</title>
 </head>
-<body>
+<body onload="initConverter({{price}})">
 
-  <div id="logo"><img src="images/seeds-logo.png" alt="Logo"></div>
+  <div id="logo"><a href="/"><img src="images/seeds-logo.png" alt="Logo"></a></div>
 
-  <div id="address">
-    <h2>Send ETH to this address to receive SDS</h2>
-    <div><span>{{crowdsaleAddress}}</span></div>
-    <p>We don't accept payments from Wallets, make sure to send ETH from an account!</p>
+  <div id="address-container">
+    <h2>Send ETH to this address to receive SDS:</h2>
+    <div>
+    <div id="text-address" class="address"><span>{{crowdsaleAddress}}</span></div>
+    <div id="qr-address" class="address"><img src="images/crowdsale.png"></div>
+    </div>
+    <p><b>Please note: We cannot accept payments from Wallets, so make sure to send ETH from an account.</b></p>
   </div>
 
-  <div id="price">
-     <h2>1 SDS = {{price}} ETH</h2>
+  <div id="price-converter">
+     <!-- <h2>1 SDS = {{price}} ETH</h2> -->
+     <div><label for="sds" class="currency">SDS</label><input type="number" id="sds" class="currency-input" value="1"></div>
+     <span id="equal">=</span>
+     <div><label for="eth" class="currency">ETH</label><input type="number" id="eth" class="currency-input" value="{{price}}"></div>
   </div>
-  
+
+  <script src="js/init.js"></script>
 </body>
 </html>

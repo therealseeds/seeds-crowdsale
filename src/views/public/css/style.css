@@ -18,8 +18,21 @@ h1 {
 h2 {
   color: rgb(153, 153, 153);
   font-weight: 100;
+  font-size: 25px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: 40px;
+  margin: 40px;
+  text-align: center;
+}
+
+h4 {
+  font-weight: 100;
   font-size: 30px;
-  margin: 20px 0;
+  margin: 10px;
   text-align: center;
 }
 
@@ -29,7 +42,7 @@ h2 {
   margin: 20px 0;
 }
 
-#logo > img {
+#logo > a > img {
   height: 200px;
 }
 
@@ -70,19 +83,50 @@ h2 {
 	font-size: 16px;
 }
 
-#address {
+#address-container {
+  background: #eee;
+  /*height: 40%;*/
   display: block;
   text-align: center;
-  margin: 40px 0;
+  margin: 20px 10%;;
   color: #6e6e6e;
+  width: 80%;
+  border-radius: 3px;
+  padding: 10px 0;
 }
 
-#address > div {
+#address-container > div {
+  width: 100%;
+  margin: 0 0 20px 0;
   display: inline-block;
-  width: 30%;
-  background: #eee;
-  padding: 30px;
+  overflow: hidden;
+}
+
+.address {
+  display: inline-block;
+  width: 40%;
+  /*height: 30%;*/
+  background: #fff;
   border-radius: 3px;
+  float: left;
+}
+
+#text-address {
+  width: 50%;
+  margin: 0 2.5% -500em 7.5%;
+  padding-bottom: 500em;
+  padding-top: 9%;
+  overflow: hidden;
+}
+
+#text-address > span {
+  margin-top: 20px;
+}
+
+#qr-address {
+  width: 30%;
+  margin: 0 7.5% -500em 2.5%;
+  padding-bottom: 500em;
 }
 
 #progressbar {
@@ -117,3 +161,80 @@ h2 {
 .btn-info, .btn-info:active, .btn-info:focus, .btn-info:hover {
   background-color: #0f72af!important
 }*/
+
+section {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 100vh;
+}
+
+.blue-section {
+  background-color: #134a5f;
+  color: #fff;
+}
+
+.green-section {
+  background-color: #009f78;
+  color: #fff;
+}
+
+.stage {
+  margin: 0 1%;
+  width: 48%;
+  height: 70%;
+  float: left;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#price-converter {
+  text-align: center;
+  background-color: #009f78;
+  width: 40%;
+  margin: 0 30%;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+#price-converter > div{
+  height: 50px;
+  display: inline-flex;
+  align-items: center
+}
+
+.currency {
+  color: #fff;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.currency-input {
+  width: 100px;
+  height: 35px;
+  margin: 0 10px;
+  text-align: center;
+  font-size: 20px;
+  /*font-weight: 500;*/
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+
+}
+
+#equal {
+  color: #fff;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 10px;
+  padding: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

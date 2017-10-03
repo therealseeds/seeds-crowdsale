@@ -88,6 +88,31 @@ function initializeClock(deadline) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
+function initConverter(sdsPrice) {
+  console.log("init converter");
+
+  var sds = document.getElementById('sds');
+  var eth = document.getElementById('eth');
+
+  const updateEth = function() {
+    const sdsValue = parseFloat(sds.value);
+    const ethPrice = sdsValue * parseFloat(sdsPrice);
+    eth.value = ethPrice || "";
+  }
+
+  sds.oninput = updateEth;
+  sds.onpropertychange = sds.oninput; // for IE8
+
+  const updateSds = function() {
+    const ethValue = parseFloat(eth.value);
+    const sdsValue = ethValue / parseFloat(sdsPrice);
+    sds.value = sdsValue || "";
+  }
+
+  eth.oninput = updateSds;
+  eth.onpropertychange = eth.oninput; // for IE8
+}
+
 function init(deadline, percentageCompleted, ethRaised) {
   initializeClock(deadline);
   initProgressBar(percentageCompleted / 100, ethRaised);

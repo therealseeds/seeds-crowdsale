@@ -9,7 +9,8 @@ export default async (req, res) => {
     price: crowdsalePriceInfo.price,
     totalRaised: crowdsaleProgressInfo.totalRaised,
     deadline: crowdsaleProgressInfo.deadline,
-    percentageCompleted: crowdsaleProgressInfo.percentageCompleted
+    // percentageCompleted: crowdsaleProgressInfo.percentageCompleted
+    percentageCompleted: 80 // TODO: remove. Just for testing
   };
 
   res.render('index', data);

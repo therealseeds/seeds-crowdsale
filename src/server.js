@@ -5,6 +5,7 @@ import config from "config";
 import index from "api/controllers/index";
 import contribute from "api/controllers/contribute";
 import bodyParser from "body-parser";
+import updateQRcode from "api/utils/qrcode";
 
 export const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.static(__dirname + '/views/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+updateQRcode();
 
 app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
 

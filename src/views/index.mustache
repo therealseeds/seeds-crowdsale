@@ -12,71 +12,93 @@
 </head>
 <body onload="init({{deadline}}, {{percentageCompleted}}, {{totalRaised}})">
 
-  <div id="logo"><img src="images/seeds-logo.png" alt="Logo"></div>
+  <section>
+    <div id="logo"><a href="/"><img src="images/seeds-logo.png" alt="Logo"></a></div>
 
-  <div id="progressbar"></div>
+    <div id="progressbar"></div>
 
 
-  <div id="clockdiv">
-    <h1>Ends in</h1>
-    <div id="clockdiv-container">
-      <div>
-        <span class="days"></span>
-        <div class="smalltext">Days</div>
-      </div>
-      <div>
-        <span class="hours"></span>
-        <div class="smalltext">Hours</div>
-      </div>
-      <div>
-        <span class="minutes"></span>
-        <div class="smalltext">Minutes</div>
-      </div>
-      <div>
-        <span class="seconds"></span>
-        <div class="smalltext">Seconds</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Button trigger modal -->
-  <div id="buy-button">
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
-        Buy SDS
-    </button>
-  </div>
-
-  <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal" role="document">
-        <!--Content-->
-        <div class="modal-content">
-
-            <!--Header-->
-            <div class="modal-header light-blue darken-3 white-text">
-                <h4 class="title"><i class="fa fa-pencil"></i> Please leave us your email</h4>
-                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!--Body-->
-            <div class="modal-body mb-0">
-               <form role="form" action="/contribute" method="POST">
-                <div class="md-form form-sm">
-                    <i class="fa fa-envelope prefix"></i>
-                    <input type="text" id="email" name="email" class="form-control">
-                    <label for="email">Your email</label>
-                </div>
-
-                <div class="text-center mt-1-half">
-                    <button class="btn btn-primary mb-2">Continue <i class="fa fa-send ml-1"></i></button>
-                </div>
-              </form>
-
-            </div>
+    <div id="clockdiv">
+      <h1>Ends in</h1>
+      <div id="clockdiv-container">
+        <div>
+          <span class="days"></span>
+          <div class="smalltext">Days</div>
         </div>
-        <!--/.Content-->
+        <div>
+          <span class="hours"></span>
+          <div class="smalltext">Hours</div>
+        </div>
+        <div>
+          <span class="minutes"></span>
+          <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+          <span class="seconds"></span>
+          <div class="smalltext">Seconds</div>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <!-- Button trigger modal -->
+    <div id="buy-button">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
+          Buy SDS
+      </button>
+    </div>
+
+    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog cascading-modal" role="document">
+          <!--Content-->
+          <div class="modal-content">
+
+              <!--Header-->
+              <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title"><i class="fa fa-pencil"></i> Enter you email address</h4>
+                  <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <!--Body-->
+              <div class="modal-body mb-0">
+                 <form role="form" action="/contribute" method="POST">
+                  <div class="md-form form-sm">
+                      <i class="fa fa-envelope prefix"></i>
+                      <input type="text" id="email" name="email" class="form-control">
+                      <label for="email">Your email</label>
+                  </div>
+
+                  <div class="text-center mt-1-half">
+                      <button class="btn btn-primary mb-2">Continue <i class="fa fa-send ml-1"></i></button>
+                  </div>
+                </form>
+
+              </div>
+          </div>
+          <!--/.Content-->
+      </div>
+    </div>
+  </section>
+
+  <section class="blue-section">
+    <h3>ICO stages</h3>
+    <div class="stage">
+      <h4>Pre-sale</h4>
+    </div>
+    <div class="stage">
+      <h4>Crowdsale</h4>
+    </div>
+  </section>
+
+  <section class="green-section">
+    <h3>What is Seeds Token (SDS)</h3>
+    <div class="stage">
+      <h4>Seeds ecosystem</h4>
+    </div>
+    <div class="stage">
+      <h4>SDS usage</h4>
+    </div>
+  </section>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
