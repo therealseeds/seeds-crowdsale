@@ -1,4 +1,4 @@
-function initProgressBar(progress, ethRaised) {
+function initProgressBar(progress, sdsSold) {
   console.log("Progress 0 to 1", progress);
 
   var bar = new ProgressBar.Line("#progressbar", {
@@ -42,13 +42,21 @@ function initProgressBar(progress, ethRaised) {
   cloned.style.right = "";
   cloned.style.left = "0px";
   cloned.class = "";
-  cloned.innerHTML = ethRaised + " ETH";
+  cloned.innerHTML = numberWithDots(sdsSold) + " SDS sold";
   document.getElementById("progressbar").appendChild(cloned);
+}
 
+function initTokenSold(sdsSold) {
+  document.getElementById("tokenSold").innerHTML = numberWithDots(sdsSold) + " SDS sold";
+}
+
+function numberWithDots(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
+  if (t < 0) t = 0;
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
@@ -113,7 +121,8 @@ function initConverter(sdsPrice) {
   eth.onpropertychange = eth.oninput; // for IE8
 }
 
-function init(deadline, percentageCompleted, ethRaised) {
+function init(deadline, percentageCompleted, sdsSold) {
   initializeClock(deadline);
-  initProgressBar(percentageCompleted / 100, ethRaised);
+  try {initProgressBar(percentageCompleted / 100, sdsSold);} catch(e) {}
+  try {initTokenSold(sdsSold);} catch(e) {}
 }

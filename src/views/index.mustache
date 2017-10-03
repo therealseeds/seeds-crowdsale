@@ -8,18 +8,19 @@
   <link rel="stylesheet" href="css/mdb.min.css">
   <link rel="stylesheet" href="css/style.css">
 
-	<title>Seeds crowdsale</title>
+	<title>Seeds token sale</title>
 </head>
-<body onload="init({{deadline}}, {{percentageCompleted}}, {{totalRaised}})">
+<body onload="init({{deadline}}, {{percentageCompleted}}, {{sdsSold}})">
 
   <section>
     <div id="logo"><a href="/"><img src="images/seeds-logo.png" alt="Logo"></a></div>
 
+    {{#showProgress}}
     <div id="progressbar"></div>
-
+    {{/showProgress}}
 
     <div id="clockdiv">
-      <h1>Ends in</h1>
+      <h1><b>{{phase}}</b> ends in</h1>
       <div id="clockdiv-container">
         <div>
           <span class="days"></span>
@@ -39,6 +40,10 @@
         </div>
       </div>
     </div>
+
+    {{^showProgress}}
+    <div id="tokenSold"></div>
+    {{/showProgress}}
 
     <!-- Button trigger modal -->
     <div id="buy-button">

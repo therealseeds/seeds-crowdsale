@@ -13,11 +13,23 @@ export default async (req, res) => {
     addUserEmail(req.body.email);
   }
 
-  const crowdsalePriceInfo = await getCrowdsalePriceInfo();
-  const data = {
-    crowdsaleAddress: config.crowdsale_address,
-    price: crowdsalePriceInfo.price
-  };
+  if (config.current_phase == "presale") {
 
-  res.render('contribute', data);
+    const data = {
+      crowdsaleAddress: config.seeds_wallet_address,
+      price: config.initialPriceInWei / config.ether * config.sds
+    };
+
+    res.render('contribute', data);
+
+  } else if (config.current_phase == "crowdsale") {
+
+    const crowdsalePriceInfo = await getCrowdsalePriceInfo();
+    const data = {
+      crowdsaleAddress: config.crowdsale_address,
+      price: crowdsalePriceInfo.price
+    };
+
+    res.render('contribute', data);
+  }
 };

@@ -4,6 +4,8 @@ cd /home/ubuntu/server
 
 node_modules/forever/bin/forever stopall
 
+killall node
+
 node_modules/forever/bin/forever \
 start \
 -al forever.log \

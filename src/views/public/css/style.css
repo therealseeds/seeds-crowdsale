@@ -1,11 +1,6 @@
-/*body{
-	text-align: center;
-	background: #00ECB9;
+body{
   font-family: sans-serif;
-  font-weight: 100;
 }
-
-*/
 
 h1 {
   color: rgb(153, 153, 153);
@@ -142,7 +137,7 @@ h4 {
   display: block;
   width: 100%;
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 0 20px 0;
 }
 
 .btn.btn-lg {
@@ -168,7 +163,7 @@ section {
   display: table;
   margin: 0;
   max-width: none;
-  height: 100vh;
+  height: 95vh;
 }
 
 .blue-section {
@@ -237,4 +232,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+#tokenSold {
+  width: 100%;
+  text-align: center;
+  color: rgb(153, 153, 153);
+  font-weight: 100;
+  font-size: 28px;
+  margin: 25px 0 15px 0;
 }

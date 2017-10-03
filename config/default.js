@@ -2,6 +2,8 @@ module.exports = {
   port: process.env.PORT || 3000,
   ethereum_node_url: "https://rinkeby.infura.io",
   crowdsale_address: process.env.CROWDSALE_ADDRESS,
+  seeds_token_address: process.env.TOKEN_ADDRESS,
+  seeds_account_address: process.env.ACCOUNT_ADDRESS,
   seeds_wallet_address: process.env.WALLET_ADDRESS,
   ether: 1000000000000000000,
   sds: 1000000000000000,
@@ -13,5 +15,7 @@ module.exports = {
     database: process.env.MONGO_DATABASE,
     replica: process.env.MONGO_REPLICA
   },
-  current_phase: "presell"
+  current_phase: "presale",
+  initialPriceInWei: 1,
+  presaleDeadline: 1508137200000
 }

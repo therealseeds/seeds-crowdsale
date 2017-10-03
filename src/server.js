@@ -17,7 +17,8 @@ app.use(express.static(__dirname + '/views/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-updateQRcode();
+const beneficiaryAddress = config.current_phase == "presale" ? config.seeds_wallet_address : config.crowdsale_address;
+updateQRcode(beneficiaryAddress);
 
 app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
 
