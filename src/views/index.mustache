@@ -12,7 +12,7 @@
 </head>
 <body onload="init({{deadline}}, {{percentageCompleted}}, {{sdsSold}})">
 
-  <section>
+  <section class="first-section">
     <div id="logo"><a href="/"><img src="images/seeds-logo.png" alt="Logo"></a></div>
 
     {{#showProgress}}
@@ -46,7 +46,7 @@
     {{/showProgress}}
 
     <!-- Button trigger modal -->
-    <div id="buy-button">
+    <div class="buy-button">
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
           Buy SDS
       </button>
@@ -85,25 +85,63 @@
     </div>
   </section>
 
-  <section class="blue-section">
-    <h3>ICO stages</h3>
-    <div class="stage">
-      <h4>Pre-sale</h4>
-    </div>
-    <div class="stage">
-      <h4>Crowdsale</h4>
-    </div>
-  </section>
 
   <section class="green-section">
-    <h3>What is Seeds Token (SDS)</h3>
-    <div class="stage">
+    <h3>What is Seeds?</h3>
+    <p>Seeds provides a decentralized, transparent, distributed platform for submitting and fulfilling monetary needs.
+      When a need is uploaded, our recommendation algorithm displays that need to those within the ecosystem who will be most likely to want to fulfill it.
+      Needs submitted to the Seeds system can be <i>virtually anything</i>.
+    </p>
+    <!-- <div class="stage">
       <h4>Seeds ecosystem</h4>
     </div>
     <div class="stage">
       <h4>SDS usage</h4>
+    </div> -->
+  </section>
+
+  <section class="blue-section">
+    <h3>Seeds Tokens</h3>
+    <p>Seeds tokens (SDS) enable users to submit a need to be fulfilled through use of the Seeds recommendation
+      algorithm within the Seeds ecosystem.  When a user helps to fulfill a need, s/he is entered into a lottery
+      that awards a fixed number of tokens to all who contribute to fulfilling that need.  Winners can then submit
+      the Seeds tokens they have won to fulfill needs of their own.
+    </p>
+
+    <div id="timeline"><img src="images/timeline.png" alt="timeline"></div>
+
+    <p>The notional value of SDS is set at ~$0.04 per token. The final value will be determined by the sale</p>
+
+    <div id="pie-chart"><img src="images/pie-chart.png" alt="pie-chart"></div>
+
+    <div class="pie-chart-legend">
+      <h4>Tokens allocation</h4>
+      <ul>
+        <li>1 Billion SDS issued</li>
+        <li>33% For sale</li>
+        <li>33% retained by Seeds</li>
+        <li>33% allocated for partners to incentivise the network</li>
+        <li>1% to cover token sale costs and fees</li>
+      </ul>
     </div>
   </section>
+
+  <section>
+    <h3>Ready to grow with Seeds?</h3>
+    <div class="buy-button">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
+          Buy SDS now
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Questions?</b> Contact us at <a href="mailto:info@playseeds.com">info@playseeds.com</a>
+     and follow us on <a target="_blank" href="https://www.facebook.com/seedsgives"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+     <a target="_blank" href="https://www.instagram.com/seedsgives/"><i class="fa fa-instagram fa-lg"></i></a>
+     <a target="_blank" href=""><i class="fa fa-twitter-square fa-lg"></i></a>
+  </p>
+  </footer>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -133,11 +133,11 @@ h4 {
   position: relative;
 }
 
-#buy-button {
+.buy-button {
   display: block;
   width: 100%;
   text-align: center;
-  margin: 40px 0 20px 0;
+  margin: 40px 0;
 }
 
 .btn.btn-lg {
@@ -163,6 +163,10 @@ section {
   display: table;
   margin: 0;
   max-width: none;
+  text-align: center;
+}
+
+.first-section {
   height: 95vh;
 }
 
@@ -174,15 +178,32 @@ section {
 .green-section {
   background-color: #009f78;
   color: #fff;
+  padding-bottom: 40px;
 }
 
-.stage {
-  margin: 0 1%;
+.green-section > p,
+.blue-section > p {
+  font-size: 18px;
+}
+
+.pie-chart-legend {
+  margin-top: 100px;
   width: 48%;
   height: 70%;
-  float: left;
+  float: right;
   position: relative;
   background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+}
+
+.pie-chart-legend > ul {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.pie-chart-legend > ul > li {
+  margin-top: 8px
 }
 
 #price-converter {
@@ -241,4 +262,31 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 100;
   font-size: 28px;
   margin: 25px 0 15px 0;
+}
+
+#timeline > img{
+  margin: 40px 0;
+  width: 70%;
+}
+
+#pie-chart > img{
+  margin: 40px 0;
+  width: 40%;
+  position: relative;
+  float: left;
+}
+
+footer {
+  padding: 30px;
+  background-color: #009f78;
+  color: #fff;
+}
+
+footer > p {
+  margin: 0;
+  text-align: center;
+}
+footer > p > a {
+  color: #fff;
+  text-decoration: underline;
 }
