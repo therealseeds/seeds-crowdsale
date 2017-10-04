@@ -11,7 +11,7 @@ export default async (req, res) => {
   if (config.current_phase == "presale") {
 
     const data = {
-      phase: "Presale",
+      phase: "Pre-sale",
       showProgress: false,
       price: config.initialPriceInWei / config.ether * config.sds,
       // totalRaised: undefined,
@@ -31,7 +31,7 @@ export default async (req, res) => {
     const percentageCompleted = 100 - (crowdsaleProgressInfo.availableSdsUnits * 100 / (tokenInfo.totalSupply - tokenInfo.balanceOfSeeds));
 
     const data = {
-      phase: "Crowdsale",
+      phase: "Crowd-sale",
       showProgress: percentageCompleted > 30,
       price: crowdsalePriceInfo.price,
       // totalRaised: crowdsaleProgressInfo.totalRaised,

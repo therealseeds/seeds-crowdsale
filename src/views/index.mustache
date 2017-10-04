@@ -1,8 +1,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css"> -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/mdb.min.css">
@@ -20,7 +19,7 @@
     {{/showProgress}}
 
     <div id="clockdiv">
-      <h1><b>{{phase}}</b> ends in</h1>
+      <h1>{{phase}} ends in</h1>
       <div id="clockdiv-container">
         <div>
           <span class="days"></span>
@@ -45,11 +44,17 @@
     <div id="tokenSold"></div>
     {{/showProgress}}
 
+    <div id="discount"><p>Acquire SEEDS Tokens during the Pre-Sale phase for 25% off the listed price:</p></div>
+
     <!-- Button trigger modal -->
     <div class="buy-button">
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
-          Buy SDS
+          JOIN PRE-SALE NOW
       </button>
+    </div>
+
+    <div id="ethereum"><img src="images/ethereum.jpeg" alt="Ethereum">
+      <p>Accepting Ethers: 1 SEEDS Token = {{price}} Ether</p>
     </div>
 
     <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -86,38 +91,28 @@
   </section>
 
 
-  <section class="green-section">
+  <section class="grey-section">
     <h3>What is Seeds?</h3>
-    <p>Seeds provides a decentralized, transparent, distributed platform for submitting and fulfilling monetary needs.
-      When a need is uploaded, our recommendation algorithm displays that need to those within the ecosystem who will be most likely to want to fulfill it.
-      Needs submitted to the Seeds system can be <i>virtually anything</i>.
+    <p>Seeds provides a decentralized, transparent, distributed platform for submitting and fulfilling monetary needs.  When a need is uploaded, our recommendation algorithm displays that need to those within the ecosystem who will be most likely to want to fulfill it.  Needs submitted to the Seeds system can be virtually anything.  So long as it’s legal and ethical, we would love to help.
     </p>
-    <!-- <div class="stage">
-      <h4>Seeds ecosystem</h4>
-    </div>
-    <div class="stage">
-      <h4>SDS usage</h4>
-    </div> -->
+
   </section>
 
-  <section class="blue-section">
+  <section>
     <h3>Seeds Tokens</h3>
-    <p>Seeds tokens (SDS) enable users to submit a need to be fulfilled through use of the Seeds recommendation
-      algorithm within the Seeds ecosystem.  When a user helps to fulfill a need, s/he is entered into a lottery
-      that awards a fixed number of tokens to all who contribute to fulfilling that need.  Winners can then submit
-      the Seeds tokens they have won to fulfill needs of their own.
+    <p>Seeds Tokens (SEEDS)  enable users to submit a need to be fulfilled through use of the Seeds recommendation algorithm within the Seeds ecosystem.  When a user helps to fulfill a need, s/he is entered into a lottery that awards a fixed number of tokens to all who contribute to fulfilling that need.  Winners can then submit the Seeds tokens they have won to fulfill needs of their own.
     </p>
 
-    <div id="timeline"><img src="images/timeline.png" alt="timeline"></div>
+    <div id="timeline"><img src="images/timeline.jpg" alt="timeline"></div>
 
-    <p>The notional value of SDS is set at ~$0.04 per token. The final value will be determined by the sale</p>
+    <p>The notional value of SEEDS is set at ~$0.04 per token. The final value will be determined by the sale</p>
 
-    <div id="pie-chart"><img src="images/pie-chart.png" alt="pie-chart"></div>
+    <div id="pie-chart"><img src="images/pie-chart.jpg" alt="pie-chart"></div>
 
     <div class="pie-chart-legend">
       <h4>Tokens allocation</h4>
       <ul>
-        <li>1 Billion SDS issued</li>
+        <li>1 Billion SEEDS issued</li>
         <li>33% For sale</li>
         <li>33% retained by Seeds</li>
         <li>33% allocated for partners to incentivise the network</li>
@@ -125,22 +120,21 @@
       </ul>
     </div>
   </section>
-
+  <hr>
   <section>
     <h3>Ready to grow with Seeds?</h3>
     <div class="buy-button">
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
-          Buy SDS now
+          JOIN PRE-SALE NOW
       </button>
     </div>
   </section>
 
   <footer>
-    <p><b>Questions?</b> Contact us at <a href="mailto:info@playseeds.com">info@playseeds.com</a>
-     and follow us on <a target="_blank" href="https://www.facebook.com/seedsgives"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a>
-     <a target="_blank" href="https://www.instagram.com/seedsgives/"><i class="fa fa-instagram fa-lg"></i></a>
-     <a target="_blank" href=""><i class="fa fa-twitter-square fa-lg"></i></a>
-  </p>
+    <p><b>Questions?</b> Contact us at <a href="mailto:info@playseeds.com">info@playseeds.com</a></p>
+     <p><a target="_blank" href="https://www.facebook.com/seedsgives"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+     <a target="_blank" href="https://www.instagram.com/seedsgives/"><i class="fa fa-instagram fa-2x"></i></a>
+     <a target="_blank" href="https://twitter.com/seedstweets"><i class="fa fa-twitter-square fa-2x"></i></a></p>
   </footer>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

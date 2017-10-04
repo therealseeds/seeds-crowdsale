@@ -1,11 +1,11 @@
 body{
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 h1 {
   color: rgb(153, 153, 153);
-  font-weight: 100;
-  font-size: 40px;
+  font-weight: 400;
+  font-size: 30px;
   margin-top: 40px;
   text-align: center;
 }
@@ -19,13 +19,14 @@ h2 {
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 64px;
   margin: 40px;
   text-align: center;
+  color: #14171a;
 }
 
 h4 {
-  font-weight: 100;
+  font-weight: 300;
   font-size: 30px;
   margin: 10px;
   text-align: center;
@@ -44,7 +45,6 @@ h4 {
 #clockdiv{
   margin: 10px 0;
   width: 100%;
-	font-family: sans-serif;
 	color: #fff;
 	display: block;
 	font-weight: 100;
@@ -137,73 +137,52 @@ h4 {
   display: block;
   width: 100%;
   text-align: center;
-  margin: 40px 0;
+  margin-top: 40px;
 }
 
 .btn.btn-lg {
-    padding: 15px 40px;
-    font-size: 25px;
+  padding: 15px 40px;
+  font-size: 25px;
 }
 
 .light-blue.darken-3 {
   background-color: #134a5f!important
 }
 
-/*.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #0f72af!important
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:hover,
+.btn-info, .btn-info:active, .btn-info:focus, .btn-info:hover {
+  background-color: #4c7ec5!important;
+  border-radius: 5px;
+  /*box-shadow: none  !important;*/
+  /*border: 1px solid #4c7ec5;*/
 }
 
-.btn-info, .btn-info:active, .btn-info:focus, .btn-info:hover {
-  background-color: #0f72af!important
-}*/
+.md-form {
+  text-align: left;
+}
 
 section {
   width: 100%;
-  padding: 0 7%;
+  padding: 0 20% 40px 20%;
   display: table;
   margin: 0;
   max-width: none;
   text-align: center;
 }
 
+section > p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #14171a;
+}
+
 .first-section {
   height: 95vh;
 }
 
-.blue-section {
-  background-color: #134a5f;
-  color: #fff;
-}
-
-.green-section {
-  background-color: #009f78;
-  color: #fff;
-  padding-bottom: 40px;
-}
-
-.green-section > p,
-.blue-section > p {
-  font-size: 18px;
-}
-
-.pie-chart-legend {
-  margin-top: 100px;
-  width: 48%;
-  height: 70%;
-  float: right;
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 20px;
-}
-
-.pie-chart-legend > ul {
-  margin-top: 20px;
-  text-align: left;
-  font-size: 18px;
-}
-
-.pie-chart-legend > ul > li {
-  margin-top: 8px
+.grey-section {
+  background-color: #e9eaec;
+  ;
 }
 
 #price-converter {
@@ -255,25 +234,61 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+#discount {
+  font-size: 18px;
+  font-weight: 400;
+}
+
 #tokenSold {
   width: 100%;
   text-align: center;
   color: rgb(153, 153, 153);
   font-weight: 100;
-  font-size: 28px;
+  font-size: 24px;
   margin: 25px 0 15px 0;
+}
+
+#ethereum > img {
+  width: 100px;
 }
 
 #timeline > img{
   margin: 40px 0;
-  width: 70%;
+  width: 100%;
 }
 
 #pie-chart > img{
   margin: 40px 0;
-  width: 40%;
+  width: 50%;
   position: relative;
   float: left;
+}
+
+.pie-chart-legend {
+  margin-top: 70px;
+  width: 48%;
+  height: 70%;
+  float: right;
+  position: relative;
+  background-color: #e9eaec;
+  padding: 20px;
+}
+
+.pie-chart-legend > ul {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.pie-chart-legend > ul > li {
+  margin-top: 8px
+}
+
+hr {
+  border: none;
+  height: 2px;
+  color: #e9eaec; /* old IE */
+  background-color: #e9eaec;
 }
 
 footer {
@@ -286,7 +301,12 @@ footer > p {
   margin: 0;
   text-align: center;
 }
+
 footer > p > a {
   color: #fff;
   text-decoration: underline;
+}
+
+footer > p > a > i {
+  margin: 5px;
 }

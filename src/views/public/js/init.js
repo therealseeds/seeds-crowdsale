@@ -42,16 +42,16 @@ function initProgressBar(progress, sdsSold) {
   cloned.style.right = "";
   cloned.style.left = "0px";
   cloned.class = "";
-  cloned.innerHTML = numberWithDots(sdsSold) + " SDS sold";
+  cloned.innerHTML = numberWithDots(sdsSold) + " SEEDS sold";
   document.getElementById("progressbar").appendChild(cloned);
 }
 
 function initTokenSold(sdsSold) {
-  document.getElementById("tokenSold").innerHTML = numberWithDots(sdsSold) + " SDS sold";
+  document.getElementById("tokenSold").innerHTML = numberWithDots(sdsSold) + " SEEDS sold";
 }
 
 function numberWithDots(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function getTimeRemaining(endtime) {
