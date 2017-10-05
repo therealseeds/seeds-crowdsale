@@ -12,7 +12,7 @@ const renderResponse = async (req, res, askEmail) => {
     const data = {
       phase: "Pre-sale",
       showProgress: false,
-      price: config.initialPriceInWei / config.ether * config.sds,
+      price: config.initialPriceInWei * config.sds / config.ether,
       // totalRaised: undefined,
       deadline: config.presaleDeadline,
       percentageCompleted: 0,

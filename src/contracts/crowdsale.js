@@ -27,7 +27,7 @@ export const getCrowdsaleProgressInfo = async (req, res) => {
 export const getCrowdsalePriceInfo = async (req, res) => {
 
   const priceOfUnitInWei = await contract.methods.priceOfUnitInWei().call();
-  const priceInEth = priceOfUnitInWei / config.ether * config.sds;
+  const priceInEth = priceOfUnitInWei * config.sds / config.ether;
 
   return {
     price: priceInEth

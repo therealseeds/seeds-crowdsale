@@ -34,9 +34,18 @@ h4 {
 }
 
 h5 {
-  font-size: 18pt;
-  font-weight: 400;
+  font-size: 50px;
+  margin: 40px;
+  margin-bottom: 10px;
+  text-align: center;
   color: #14171a;
+}
+
+h6 {
+  font-weight: 300;
+  font-size: 25px;
+  margin: 10px;
+  text-align: center;
 }
 
 #logo {
@@ -187,13 +196,17 @@ section > p {
   color: #14171a;
 }
 
-.first-section {
+/*.first-section {
   height: 95vh;
-}
+}*/
 
 .grey-section {
   background-color: #e9eaec;
   ;
+}
+
+#call-to-action-hr {
+  margin: 60px 0;
 }
 
 #price-converter {
@@ -393,4 +406,25 @@ footer > p > a > i {
   text-align: center;
   color: #14171a;
   font-size: 18px;
+}
+
+#news {
+  width: 100%;
+  text-align: center;
+}
+
+#news > div {
+  width: 33%;
+  position: relative;
+  float: left;
+}
+
+#news > div > a > img {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+#news > div > img[class=news-logo-sm] {
+  height: 30px;
+  margin-top: 30px;
 }

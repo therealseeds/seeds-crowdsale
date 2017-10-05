@@ -6,7 +6,7 @@ module.exports = {
   seeds_account_address: process.env.ACCOUNT_ADDRESS,
   seeds_wallet_address: process.env.WALLET_ADDRESS,
   ether: 1000000000000000000,
-  sds: 1000000000000000,
+  sds: 10000000000000,
   mongo: {
     host: process.env.MONGO_HOST,
     port: process.env.MONGO_PORT,
@@ -16,7 +16,7 @@ module.exports = {
     replica: process.env.MONGO_REPLICA
   },
   current_phase: "presale",
-  initialPriceInWei: 1,
+  initialPriceInWei: 15,
   presaleDeadline: 1508137200000,
   presaleDiscount: 25
 }
