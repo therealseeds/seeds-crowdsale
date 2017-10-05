@@ -1,5 +1,6 @@
 import express from "express";
 import mustacheExpress from "mustache-express";
+import healthcheck from "express-healthcheck";
 import winston from "winston";
 import config from "config";
 import { index, indexAskEmail } from "api/controllers/index";
@@ -22,15 +23,18 @@ updateQRcode(beneficiaryAddress);
 
 app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   var schema = req.headers["x-forwarded-proto"];
-  winston.info(`request: ${schema}://${req.get('host')}${req.originalUrl}`);
+  if (schema == "http") {
+    return res.redirect(`https://${req.get('host')}${req.originalUrl}`)
+  }
   next();
 });
 
 app.get("/", index);
 app.get("/contribute", indexAskEmail);
 app.post("/contribute", contribute);
+app.get("/ping", healthcheck());
 app.use((req, res) => {
   res.status(404);
   res.render('404');
