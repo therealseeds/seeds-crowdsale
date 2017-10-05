@@ -22,6 +22,12 @@ updateQRcode(beneficiaryAddress);
 
 app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
 
+app.use(function(req, res, next) {
+  var schema = req.headers["x-forwarded-proto"];
+  winston.info(`request: ${schema}://${req.get('host')}${req.originalUrl}`);
+  next();
+});
+
 app.get("/", index);
 app.get("/contribute", indexAskEmail);
 app.post("/contribute", contribute);

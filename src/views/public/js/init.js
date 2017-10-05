@@ -42,12 +42,12 @@ function initProgressBar(progress, sdsSold) {
   cloned.style.right = "";
   cloned.style.left = "0px";
   cloned.class = "";
-  cloned.innerHTML = numberWithDots(sdsSold) + " SEEDS sold";
+  cloned.innerHTML = numberWithDots(sdsSold) + " SEEDS sold to date";
   document.getElementById("progressbar").appendChild(cloned);
 }
 
 function initTokenSold(sdsSold) {
-  document.getElementById("tokenSold").innerHTML = numberWithDots(sdsSold) + " SEEDS sold";
+  document.getElementById("tokenSold").innerHTML = numberWithDots(sdsSold) + " SEEDS sold to date";
 }
 
 function numberWithDots(x) {
