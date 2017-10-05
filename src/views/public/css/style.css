@@ -400,6 +400,9 @@ footer > p > a > i {
 
 #bottom-text {
   padding-bottom: 25px;
+  text-align: center;
+  font-size: 18px;
+  color: #14171a;
 }
 
 #note {
@@ -408,23 +411,23 @@ footer > p > a > i {
   font-size: 18px;
 }
 
-#news {
+.news {
   width: 100%;
   text-align: center;
 }
 
-#news > div {
+.news > div {
   width: 33%;
-  position: relative;
-  float: left;
+  display: inline-grid;
+  text-align: center;
 }
 
-#news > div > a > img {
+.news > div > a > img {
   height: 50px;
   margin-bottom: 10px;
 }
 
-#news > div > img[class=news-logo-sm] {
+.news > div > span > img[class=news-logo-sm] {
   height: 30px;
   margin-top: 30px;
 }
