@@ -2,8 +2,7 @@ import config from "config";
 import { getCrowdsaleProgressInfo, getCrowdsalePriceInfo } from "api/contracts/crowdsale";
 import { getTokenInfo } from "api/contracts/token";
 
-export default async (req, res) => {
-
+const renderResponse = async (req, res, askEmail) => {
   const tokenInfo = await getTokenInfo();
   // Balance of seeds at moment of presale should be equal to the amount total minus the token sold
   const presaleSdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds) / config.sds);
@@ -17,7 +16,8 @@ export default async (req, res) => {
       // totalRaised: undefined,
       deadline: config.presaleDeadline,
       percentageCompleted: 0,
-      sdsSold: presaleSdsSold
+      sdsSold: presaleSdsSold,
+      askEmail: askEmail || false
     };
     res.render('index', data);
 
@@ -37,8 +37,18 @@ export default async (req, res) => {
       // totalRaised: crowdsaleProgressInfo.totalRaised,
       deadline: crowdsaleProgressInfo.deadline,
       percentageCompleted,
-      sdsSold
+      sdsSold,
+      askEmail: askEmail || false
     };
     res.render('index', data);
   }
+};
+
+
+export const index = async (req, res) => {
+  renderResponse(req, res);
+};
+
+export const indexAskEmail = async (req, res) => {
+  renderResponse(req, res, true);
 };

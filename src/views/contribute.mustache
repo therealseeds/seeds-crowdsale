@@ -1,29 +1,49 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
 
 	<title>Seeds token sale</title>
 </head>
-<body onload="initConverter({{price}})">
+<body onload="initConverter({{price}}, {{discount}})" onresize="adjustCross({{discount}})">
 
-  <div id="logo"><a href="/"><img src="images/seeds-logo.png" alt="Logo"></a></div>
+  <div id="logo"><a href="/"><img class="logo-img-small" src="images/seeds-logo.png" alt="Logo"></a></div>
 
   <div id="address-container">
-    <h2>Send ETH to this address to receive SDS:</h2>
+    <h2>Send ETH to this address to receive SEEDS:</h2>
     <div>
     <div id="text-address" class="address"><span>{{crowdsaleAddress}}</span></div>
     <div id="qr-address" class="address"><img src="images/crowdsale.png"></div>
     </div>
-    <p><b>Please note: We cannot accept payments from Wallets, so make sure to send ETH from an account.</b></p>
   </div>
 
   <div id="price-converter">
      <!-- <h2>1 SDS = {{price}} ETH</h2> -->
-     <div><label for="sds" class="currency">SDS</label><input type="number" id="sds" class="currency-input" value="1"></div>
+     <div><label for="sds" class="currency">SEEDS</label><input type="number" id="sds" class="currency-input" value="1"></div>
      <span id="equal">=</span>
-     <div><label for="eth" class="currency">ETH</label><input type="number" id="eth" class="currency-input" value="{{price}}"></div>
+     <div><label for="eth" class="currency">ETH</label><input type="number" id="eth" class="currency-input" value="{{price}}">
+       {{#onDiscount}}
+       <div id="red-cross"></div>
+       <!-- <label for="eth-discount" id="discount-label">DISCOUNT PRICE</label> -->
+       <input type="number" id="eth-discount" class="currency-input" value="{{price}}">
+       {{/onDiscount}}
+     </div>
   </div>
+
+  <div id="bottom-text">
+    <p id="note">NOTE: We cannot accept payments from Wallets, so make sure to send ETH from a valid Ethereum Account.</p>
+
+    <h3>SAVE 25% BY OCTOBER 15th!</h3>
+    <h4>Contribute to the Pre-Sale by October 15th to save 25% on SEEDS!</h4>
+  </div>
+
+  <footer>
+    <p><b>Questions?</b> Contact us at <a href="mailto:info@playseeds.com">info@playseeds.com</a></p>
+     <p><a target="_blank" href="https://www.facebook.com/seedsgives"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+     <a target="_blank" href="https://www.instagram.com/seedsgives/"><i class="fa fa-instagram fa-2x"></i></a>
+     <a target="_blank" href="https://twitter.com/seedstweets"><i class="fa fa-twitter-square fa-2x"></i></a></p>
+  </footer>
 
   <script src="js/init.js"></script>
 </body>

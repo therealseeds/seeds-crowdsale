@@ -1,5 +1,6 @@
 body{
   font-family: 'Lato', sans-serif;
+  margin: 0;
 }
 
 h1 {
@@ -11,9 +12,9 @@ h1 {
 }
 
 h2 {
-  color: rgb(153, 153, 153);
-  font-weight: 100;
-  font-size: 25px;
+  color: #14171a;
+  font-weight: 400;
+  font-size: 26px;
   margin: 15px 0;
   text-align: center;
 }
@@ -32,14 +33,24 @@ h4 {
   text-align: center;
 }
 
+h5 {
+  font-size: 18pt;
+  font-weight: 400;
+  color: #14171a;
+}
+
 #logo {
   text-align: center;
   width: 100%;
   margin: 20px 0;
 }
 
-#logo > a > img {
+.logo-img {
   height: 200px;
+}
+
+.logo-img-small {
+  height: 100px;
 }
 
 #clockdiv{
@@ -188,13 +199,13 @@ section > p {
 #price-converter {
   text-align: center;
   background-color: #009f78;
-  width: 40%;
-  margin: 0 30%;
+  width: 50%;
+  margin: 40px 25%;
   padding: 10px;
   border-radius: 3px;
 }
 
-#price-converter > div{
+#price-converter > div {
   height: 50px;
   display: inline-flex;
   align-items: center
@@ -202,14 +213,14 @@ section > p {
 
 .currency {
   color: #fff;
-  font-weight: 100;
-  font-size: 40px;
+  font-weight: 400;
+  font-size: 35px;
   margin: 0;
   padding: 0;
 }
 
 .currency-input {
-  width: 100px;
+  width: 110px;
   height: 35px;
   margin: 0 10px;
   text-align: center;
@@ -217,7 +228,47 @@ section > p {
   /*font-weight: 500;*/
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 3px;
+}
 
+#eth-discount {
+  margin-left: -5px;
+}
+
+#red-cross {
+  position: absolute;
+  width: 110px;
+  height: 35px;
+  overflow: hidden;
+}
+
+#red-cross:before, #red-cross:after {
+    position: absolute;
+    content: '';
+    background: rgb(255, 40, 40);
+    display: block;
+    width: 100%;
+    height: 4px;
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+    //center the X vertically and horizontally:
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#red-cross:after {
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
+#discount-label {
+  position: absolute;
+  padding-bottom: 52px;
+  padding-left: 200px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 #equal {
@@ -232,6 +283,29 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type=email]:focus:not([read-only]) {
+  box-shadow: 0 1px 0 0 #1fa079;
+  border-bottom: 1px solid #1fa079;
+}
+input[type=email]:focus:not([read-only])+label {
+  color: #1fa079;
+}
+
+.md-form .prefix.active {
+  color: #1fa079;
+}
+
+
+.btn-green-1, .btn-green-1:active, .btn-green-1:focus, .btn-green-1:hover {
+  background-color: #1fa079!important;
+  border-radius: 5px;
+}
+
+.btn-green-2, .btn-green-2:active, .btn-green-2:focus, .btn-green-2:hover {
+  background-color: #28c096!important;
+  border-radius: 5px;
 }
 
 #discount {
@@ -309,4 +383,14 @@ footer > p > a {
 
 footer > p > a > i {
   margin: 5px;
+}
+
+#bottom-text {
+  padding-bottom: 25px;
+}
+
+#note {
+  text-align: center;
+  color: #14171a;
+  font-size: 18px;
 }

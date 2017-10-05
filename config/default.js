@@ -17,5 +17,6 @@ module.exports = {
   },
   current_phase: "presale",
   initialPriceInWei: 1,
-  presaleDeadline: 1508137200000
+  presaleDeadline: 1508137200000,
+  presaleDiscount: 25
 }

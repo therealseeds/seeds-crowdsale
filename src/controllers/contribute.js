@@ -9,15 +9,20 @@ const isValideEmail = (email) => {
 
 export default async (req, res) => {
 
-  if (req.body.email && isValideEmail(req.body.email)) {
-    addUserEmail(req.body.email);
+  const email = req.body.email;
+  if (!(email && isValideEmail(email))) {
+    return res.redirect('/');
   }
+
+  addUserEmail(email);
 
   if (config.current_phase == "presale") {
 
     const data = {
       crowdsaleAddress: config.seeds_wallet_address,
-      price: config.initialPriceInWei / config.ether * config.sds
+      price: config.initialPriceInWei / config.ether * config.sds,
+      onDiscount: true,
+      discount: config.presaleDiscount
     };
 
     res.render('contribute', data);
@@ -27,7 +32,9 @@ export default async (req, res) => {
     const crowdsalePriceInfo = await getCrowdsalePriceInfo();
     const data = {
       crowdsaleAddress: config.crowdsale_address,
-      price: crowdsalePriceInfo.price
+      price: crowdsalePriceInfo.price,
+      onDiscount: false,
+      discount: undefined
     };
 
     res.render('contribute', data);

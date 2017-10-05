@@ -2,7 +2,7 @@ import express from "express";
 import mustacheExpress from "mustache-express";
 import winston from "winston";
 import config from "config";
-import index from "api/controllers/index";
+import { index, indexAskEmail } from "api/controllers/index";
 import contribute from "api/controllers/contribute";
 import bodyParser from "body-parser";
 import updateQRcode from "api/utils/qrcode";
@@ -23,7 +23,8 @@ updateQRcode(beneficiaryAddress);
 app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
 
 app.get("/", index);
-app.use("/contribute", contribute);
+app.get("/contribute", indexAskEmail);
+app.post("/contribute", contribute);
 app.use((req, res) => {
   res.status(404);
   res.render('404');
