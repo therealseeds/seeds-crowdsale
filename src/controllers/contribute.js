@@ -20,7 +20,7 @@ export default async (req, res) => {
 
     const data = {
       crowdsaleAddress: config.seeds_wallet_address,
-      price: config.initialPriceInWei / config.ether * config.sds,
+      price: config.initialPriceInWei * config.sds / config.ether,
       onDiscount: true,
       discount: config.presaleDiscount
     };
