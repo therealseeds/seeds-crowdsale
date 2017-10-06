@@ -1,5 +1,5 @@
 import config from "config";
-import { getCrowdsaleProgressInfo, getCrowdsalePriceInfo } from "api/contracts/crowdsale";
+// import { getCrowdsaleProgressInfo, getCrowdsalePriceInfo } from "api/contracts/crowdsale";
 import { getTokenInfo } from "api/contracts/token";
 
 const renderResponse = async (req, res, askEmail) => {
@@ -20,28 +20,28 @@ const renderResponse = async (req, res, askEmail) => {
       askEmail: askEmail || false
     };
     res.render('index', data);
-
-  } else if (config.current_phase == "crowdsale") {
-
-    const crowdsaleProgressInfo = await getCrowdsaleProgressInfo();
-    const crowdsalePriceInfo = await getCrowdsalePriceInfo();
-
-    // Balance of seeds at moment of crowdsale should be equal to the amount NOT for sale
-    const sdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds - crowdsaleProgressInfo.availableSdsUnits) / config.sds);
-    const percentageCompleted = 100 - (crowdsaleProgressInfo.availableSdsUnits * 100 / (tokenInfo.totalSupply - tokenInfo.balanceOfSeeds));
-
-    const data = {
-      phase: "Crowd-sale",
-      showProgress: percentageCompleted > 30,
-      price: crowdsalePriceInfo.price,
-      // totalRaised: crowdsaleProgressInfo.totalRaised,
-      deadline: crowdsaleProgressInfo.deadline,
-      percentageCompleted,
-      sdsSold,
-      askEmail: askEmail || false
-    };
-    res.render('index', data);
-  }
+}
+  // } else if (config.current_phase == "crowdsale") {
+  //
+  //   const crowdsaleProgressInfo = await getCrowdsaleProgressInfo();
+  //   const crowdsalePriceInfo = await getCrowdsalePriceInfo();
+  //
+  //   // Balance of seeds at moment of crowdsale should be equal to the amount NOT for sale
+  //   const sdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds - crowdsaleProgressInfo.availableSdsUnits) / config.sds);
+  //   const percentageCompleted = 100 - (crowdsaleProgressInfo.availableSdsUnits * 100 / (tokenInfo.totalSupply - tokenInfo.balanceOfSeeds));
+  //
+  //   const data = {
+  //     phase: "Crowd-sale",
+  //     showProgress: percentageCompleted > 30,
+  //     price: crowdsalePriceInfo.price,
+  //     // totalRaised: crowdsaleProgressInfo.totalRaised,
+  //     deadline: crowdsaleProgressInfo.deadline,
+  //     percentageCompleted,
+  //     sdsSold,
+  //     askEmail: askEmail || false
+  //   };
+  //   res.render('index', data);
+  // }
 };
 
 

@@ -1,5 +1,5 @@
 import config from "config";
-import { getCrowdsalePriceInfo } from "api/contracts/crowdsale";
+// import { getCrowdsalePriceInfo } from "api/contracts/crowdsale";
 import { addUserEmail } from "api/db";
 
 const isValideEmail = (email) => {
@@ -27,16 +27,17 @@ export default async (req, res) => {
 
     res.render('contribute', data);
 
-  } else if (config.current_phase == "crowdsale") {
-
-    const crowdsalePriceInfo = await getCrowdsalePriceInfo();
-    const data = {
-      crowdsaleAddress: config.crowdsale_address,
-      price: crowdsalePriceInfo.price,
-      onDiscount: false,
-      discount: undefined
-    };
-
-    res.render('contribute', data);
   }
+  // } else if (config.current_phase == "crowdsale") {
+  //
+  //   const crowdsalePriceInfo = await getCrowdsalePriceInfo();
+  //   const data = {
+  //     crowdsaleAddress: config.crowdsale_address,
+  //     price: crowdsalePriceInfo.price,
+  //     onDiscount: false,
+  //     discount: undefined
+  //   };
+  //
+  //   res.render('contribute', data);
+  // }
 };
