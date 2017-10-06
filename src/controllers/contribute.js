@@ -19,7 +19,7 @@ export default async (req, res) => {
   if (config.current_phase == "presale") {
 
     const data = {
-      crowdsaleAddress: config.seeds_wallet_address,
+      beneficiaryAddress: config.seeds_wallet_address,
       price: config.initialPriceInWei * config.sds / config.ether,
       onDiscount: true,
       discount: config.presaleDiscount
