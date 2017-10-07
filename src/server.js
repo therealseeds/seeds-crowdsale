@@ -1,5 +1,6 @@
 import express from "express";
 import mustacheExpress from "mustache-express";
+import session from 'cookie-session';
 import healthcheck from "express-healthcheck";
 import winston from "winston";
 import config from "config";
@@ -31,9 +32,18 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(session({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
+
 app.get("/", index);
-app.get("/contribute", indexAskEmail);
-app.post("/contribute", contribute);
+app.use("/contribute", contribute);
+app.get("/email", indexAskEmail);
+app.use("/faq", (req, res) => {
+  res.render('faq', { tokenAddress: config.seeds_token_address });
+});
+
 app.get("/ping", healthcheck());
 app.use((req, res) => {
   res.status(404);

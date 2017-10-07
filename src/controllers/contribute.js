@@ -10,11 +10,15 @@ const isValideEmail = (email) => {
 export default async (req, res) => {
 
   const email = req.body.email;
-  if (!(email && isValideEmail(email))) {
-    return res.redirect('/');
-  }
 
-  addUserEmail(email);
+  if (!req.session.email) {
+    if (!(email && isValideEmail(email))) {
+      return res.redirect('/email');
+    }
+
+    req.session.email = email;
+    addUserEmail(email);
+  }
 
   if (config.current_phase == "presale") {
 

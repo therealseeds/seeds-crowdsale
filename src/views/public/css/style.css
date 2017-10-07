@@ -431,3 +431,30 @@ footer > p > a > i {
   height: 30px;
   margin-top: 30px;
 }
+
+#faq {
+  width: 100%;
+  text-align: left;
+}
+
+#faq > div {
+  padding: 10px 20px;
+}
+
+#faq > div > h6 {
+  text-align: left;
+  margin: 0;
+}
+
+#faq > div > ol > li {
+  margin-top: 5px;
+}
+
+#faq > h1 {
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.background-grey {
+  background-color: #eee;
+}
