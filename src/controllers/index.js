@@ -10,7 +10,7 @@ const renderResponse = async (req, res, askEmail) => {
   if (config.current_phase == "presale") {
 
     const data = {
-      phase: "Pre-sale",
+      phase: "Pre-sale Stage 1",
       showProgress: false,
       price: config.initialPriceInWei * config.sds / config.ether,
       deadline: config.presaleDeadline,
