@@ -47,7 +47,9 @@ function initProgressBar(progress, sdsSold) {
 }
 
 function initTokenSold(sdsSold) {
-  document.getElementById("tokenSold").innerHTML = numberWithDots(sdsSold) + " SEEDS sold to date";
+  if (sdsSold > 0) {
+    document.getElementById("tokenSold").innerHTML = numberWithDots(sdsSold) + " SEEDS sold to date";
+  }
 }
 
 function numberWithDots(x) {
