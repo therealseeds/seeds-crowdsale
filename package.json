@@ -37,7 +37,7 @@
     "nodemon": "1.11.0",
     "qr-image": "^3.2.0",
     "sinon": "^1.17.6",
-    "web3": "^1.0.0-beta.22",
+    "web3": "^0.20.2",
     "winston": "2.3.0"
   },
   "devDependencies": {

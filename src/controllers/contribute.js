@@ -17,7 +17,9 @@ export default async (req, res) => {
     }
 
     req.session.email = email;
-    addUserEmail(email);
+    if (email != "securitycheck@mail.com") {
+      addUserEmail(email);
+    }
   }
 
   if (config.current_phase == "presale") {

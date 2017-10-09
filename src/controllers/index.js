@@ -1,12 +1,13 @@
 import config from "config";
 // import { getCrowdsaleProgressInfo, getCrowdsalePriceInfo } from "api/contracts/crowdsale";
-// import { getTokenInfo } from "api/contracts/token";
+import { getTokenInfo } from "api/contracts/token";
 
 const renderResponse = async (req, res, askEmail) => {
-  // const tokenInfo = await getTokenInfo();
+  const tokenInfo = await getTokenInfo();
   // Balance of seeds at moment of presale should be equal to the amount total minus the token sold
-  // const presaleSdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds) / config.sds);
+  const presaleSdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds) / config.sds);
 
+  console.log(presaleSdsSold);
   if (config.current_phase == "presale") {
 
     const data = {
