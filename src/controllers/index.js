@@ -7,7 +7,6 @@ const renderResponse = async (req, res, askEmail) => {
   // Balance of seeds at moment of presale should be equal to the amount total minus the token sold
   const presaleSdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds) / config.sds);
 
-  console.log(presaleSdsSold);
   if (config.current_phase == "presale") {
 
     const data = {
@@ -16,8 +15,7 @@ const renderResponse = async (req, res, askEmail) => {
       price: config.initialPriceInWei * config.sds / config.ether,
       deadline: config.presaleDeadline,
       percentageCompleted: 0,
-      // sdsSold: presaleSdsSold,
-      sdsSold: 0,
+      sdsSold: presaleSdsSold,
       askEmail: askEmail || false
     };
     res.render('index', data);
