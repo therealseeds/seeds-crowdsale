@@ -344,6 +344,11 @@ input[type=email]:focus:not([read-only])+label {
   width: 100%;
 }
 
+#prices > img{
+  margin: 40px 0;
+  width: 100%;
+}
+
 #pie-chart > img{
   margin: 40px 0;
   width: 50%;

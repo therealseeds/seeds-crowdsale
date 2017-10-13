@@ -10,6 +10,26 @@
     gtag('config', 'UA-107670559-1');
   </script>
 
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '1802785866656598');
+     fbq('track', 'PageView');
+  </script>
+  <noscript>
+   <img height="1" width="1"
+    src="https://www.facebook.com/tr?id=1802785866656598&ev=PageView
+    &noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -66,7 +86,7 @@
 
     <div id="ethereum"><img src="images/ethereum.jpeg" alt="Ethereum">
       <p>Accepting Ethers: 1 SEEDS Token = {{price}} Ether</p>
-      <p><a target="_blank" href="/faq">Learn how to purchase Ether</a></p>
+      <p><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
     </div>
 
     <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -121,7 +141,9 @@
 
     <div id="timeline"><img src="images/timeline.png" alt="timeline"></div>
 
-    <p>The notional value of SEEDS is set at ~$0.04 per token. The final value will be determined by the sale</p>
+    <div id="prices"><img src="images/prices.jpg" alt="prices"></div>
+
+    <p>The notional value of SEEDS is set at ~$0.04 per token. The final value will be determined according to the sale stage</p>
 
     <div id="pie-chart"><img src="images/pie-chart.jpg" alt="pie-chart"></div>
 
