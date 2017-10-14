@@ -31,6 +31,7 @@
     "express-healthcheck": "^0.1.0",
     "forever": "^0.15.3",
     "lodash": "^4.17.2",
+    "mailchimp-api-v3": "^1.7.1",
     "mongodb": "^2.2.31",
     "mustache": "^2.3.0",
     "mustache-express": "^1.2.5",

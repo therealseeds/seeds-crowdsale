@@ -1,6 +1,7 @@
 import config from "config";
 // import { getCrowdsalePriceInfo } from "api/contracts/crowdsale";
 import { addUserEmail } from "api/db";
+import { addToMailingList } from "api/utils/mailchimp";
 
 const isValideEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -19,6 +20,7 @@ export default async (req, res) => {
     req.session.email = email;
     if (email != "securitycheck@mail.com") {
       addUserEmail(email);
+      addToMailingList(email);
     }
   }
 

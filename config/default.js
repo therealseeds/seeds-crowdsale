@@ -1,6 +1,6 @@
 module.exports = {
   port: process.env.PORT || 3000,
-  ethereum_node_url: "https://rinkeby.infura.io",
+  ethereum_node_url: "https://mainnet.infura.io",
   crowdsale_address: process.env.CROWDSALE_ADDRESS,
   seeds_token_address: process.env.TOKEN_ADDRESS,
   seeds_account_address: process.env.ACCOUNT_ADDRESS,
@@ -18,5 +18,9 @@ module.exports = {
   current_phase: "presale",
   initialPriceInWei: 15000,
   presaleDeadline: 1508137200000,
-  presaleDiscount: 25
+  presaleDiscount: 25,
+  mailchimp: {
+   apiKey: "93fb8869c544c34b692e3f998f35f596-us16",
+   listID: "7226151fd8"
+  }
 }
