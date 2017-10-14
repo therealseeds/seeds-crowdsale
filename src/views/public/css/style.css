@@ -463,3 +463,9 @@ footer > p > a > i {
 .background-grey {
   background-color: #eee;
 }
+
+#video {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
