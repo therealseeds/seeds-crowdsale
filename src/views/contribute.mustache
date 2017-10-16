@@ -33,6 +33,7 @@
 
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/mdb.min.css">
@@ -44,16 +45,17 @@
 
   <div id="logo"><a href="/"><img class="logo-img-small" src="images/seeds-logo.png" alt="Logo"></a></div>
 
-  <div id="address-container">
-    <h2>Send ETH to this address to receive SEEDS:</h2>
-    <div>
-    <div id="text-address" class="address"><span>{{beneficiaryAddress}}</span></div>
-    <!-- <div id="text-address" class="address"><span>test-address</span></div> -->
-    <div id="qr-address" class="address"><img src="images/crowdsale.png"></div>
+  <div id="step-1">
+    <h2>Step 1: make a deposit</h2>
+    <div id="request-wallet">
+      <button type="button" class="btn btn-green-1 waves-effect" onclick="requestAddress();">REQUEST ADDRESS</button>
     </div>
-
-    <p id="note">NOTE: We cannot accept payments directly from Kraken or Coinbase accounts<sup>*</sup> and we cannot accept Ethereum Classic (ETC)</p>
-
+    <div id="loading"><img src="images/loading.gif"></div>
+    <div id="address-container">
+      <div id="text-address" class="address"><span id="wallet-address"></span></div>
+      <div id="qr-address" class="address"><img id="qr-code" src="images/wallets/placeholder.png"></div>
+    </div>
+    <!-- <p id="note">NOTE: We cannot accept payments directly from a Coinbase account<sup>*</sup> and we cannot accept Ethereum Classic (ETC)</p> -->
   </div>
 
   <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
@@ -88,8 +90,10 @@
 
   <script src="js/init.js"></script>
   <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/wallet.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/mdb.min.js"></script>
+
 </body>
 </html>

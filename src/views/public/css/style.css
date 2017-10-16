@@ -99,25 +99,6 @@ h6 {
 	font-size: 16px;
 }
 
-#address-container {
-  background: #eee;
-  /*height: 40%;*/
-  display: block;
-  text-align: center;
-  margin: 20px 10%;;
-  color: #6e6e6e;
-  width: 80%;
-  border-radius: 3px;
-  padding: 10px 0;
-}
-
-#address-container > div {
-  width: 100%;
-  margin: 0 0 20px 0;
-  display: inline-block;
-  overflow: hidden;
-}
-
 .address {
   display: inline-block;
   width: 40%;
@@ -242,7 +223,7 @@ section > p {
   /*font-weight: 500;*/
   background-color: rgba(255, 255, 255, 0.5)!important;
   border-radius: 3px!important;
- }
+}
 
 #eth-discount {
   margin-left: -5px;
@@ -475,4 +456,33 @@ footer > p > a > i {
   width: 100%;
   text-align: center;
   padding: 20px;
+}
+
+#address-container {
+  width: 100%;
+  margin: 0 0 20px 0;
+  /*display: inline-block;*/
+  display: none;
+  overflow: hidden;
+}
+
+#step-1 {
+  background: #eee;
+  /*height: 40%;*/
+  display: block;
+  text-align: center;
+  margin: 20px 10%;;
+  color: #6e6e6e;
+  width: 80%;
+  border-radius: 3px;
+  padding: 10px 0;
+}
+
+#loading {
+  text-align: center;
+  display: none;
+}
+
+#loading > img {
+  height: 50px;
 }

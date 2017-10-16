@@ -1,6 +1,7 @@
 import winston from "winston";
 import config from "config";
 import { MongoClient } from 'mongodb';
+import autoIncrement from "mongodb-autoincrement";
 
 const buildMongoUrl = ({ host, port, user, password, database, replica }) => {
   const options = (replica && replica != "null") ? `?replicaSet=${replica}` : '';
@@ -14,10 +15,29 @@ const mongoDbPromise = new MongoClient.connect(mongoUrl)
 
 export const addUserEmail = async (email) => {
   const mongo = await mongoDbPromise;
-  mongo.collection(`crowdsale_users`).update({ "email": email }, { "email": email }, { upsert: true }).catch((err) => winston.error(`Error occured from mongodb ` + err));
+
+  mongo.collection(`crowdsale_users`).findOne({ "email": email }).then((user) => {
+    if (!user) {
+      autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
+          var collection = mongo.collection(`crowdsale_users`);
+          collection.insertOne({
+              "walletID": autoIndex,
+              "email": email
+          });
+      });
+    } else if (!user.walletID) {
+      autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
+          var collection = mongo.collection(`crowdsale_users`);
+          collection.updateOne(
+            { "email": email },
+            { "$set": { "walletID": autoIndex } },
+          );
+      });
+    }
+  });
 };
 
-export const addPurchaseConfirmationEmail = async (email) => {
+export const getUser = async (email) => {
   const mongo = await mongoDbPromise;
-  mongo.collection(`crowdsale_confirmed_purchase`).update({ "email": email }, { "email": email }, { upsert: true }).catch((err) => winston.error(`Error occured from mongodb ` + err));
+  return await mongo.collection(`crowdsale_users`).findOne({ "email": email });
 };

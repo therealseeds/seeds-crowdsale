@@ -5,11 +5,12 @@ import healthcheck from "express-healthcheck";
 import winston from "winston";
 import config from "config";
 import { index, indexAskEmail } from "api/controllers/index";
+
 import contribute from "api/controllers/contribute";
 import faq from "api/controllers/faq";
 import thanks from "api/controllers/thanks";
+import getWallet from "api/controllers/wallet";
 import bodyParser from "body-parser";
-import updateQRcode from "api/utils/qrcode";
 
 export const app = express();
 
@@ -41,6 +42,7 @@ app.use("/contribute", contribute);
 app.get("/thanks", thanks);
 app.get("/email", indexAskEmail);
 app.use("/faq", faq);
+app.get("/wallet", getWallet);
 
 app.get("/ping", healthcheck());
 app.use((req, res) => {
