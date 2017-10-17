@@ -15,7 +15,7 @@ function requestAddress() {
       address.innerHTML = data.address;
 
       var qrCode = document.getElementById('qr-code');
-      qrCode.src = `images/wallets/wallet_${data.walletID}.png`;
+      qrCode.src = `qr/${data.address}`;
 
       var addressContainer = document.getElementById('address-container');
       addressContainer.style.display = "inline-block";

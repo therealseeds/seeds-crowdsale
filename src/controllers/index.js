@@ -1,6 +1,6 @@
 import config from "config";
 // import { getCrowdsaleProgressInfo, getCrowdsalePriceInfo } from "api/contracts/crowdsale";
-import { getTokenInfo } from "api/contracts/token";
+import { getTokenInfo } from "api/ethereum/token";
 
 const renderResponse = async (req, res, askEmail) => {
   const tokenInfo = await getTokenInfo();

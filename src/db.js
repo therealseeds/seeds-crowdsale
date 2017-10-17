@@ -19,19 +19,17 @@ export const addUserEmail = async (email) => {
   mongo.collection(`crowdsale_users`).findOne({ "email": email }).then((user) => {
     if (!user) {
       autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
-          var collection = mongo.collection(`crowdsale_users`);
-          collection.insertOne({
-              "walletID": autoIndex,
-              "email": email
-          });
+        mongo.collection(`crowdsale_users`).insertOne({
+          "walletID": autoIndex,
+          "email": email
+        });
       });
     } else if (!user.walletID) {
       autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
-          var collection = mongo.collection(`crowdsale_users`);
-          collection.updateOne(
-            { "email": email },
-            { "$set": { "walletID": autoIndex } },
-          );
+        mongo.collection(`crowdsale_users`).updateOne(
+          { "email": email },
+          { "$set": { "walletID": autoIndex } },
+        );
       });
     }
   });
@@ -40,4 +38,12 @@ export const addUserEmail = async (email) => {
 export const getUser = async (email) => {
   const mongo = await mongoDbPromise;
   return await mongo.collection(`crowdsale_users`).findOne({ "email": email });
+};
+
+export const addWalletAddress = async (email, address) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`crowdsale_users`).updateOne(
+    { "email": email },
+    { "$set": { "walletAddress": address } },
+  );
 };

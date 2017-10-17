@@ -45,21 +45,6 @@
 
   <div id="logo"><a href="/"><img class="logo-img-small" src="images/seeds-logo.png" alt="Logo"></a></div>
 
-  <div id="step-1">
-    <h2>Step 1: make a deposit</h2>
-    <div id="request-wallet">
-      <button type="button" class="btn btn-green-1 waves-effect" onclick="requestAddress();">REQUEST ADDRESS</button>
-    </div>
-    <div id="loading"><img src="images/loading.gif"></div>
-    <div id="address-container">
-      <div id="text-address" class="address"><span id="wallet-address"></span></div>
-      <div id="qr-address" class="address"><img id="qr-code" src="images/wallets/placeholder.png"></div>
-    </div>
-    <!-- <p id="note">NOTE: We cannot accept payments directly from a Coinbase account<sup>*</sup> and we cannot accept Ethereum Classic (ETC)</p> -->
-  </div>
-
-  <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
-
   <h5>SAVE {{discount}}% BY OCTOBER 31st!</h5>
   <h6>Contribute to the Pre-Sale by October 31st to save {{discount}}% on SEEDS!</h6>
 
@@ -76,9 +61,21 @@
      </div>
   </div>
 
+  <div id="step-1">
+    <h2>Step 1: make a deposit</h2>
+    <div id="request-wallet">
+      <button type="button" class="btn btn-green-1 waves-effect" onclick="requestAddress();">REQUEST ADDRESS</button>
+    </div>
+    <div id="loading"><img src="images/loading.gif"></div>
+    <div id="address-container">
+      <div id="text-address" class="address"><span id="wallet-address"></span></div>
+      <div id="qr-address" class="address"><img id="qr-code" src="images/qr-placeholder.png"></div>
+    </div>
+    <!-- <p id="note">NOTE: We cannot accept payments directly from a Coinbase account<sup>*</sup> and we cannot accept Ethereum Classic (ETC)</p> -->
+  </div>
+
   <div id="bottom-text">
     <p>MINIMUM CAP: A minimum of 1 million SEEDS must be sold. If not, all token purchases will be refunded.</p>
-    <p><sup>*</sup>Check our <a target="_blank" href="/faq">FAQ</a> for more information.</p>
   </div>
 
   <footer>

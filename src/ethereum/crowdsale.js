@@ -1,6 +1,6 @@
 import Web3 from "web3";
 import config from "config";
-import crowdsaleABI from "./crowdsale.json";
+import crowdsaleABI from "./interfaces/crowdsale.json";
 
 var web3 = new Web3(new Web3.providers.HttpProvider(config.ethereum_node_url));
 var contract = new web3.eth.Contract(crowdsaleABI, config.crowdsale_address);

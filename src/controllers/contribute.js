@@ -1,5 +1,4 @@
 import config from "config";
-// import { getCrowdsalePriceInfo } from "api/contracts/crowdsale";
 import { addUserEmail } from "api/db";
 import { addToMailingList } from "api/utils/mailchimp";
 
@@ -30,7 +29,6 @@ export default async (req, res) => {
   if (config.current_phase == "presale") {
 
     const data = {
-      // beneficiaryAddress: config.seeds_wallet_address,
       price: config.initialPriceInWei * config.sds / config.ether,
       onDiscount: false,
       discount: config.presaleDiscount

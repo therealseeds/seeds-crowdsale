@@ -1,10 +1,10 @@
 module.exports = {
   port: process.env.PORT || 3000,
-  ethereum_node_url: "https://mainnet.infura.io",
+  ethereum_node_url: "https://rinkeby.infura.io",
   crowdsale_address: process.env.CROWDSALE_ADDRESS,
   seeds_token_address: process.env.TOKEN_ADDRESS,
   seeds_account_address: process.env.ACCOUNT_ADDRESS,
-  seeds_wallet_address: process.env.WALLET_ADDRESS,
+  seeds_wallet_mnemonic: "parent wrestle vocal museum idea screen open between wrap guide input bridge",
   ether: 1000000000000000000,
   sds: 10000000000,
   mongo: {
@@ -22,5 +22,6 @@ module.exports = {
   mailchimp: {
    apiKey: "93fb8869c544c34b692e3f998f35f596-us16",
    listID: "7226151fd8"
-  }
+ },
+
 }

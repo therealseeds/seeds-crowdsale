@@ -10,6 +10,7 @@ import contribute from "api/controllers/contribute";
 import faq from "api/controllers/faq";
 import thanks from "api/controllers/thanks";
 import getWallet from "api/controllers/wallet";
+import getQRcode from "api/controllers/qrcode";
 import bodyParser from "body-parser";
 
 export const app = express();
@@ -44,6 +45,7 @@ app.get("/email", indexAskEmail);
 app.use("/faq", faq);
 app.get("/wallet", getWallet);
 
+app.get('/qr/:address', getQRcode);
 app.get("/ping", healthcheck());
 app.use((req, res) => {
   res.status(404);

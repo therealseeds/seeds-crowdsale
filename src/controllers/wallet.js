@@ -1,7 +1,5 @@
-import createQRcode from "api/utils/qrcode";
-import createWallet from "api/utils/wallets";
-import { getUser } from "api/db";
-
+import { getWalletAddress, getWalletBalance } from "api/ethereum/wallets";
+import { getUser, addWalletAddress } from "api/db";
 
 export default async (req, res) => {
 
@@ -13,14 +11,13 @@ export default async (req, res) => {
   const user = await getUser(req.session.email);
 
   const walletID = user.walletID;
-  let address;
+  const address = user.walletAddress || getWalletAddress(walletID);
   if (!user.walletAddress) {
-    address = createWallet(walletID);
-    // add to db
+    addWalletAddress(req.session.email, address);
   }
 
-  await createQRcode(address, walletID);
+  const balance = getWalletBalance(address);
 
   res.status(200);
-  return res.send({ address, walletID });
+  return res.send({ address, balance });
 };
