@@ -1,5 +1,5 @@
 body{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif!important;
   margin: 0;
 }
 
@@ -34,6 +34,7 @@ h4 {
 }
 
 h5 {
+  font-weight: 400;
   font-size: 50px;
   margin: 40px;
   margin-bottom: 10px;
@@ -233,15 +234,15 @@ section > p {
 }
 
 .currency-input {
-  width: 110px;
+  width: 110px!important;
   height: 35px;
   margin: 0 10px;
   text-align: center;
-  font-size: 20px;
+  font-size: 20px!important;
   /*font-weight: 500;*/
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-}
+  background-color: rgba(255, 255, 255, 0.5)!important;
+  border-radius: 3px!important;
+ }
 
 #eth-discount {
   margin-left: -5px;
