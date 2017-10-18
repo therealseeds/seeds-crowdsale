@@ -4,8 +4,8 @@ import session from 'cookie-session';
 import healthcheck from "express-healthcheck";
 import winston from "winston";
 import config from "config";
-import { index, indexAskEmail } from "api/controllers/index";
-
+import index from "api/controllers/index";
+import { signUp, signIn } from "api/controllers/authentication";
 import contribute from "api/controllers/contribute";
 import faq from "api/controllers/faq";
 import thanks from "api/controllers/thanks";
@@ -39,9 +39,10 @@ app.use(session({
 }))
 
 app.get("/", index);
+app.post("/signin", signIn);
+app.post("/signup", signUp);
 app.use("/contribute", contribute);
 app.get("/thanks", thanks);
-app.get("/email", indexAskEmail);
 app.use("/faq", faq);
 app.get("/wallet", getWallet);
 

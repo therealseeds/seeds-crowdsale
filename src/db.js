@@ -13,36 +13,56 @@ winston.info(`Trying to connect to ${config.mongo.database}`);
 const mongoDbPromise = new MongoClient.connect(mongoUrl)
   .catch((err) => winston.error(`Could not connect to mongodb ${config.mongo.database}:` + err));
 
-export const addUserEmail = async (email) => {
+export const signUpUser = async (email, hashedPassword, salt) => {
   const mongo = await mongoDbPromise;
+  const user = await mongo.collection(`tokensale_users`).findOne({ "email": email });
+  if (user) { // User already exists
+    return false;
+  }
 
-  mongo.collection(`crowdsale_users`).findOne({ "email": email }).then((user) => {
-    if (!user) {
-      autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
-        mongo.collection(`crowdsale_users`).insertOne({
-          "walletID": autoIndex,
-          "email": email
-        });
-      });
-    } else if (!user.walletID) {
-      autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
-        mongo.collection(`crowdsale_users`).updateOne(
-          { "email": email },
-          { "$set": { "walletID": autoIndex } },
-        );
-      });
-    }
+  autoIncrement.getNextSequence(mongo, `tokensale_users`, function (err, autoIndex) {
+    mongo.collection(`tokensale_users`).insertOne({
+      "walletID": autoIndex,
+      "email": email,
+      "password": hashedPassword,
+      "salt": salt
+    });
   });
+
+  return true;
 };
+
+
+// export const addUserEmail = async (email) => {
+//   const mongo = await mongoDbPromise;
+//
+//   mongo.collection(`crowdsale_users`).findOne({ "email": email }).then((user) => {
+//     if (!user) {
+//       autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
+//         mongo.collection(`crowdsale_users`).insertOne({
+//           "walletID": autoIndex,
+//           "email": email
+//         });
+//       });
+//     } else if (!user.walletID) {
+//       autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
+//         mongo.collection(`crowdsale_users`).updateOne(
+//           { "email": email },
+//           { "$set": { "walletID": autoIndex } },
+//         );
+//       });
+//     }
+//   });
+// };
 
 export const getUser = async (email) => {
   const mongo = await mongoDbPromise;
-  return await mongo.collection(`crowdsale_users`).findOne({ "email": email });
+  return await mongo.collection(`tokensale_users`).findOne({ "email": email });
 };
 
 export const addWalletAddress = async (email, address) => {
   const mongo = await mongoDbPromise;
-  mongo.collection(`crowdsale_users`).updateOne(
+  mongo.collection(`tokensale_users`).updateOne(
     { "email": email },
     { "$set": { "walletAddress": address } },
   );

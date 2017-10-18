@@ -45,7 +45,7 @@
 
 	<title>Seeds token sale</title>
 </head>
-<body onload="init({{deadline}}, {{percentageCompleted}}, {{sdsSold}}, {{askEmail}})">
+<body onload="init({{deadline}}, {{percentageCompleted}}, {{sdsSold}}, {{showSignin}}, {{showSignup}})">
 
   <section class="first-section">
     <div id="logo"><a href="/"><img class="logo-img" src="images/seeds-logo.png" alt="Logo"></a></div>
@@ -96,31 +96,89 @@
       <p><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
     </div>
 
-    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalSigninForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog cascading-modal" role="document">
           <!--Content-->
           <div class="modal-content">
 
               <!--Header-->
               <div class="modal-header light-blue darken-3 white-text">
-                  <h4 class="title"><i class="fa fa-pencil"></i> Enter your email address</h4>
+                  <h4 class="title"><i class="fa fa-pencil"></i> Sign in</h4>
                   <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
               </div>
               <!--Body-->
               <div class="modal-body mb-0">
-                 <form role="form" name="modalForm" action="/contribute" method="POST">
+                 <form role="form" name="signInForm" action="/signin" method="POST">
                   <div class="md-form form-sm">
                       <i class="fa fa-envelope prefix"></i>
                       <input type="email" id="email" name="email" class="form-control">
                       <label for="email">Your email</label>
                   </div>
+                  <div class="md-form form-sm">
+                      <i class="fa fa-lock prefix"></i>
+                      <input type="password" id="password" name="password" class="form-control">
+                      <label for="password">Your password</label>
+                  </div>
+
+                  {{#badInputError}}<p class="errorMessage">Error: Wrong parameters</p>{{/badInputError}}
+                  {{#wrongCredentials}}<p class="errorMessage">Error: Email or password are not correct</p>{{/wrongCredentials}}
 
                   <div class="text-center mt-1-half">
-                      <button class="btn btn-primary mb-2" onclick="return validateForm();">Continue <i class="fa fa-send ml-1"></i></button>
+                      <button class="btn btn-primary mb-2" onclick="return validateSigninForm();">Continue <i class="fa fa-send ml-1"></i></button>
                   </div>
                 </form>
+
+                <a href="" type="button" data-toggle="modal" data-target="#modalSignupForm" data-dismiss="modal" style="-webkit-appearance: none;">Sign up</a>
+                <!-- <a href="" id=""> -->
+
+              </div>
+          </div>
+          <!--/.Content-->
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalSignupForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog cascading-modal" role="document">
+          <!--Content-->
+          <div class="modal-content">
+
+              <!--Header-->
+              <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title"><i class="fa fa-pencil"></i> Sign up</h4>
+                  <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <!--Body-->
+              <div class="modal-body mb-0">
+                 <form role="form" name="signUpForm" action="/signup" method="POST">
+                  <div class="md-form form-sm">
+                      <i class="fa fa-envelope prefix"></i>
+                      <input type="email" id="new-email" name="email" class="form-control" required>
+                      <label for="email">Your email</label>
+                  </div>
+                  <div class="md-form form-sm">
+                      <i class="fa fa-lock prefix"></i>
+                      <input type="password" id="new-password" name="password" class="form-control" required>
+                      <label for="password">New password</label>
+                  </div>
+                  <div class="md-form form-sm">
+                      <i class="fa fa-lock prefix"></i>
+                      <input type="password" id="confirm-password" name="confirmPassword" class="form-control" required>
+                      <label for="confirm-password">Confirm password</label>
+                  </div>
+
+                  {{#badInputError}}<p class="errorMessage">Error: Wrong parameters</p>{{/badInputError}}
+                  {{#alreadyExistsError}}<p class="errorMessage">Error: Email already registered</p>{{/alreadyExistsError}}
+
+                  <div class="text-center mt-1-half">
+                      <button class="btn btn-primary mb-2" onclick="return validateSignupForm();">Continue <i class="fa fa-send ml-1"></i></button>
+                  </div>
+                </form>
+
+                <a href="" type="button" data-toggle="modal" data-target="#modalSigninForm" data-dismiss="modal" style="-webkit-appearance: none;">Sign in</a>
 
               </div>
           </div>
@@ -234,5 +292,6 @@
   <script src="js/mdb.min.js"></script>
   <script src="js/progressbar.min.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/authentication.js"></script>
 </body>
 </html>

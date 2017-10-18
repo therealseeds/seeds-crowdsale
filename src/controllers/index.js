@@ -2,25 +2,32 @@ import config from "config";
 // import { getCrowdsaleProgressInfo, getCrowdsalePriceInfo } from "api/contracts/crowdsale";
 import { getTokenInfo } from "api/ethereum/token";
 
-const renderResponse = async (req, res, askEmail) => {
+export default async (req, res) => {
+
+  const showSignin = req.query.signin == "true";
+  const showSignup = req.query.signup == "true";
+  const errorMessage = req.query.errorMessage;
+
   const tokenInfo = await getTokenInfo();
   // Balance of seeds at moment of presale should be equal to the amount total minus the token sold
   const presaleSdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds) / config.sds);
 
-  if (config.current_phase == "presale") {
+  const data = {
+    phase: "Pre-sale",
+    showProgress: false,
+    price: config.initialPriceInWei * config.sds / config.ether,
+    deadline: config.presaleDeadline,
+    percentageCompleted: 0,
+    sdsSold: presaleSdsSold,
+    showSignin,
+    showSignup,
+    wrongCredentialsError: errorMessage == "wrongCredentials",
+    alreadyExistsError: errorMessage == "alreadyExists",
+    badInputError: errorMessage == "badInput",
+  };
 
-    const data = {
-      phase: "Pre-sale",
-      showProgress: false,
-      price: config.initialPriceInWei * config.sds / config.ether,
-      deadline: config.presaleDeadline,
-      percentageCompleted: 0,
-      // sdsSold: presaleSdsSold,
-      sdsSold: 0,
-      askEmail: askEmail || false
-    };
-    res.render('index', data);
-}
+  res.render('index', data);
+
   // } else if (config.current_phase == "crowdsale") {
   //
   //   const crowdsaleProgressInfo = await getCrowdsaleProgressInfo();
@@ -42,13 +49,4 @@ const renderResponse = async (req, res, askEmail) => {
   //   };
   //   res.render('index', data);
   // }
-};
-
-
-export const index = async (req, res) => {
-  renderResponse(req, res);
-};
-
-export const indexAskEmail = async (req, res) => {
-  renderResponse(req, res, true);
 };

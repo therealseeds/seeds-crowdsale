@@ -288,6 +288,14 @@ input[type=email]:focus:not([read-only])+label {
   color: #1fa079;
 }
 
+input[type=password]:focus:not([read-only]) {
+  box-shadow: 0 1px 0 0 #1fa079;
+  border-bottom: 1px solid #1fa079;
+}
+input[type=password]:focus:not([read-only])+label {
+  color: #1fa079;
+}
+
 .md-form .prefix.active {
   color: #1fa079;
 }
@@ -485,4 +493,8 @@ footer > p > a > i {
 
 #loading > img {
   height: 50px;
+}
+
+.errorMessage {
+  color: red;
 }
