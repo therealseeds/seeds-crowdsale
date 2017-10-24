@@ -15,7 +15,8 @@ const renderResponse = async (req, res, askEmail) => {
       price: config.initialPriceInWei * config.sds / config.ether,
       deadline: config.presaleDeadline,
       percentageCompleted: 0,
-      sdsSold: presaleSdsSold,
+      // sdsSold: presaleSdsSold,
+      sdsSold: 0,
       askEmail: askEmail || false
     };
     res.render('index', data);
