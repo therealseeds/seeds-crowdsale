@@ -21,6 +21,7 @@ export default async (req, res) => {
     sdsSold: presaleSdsSold,
     showSignin,
     showSignup,
+    loggedIn: req.session.email != undefined,
     wrongCredentialsError: errorMessage == "wrongCredentials",
     alreadyExistsError: errorMessage == "alreadyExists",
     badInputError: errorMessage == "badInput",

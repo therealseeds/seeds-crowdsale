@@ -34,8 +34,8 @@ app.use((req, res, next) => {
 });
 
 app.use(session({
-  name: 'session',
-  keys: ['key1', 'key2']
+  name: 'seeds-session',
+  keys: ['mfxgayxHnY8kyBJh', 'HMX4tb2yfzAu2fzG']
 }))
 
 app.get("/", index);

@@ -18,6 +18,7 @@ export default async (req, res) => {
 
   const balance = getWalletBalance(address);
 
+  req.session.address = true;
   res.status(200);
   return res.send({ address, balance });
 };

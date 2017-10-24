@@ -99,6 +99,17 @@ h6 {
 	font-size: 16px;
 }
 
+#address-input {
+  width: 500px!important;
+  height: 35px;
+  margin: 0 10px;
+  text-align: center;
+  font-size: 20px!important;
+  /*font-weight: 500;*/
+  background-color: rgba(255, 255, 255, 0.5)!important;
+  border-radius: 3px!important;
+}
+
 .address {
   display: inline-block;
   width: 40%;
@@ -474,7 +485,7 @@ footer > p > a > i {
   overflow: hidden;
 }
 
-#step-1 {
+.step {
   background: #eee;
   /*height: 40%;*/
   display: block;
@@ -497,4 +508,14 @@ footer > p > a > i {
 
 .errorMessage {
   color: red;
+}
+
+#buy-seeds {
+  background: #fff;
+  display: none;
+  margin-bottom: 20px;
+}
+
+#buy-seeds > div {
+  margin: 20px;
 }

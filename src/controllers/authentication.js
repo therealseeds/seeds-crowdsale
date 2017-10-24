@@ -1,9 +1,28 @@
-import { signUpUser } from "api/db";
+import { signUpUser, getUser } from "api/db";
+import { hashPassword, verifyPassword } from "api/utils/password";
+import { addToMailingList } from "api/utils/mailchimp";
 
 
 export const signIn = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
+
+  if (!isValideEmail(email) || (password == "")) {
+    return res.redirect("/?signin=true&errorMessage=badInput");
+  }
+
+  const user = await getUser(email);
+  if (!user) {
+    return res.redirect("/?signin=true&errorMessage=wrongCredentials");
+  }
+
+  const correct = verifyPassword(password, user.password, user.salt);
+  if (!correct) {
+    return res.redirect("/?signin=true&errorMessage=wrongCredentials");
+  }
+
+  req.session.email = email;
+  return res.redirect("/contribute");
 };
 
 export const signUp = async (req, res) => {
@@ -15,9 +34,16 @@ export const signUp = async (req, res) => {
     return res.redirect("/?signup=true&errorMessage=badInput");
   }
 
-  const success = await signUpUser(email);
-  console.log(success);
+  const hashed = hashPassword(password);
+  const success = await signUpUser(email, hashed.hash, hashed.salt);
 
+  if (!success) {
+    return res.redirect("/?signup=true&errorMessage=alreadyExists");
+  }
+
+  req.session.email = email;
+  addToMailingList(email);
+  return res.redirect("/contribute");
 };
 
 

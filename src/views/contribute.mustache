@@ -41,7 +41,7 @@
 
 	<title>Seeds token sale</title>
 </head>
-<body onload="initConverter({{price}}, {{discount}})" onresize="adjustCross({{discount}})">
+<body onload="initContribute({{price}}, {{discount}}, {{showAddress}})" onresize="adjustCross({{discount}})">
 
   <div id="logo"><a href="/"><img class="logo-img-small" src="images/seeds-logo.png" alt="Logo"></a></div>
 
@@ -61,21 +61,38 @@
      </div>
   </div>
 
-  <div id="step-1">
-    <h2>Step 1: make a deposit</h2>
+  <div class="step" id="step-1">
+    <h2>Step 1: make a deposit in ETH</h2>
+
     <div id="request-wallet">
+      {{^showAddress}}
       <button type="button" class="btn btn-green-1 waves-effect" onclick="requestAddress();">REQUEST ADDRESS</button>
+      {{/showAddress}}
     </div>
+
     <div id="loading"><img src="images/loading.gif"></div>
     <div id="address-container">
       <div id="text-address" class="address"><span id="wallet-address"></span></div>
       <div id="qr-address" class="address"><img id="qr-code" src="images/qr-placeholder.png"></div>
     </div>
-    <!-- <p id="note">NOTE: We cannot accept payments directly from a Coinbase account<sup>*</sup> and we cannot accept Ethereum Classic (ETC)</p> -->
+    <p id="note">NOTE: We cannot accept Ethereum Classic (ETC)</p>
+  </div>
+
+  <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
+
+  <div class="step" id="step-2">
+    <h2>Step 2: buy SEEDS</h2>
+    <div id="buy-seeds">
+      <div><label for="balance">ETH deposited:</label><br><br><input type="string" id="balance" disabled="true" class="currency-input"  value="0"></div>
+      <div><label for="address">Address where to receive SEEDS:</label><br><br><input type="string" id="address-input" placeholder="Enter address"></div>
+      <div><button type="button" class="btn btn-green-1 waves-effect" onclick="">BUY SEEDS</button></div>
+    </div>
+    <p id="note">NOTE: We cannot send SEEDS tokens to Kraken or Coinbase accounts <sup>*</sup></p>
   </div>
 
   <div id="bottom-text">
     <p>MINIMUM CAP: A minimum of 1 million SEEDS must be sold. If not, all token purchases will be refunded.</p>
+    <p><sup>*</sup>Check our <a target="_blank" href="/faq">FAQ</a> for more information.</p>
   </div>
 
   <footer>
@@ -85,9 +102,9 @@
      <a target="_blank" href="https://twitter.com/seedstweets"><i class="fa fa-twitter-square fa-2x"></i></a></p>
   </footer>
 
-  <script src="js/init.js"></script>
-  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/wallet.js"></script>
+  <script src="js/initContribute.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/mdb.min.js"></script>

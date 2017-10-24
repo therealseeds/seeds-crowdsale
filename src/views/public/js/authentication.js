@@ -15,3 +15,11 @@ function validateSignupForm() {
 
   return (password == confirmPassword);
 }
+
+function isLoggedInAlready(loggedIn) {
+  if (!loggedIn) {
+    $('#modalSigninForm').modal('show');
+  } else {
+    window.location.replace("/contribute");
+  }
+}

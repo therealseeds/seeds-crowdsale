@@ -22,7 +22,7 @@ export const signUpUser = async (email, hashedPassword, salt) => {
 
   autoIncrement.getNextSequence(mongo, `tokensale_users`, function (err, autoIndex) {
     mongo.collection(`tokensale_users`).insertOne({
-      "walletID": autoIndex,
+      "walletID": autoIndex + 1, // start from 1
       "email": email,
       "password": hashedPassword,
       "salt": salt
@@ -31,29 +31,6 @@ export const signUpUser = async (email, hashedPassword, salt) => {
 
   return true;
 };
-
-
-// export const addUserEmail = async (email) => {
-//   const mongo = await mongoDbPromise;
-//
-//   mongo.collection(`crowdsale_users`).findOne({ "email": email }).then((user) => {
-//     if (!user) {
-//       autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
-//         mongo.collection(`crowdsale_users`).insertOne({
-//           "walletID": autoIndex,
-//           "email": email
-//         });
-//       });
-//     } else if (!user.walletID) {
-//       autoIncrement.getNextSequence(mongo, `crowdsale_users`, function (err, autoIndex) {
-//         mongo.collection(`crowdsale_users`).updateOne(
-//           { "email": email },
-//           { "$set": { "walletID": autoIndex } },
-//         );
-//       });
-//     }
-//   });
-// };
 
 export const getUser = async (email) => {
   const mongo = await mongoDbPromise;

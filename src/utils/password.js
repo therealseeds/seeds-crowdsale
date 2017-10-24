@@ -10,7 +10,7 @@ export const hashPassword = (password, salt) => {
     salt = crypto.randomBytes(SALT_LEN / 2).toString('hex');
   }
 
-  const derivedKey = crypto.pbkdf2(password, salt, ITERATIONS, LEN / 2, DIGEST);
+  const derivedKey = crypto.pbkdf2Sync(password, salt, ITERATIONS, LEN / 2, DIGEST);
   return { hash: derivedKey.toString('hex'), salt };
 };
 

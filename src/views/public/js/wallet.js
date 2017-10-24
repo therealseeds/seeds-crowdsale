@@ -20,6 +20,12 @@ function requestAddress() {
       var addressContainer = document.getElementById('address-container');
       addressContainer.style.display = "inline-block";
 
+      var buySeeds = document.getElementById('buy-seeds');
+      buySeeds.style.display = "inline-block";
+
+      var balance = document.getElementById('balance');
+      balance.value = data.balance;
+
     } else {
       // Handle error status
     }

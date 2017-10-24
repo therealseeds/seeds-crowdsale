@@ -1,5 +1,6 @@
 import bip39 from "bip39";
 import hdkey from "ethereumjs-wallet/hdkey";
+import WalletSubprovider from "ethereumjs-wallet/provider-engine";
 import config from "config";
 import { web3 } from "./index";
 
@@ -18,4 +19,10 @@ export const getWalletAddress = (index) => {
 export const getWalletBalance = (address) => {
   const balanceInWei = web3.eth.getBalance(address);
   return balanceInWei.toNumber() / config.ether;
+};
+
+export const getWalletSubProvider = (index) => {
+  const path = `m/44'/60'/0'/0/${index}`;
+  const wallet = hdwallet.derivePath(path).getWallet();
+  return new WalletSubprovider(wallet, {});
 };

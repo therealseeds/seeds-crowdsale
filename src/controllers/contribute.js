@@ -1,24 +1,10 @@
 import config from "config";
-import { addUserEmail } from "api/db";
 import { addToMailingList } from "api/utils/mailchimp";
 
 export default async (req, res) => {
 
-  const email = req.body.email;
-
-  if (isValideEmail(email)) {
-    addToMailingList(email);
-  }
-
   if (!req.session.email) {
-    if (!(email && isValideEmail(email))) {
-      return res.redirect('/email');
-    }
-
-    req.session.email = email;
-    if (email != "securitycheck@mail.com") {
-      addUserEmail(email);
-    }
+    return res.redirect("/?signin=true&errorMessage=badInput");
   }
 
   if (config.current_phase == "presale") {
@@ -26,7 +12,8 @@ export default async (req, res) => {
     const data = {
       price: config.initialPriceInWei * config.sds / config.ether,
       onDiscount: false,
-      discount: config.presaleDiscount
+      discount: config.presaleDiscount,
+      showAddress: req.session.address == true
     };
 
     res.render('contribute_closed', data);
