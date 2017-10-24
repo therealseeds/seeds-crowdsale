@@ -340,6 +340,11 @@ input[type=email]:focus:not([read-only])+label {
   width: 100px;
 }
 
+.infographic > img {
+  margin: 40px 0;
+  width: 100%;
+}
+
 #timeline > img{
   margin: 40px 0;
   width: 100%;
