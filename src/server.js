@@ -11,6 +11,7 @@ import faq from "api/controllers/faq";
 import thanks from "api/controllers/thanks";
 import getWallet from "api/controllers/wallet";
 import getQRcode from "api/controllers/qrcode";
+import buy from "api/controllers/buy";
 import bodyParser from "body-parser";
 
 export const app = express();
@@ -45,6 +46,7 @@ app.use("/contribute", contribute);
 app.get("/thanks", thanks);
 app.use("/faq", faq);
 app.get("/wallet", getWallet);
+app.use("/buy", buy);
 
 app.get('/qr/:address', getQRcode);
 app.get("/ping", healthcheck());

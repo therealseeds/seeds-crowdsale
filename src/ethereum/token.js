@@ -7,7 +7,7 @@ var contract = web3.eth.contract(tokenABI).at(config.seeds_token_address);
 
 export const getTokenInfo = async (req, res) => {
 
-  const balanceOfSeeds = await contract.balanceOf.call(config.seeds_account_address);
+  const balanceOfSeeds = await contract.balanceOf.call(config.seeds_token_owner_address);
   const totalSupply = await contract.totalSupply.call();
 
   return {

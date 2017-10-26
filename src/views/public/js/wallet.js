@@ -24,7 +24,10 @@ function requestAddress() {
       buySeeds.style.display = "inline-block";
 
       var balance = document.getElementById('balance');
-      balance.value = data.balance;
+      balance.innerHTML = data.balance;
+
+      var buyBtn = document.getElementById("buy-seeds-btn");
+      buyBtn.disabled = (data.balance == 0) ? true : false;
 
     } else {
       // Handle error status

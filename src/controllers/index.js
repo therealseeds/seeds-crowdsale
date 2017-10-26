@@ -1,6 +1,6 @@
 import config from "config";
 // import { getCrowdsaleProgressInfo, getCrowdsalePriceInfo } from "api/contracts/crowdsale";
-import { getTokenInfo } from "api/ethereum/token";
+// import { getTokenInfo } from "api/ethereum/token";
 
 export default async (req, res) => {
 
@@ -8,9 +8,9 @@ export default async (req, res) => {
   const showSignup = req.query.signup == "true";
   const errorMessage = req.query.errorMessage;
 
-  const tokenInfo = await getTokenInfo();
+  // const tokenInfo = await getTokenInfo();
   // Balance of seeds at moment of presale should be equal to the amount total minus the token sold
-  const presaleSdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds) / config.sds);
+  // const presaleSdsSold = Math.round((tokenInfo.totalSupply - tokenInfo.balanceOfSeeds) / config.sds);
 
   const data = {
     phase: "Pre-sale",
@@ -18,7 +18,8 @@ export default async (req, res) => {
     price: config.initialPriceInWei * config.sds / config.ether,
     deadline: config.presaleDeadline,
     percentageCompleted: 0,
-    sdsSold: presaleSdsSold,
+    // sdsSold: presaleSdsSold,
+    sdsSold: 0,
     showSignin,
     showSignup,
     loggedIn: req.session.email != undefined,

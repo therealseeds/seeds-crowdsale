@@ -61,6 +61,8 @@
      </div>
   </div>
 
+  <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
+
   <div class="step" id="step-1">
     <h2>Step 1: make a deposit in ETH</h2>
 
@@ -78,14 +80,12 @@
     <p id="note">NOTE: We cannot accept Ethereum Classic (ETC)</p>
   </div>
 
-  <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
-
   <div class="step" id="step-2">
     <h2>Step 2: buy SEEDS</h2>
     <div id="buy-seeds">
-      <div><label for="balance">ETH deposited:</label><br><br><input type="string" id="balance" disabled="true" class="currency-input"  value="0"></div>
-      <div><label for="address">Address where to receive SEEDS:</label><br><br><input type="string" id="address-input" placeholder="Enter address"></div>
-      <div><button type="button" class="btn btn-green-1 waves-effect" onclick="">BUY SEEDS</button></div>
+      <div><span class="deposited">ETH deposited: </span><span class="deposited" id="balance">0</div>
+      <!-- <div><label for="address">Address where to receive SEEDS:</label><br><br><input type="string" id="address-input" placeholder="Enter address"></div> -->
+      <div><form action="/buy" method="get"><button id="buy-seeds-btn" class="btn btn-green-1 waves-effect">BUY SEEDS</button></form></div>
     </div>
     <p id="note">NOTE: We cannot send SEEDS tokens to Kraken or Coinbase accounts <sup>*</sup></p>
   </div>

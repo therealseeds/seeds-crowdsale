@@ -514,8 +514,14 @@ footer > p > a > i {
   background: #fff;
   display: none;
   margin-bottom: 20px;
+  width: 80%;
 }
 
 #buy-seeds > div {
   margin: 20px;
+}
+
+.deposited {
+  font-size: 20px;
+  font-weight: 400;
 }

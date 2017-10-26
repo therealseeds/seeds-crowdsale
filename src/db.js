@@ -22,7 +22,7 @@ export const signUpUser = async (email, hashedPassword, salt) => {
 
   autoIncrement.getNextSequence(mongo, `tokensale_users`, function (err, autoIndex) {
     mongo.collection(`tokensale_users`).insertOne({
-      "walletID": autoIndex + 1, // start from 1
+      "walletID": autoIndex,
       "email": email,
       "password": hashedPassword,
       "salt": salt
