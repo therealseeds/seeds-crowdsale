@@ -20,6 +20,7 @@ module.exports = {
   presaleDeadline: 1509519600000,
   presaleDiscount: 15,
   mailchimp: {
-   apiKey: "93fb8869c544c34b692e3f998f35f596-us16"
+   apiKey: "93fb8869c544c34b692e3f998f35f596-us16",
+   listID: "7226151fd8"
   }
 }
