@@ -14,5 +14,10 @@ const mongoDbPromise = new MongoClient.connect(mongoUrl)
 
 export const addUserEmail = async (email) => {
   const mongo = await mongoDbPromise;
-  mongo.collection(`crowdsale_users`).insertOne({ "email": email }).catch((err) => winston.error(`Error occured from mongodb ` + err));
+  mongo.collection(`crowdsale_users`).update({ "email": email }, { "email": email }, { upsert: true }).catch((err) => winston.error(`Error occured from mongodb ` + err));
+};
+
+export const addPurchaseConfirmationEmail = async (email) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`crowdsale_confirmed_purchase`).update({ "email": email }, { "email": email }, { upsert: true }).catch((err) => winston.error(`Error occured from mongodb ` + err));
 };

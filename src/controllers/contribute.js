@@ -33,8 +33,7 @@ export default async (req, res) => {
       discount: config.presaleDiscount
     };
 
-    res.render('contribute', data);
-
+    res.render('contribute_closed', data);
   }
   // } else if (config.current_phase == "crowdsale") {
   //

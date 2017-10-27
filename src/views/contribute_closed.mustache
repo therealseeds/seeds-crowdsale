@@ -1,0 +1,88 @@
+<html>
+<head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107670559-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-107670559-1');
+  </script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '1802785866656598');
+     fbq('track', 'PageView');
+     fbq('track', 'InitiateCheckout');
+  </script>
+  <noscript>
+   <img height="1" width="1"
+    src="https://www.facebook.com/tr?id=1802785866656598&ev=PageView
+    &noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+	<title>Seeds token sale</title>
+</head>
+<body onload="initConverter({{price}}, {{discount}})" onresize="adjustCross({{discount}})">
+
+  <div id="logo"><a href="/"><img class="logo-img-small" src="images/seeds-logo.png" alt="Logo"></a></div>
+
+  <h5>SAVE {{discount}}% BY OCTOBER 31st!</h5>
+  <h6>Contribute to the Pre-Sale by October 31st to save {{discount}}% on SEEDS!</h6>
+
+  <div class="centered-text" style="padding: 20px 200px 0 200px;">
+    <p>We've just sent you an email with instructions on how to complete your SEEDS purchase. In the meantime, check out our <a target="_blank" href="/faq">Buyer's FAQ</a> for more information.</p>
+    <p>Use the calculator below to determine how many SEEDS Tokens to purchase at the current price!</p>
+  </div>
+
+  <div id="price-converter">
+     <!-- <h2>1 SDS = {{price}} ETH</h2> -->
+     <div><label for="sds" class="currency">SEEDS</label><input type="number" id="sds" class="currency-input" value="1"></div>
+     <span id="equal">=</span>
+     <div><label for="eth" class="currency">ETH</label><input type="number" id="eth" class="currency-input" value="{{price}}">
+       {{#onDiscount}}
+       <div id="red-cross"></div>
+       <!-- <label for="eth-discount" id="discount-label">DISCOUNT PRICE</label> -->
+       <input type="number" id="eth-discount" class="currency-input" value="{{price}}">
+       {{/onDiscount}}
+     </div>
+  </div>
+
+  <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
+
+
+  <div class="centered-text">
+    <p>MINIMUM CAP: A minimum of 1 million SEEDS must be sold. If not, all token purchases will be refunded.</p>
+  </div>
+
+  <footer>
+    <p><b>Questions?</b> Check our <a target="_blank" href="/faq">FAQ</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a></p>
+     <p><a target="_blank" href="https://www.facebook.com/seedsgives"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+     <a target="_blank" href="https://www.instagram.com/seedsgives/"><i class="fa fa-instagram fa-2x"></i></a>
+     <a target="_blank" href="https://twitter.com/seedstweets"><i class="fa fa-twitter-square fa-2x"></i></a></p>
+  </footer>
+
+  <script src="js/init.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/mdb.min.js"></script>
+</body>
+</html>
