@@ -12,6 +12,10 @@ export default async (req, res) => {
 
   const email = req.body.email;
 
+  if (isValideEmail(email)) {
+    addToMailingList(email);
+  }
+
   if (!req.session.email) {
     if (!(email && isValideEmail(email))) {
       return res.redirect('/email');
@@ -20,7 +24,6 @@ export default async (req, res) => {
     req.session.email = email;
     if (email != "securitycheck@mail.com") {
       addUserEmail(email);
-      addToMailingList(email);
     }
   }
 
