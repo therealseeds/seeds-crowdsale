@@ -18,7 +18,5 @@ export const addToMailingList = async (email) => {
       update_existing: false
     }
   })
-  .catch(function (err) {
-    console.log("Error: " + err);
-  });
+  .catch((err) => console.log("Error: " + err));
 }

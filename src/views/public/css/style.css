@@ -390,6 +390,7 @@ hr {
 }
 
 footer {
+  width: 100%;
   padding: 30px;
   background-color: #009f78;
   color: #fff;
@@ -409,8 +410,8 @@ footer > p > a > i {
   margin: 5px;
 }
 
-#bottom-text {
-  padding-bottom: 25px;
+.centered-text {
+  padding-top: 20px;
   text-align: center;
   font-size: 18px;
   color: #14171a;

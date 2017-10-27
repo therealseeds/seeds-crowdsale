@@ -6,6 +6,7 @@ import winston from "winston";
 import config from "config";
 import { index, indexAskEmail } from "api/controllers/index";
 import contribute from "api/controllers/contribute";
+import thanks from "api/controllers/thanks";
 import bodyParser from "body-parser";
 import updateQRcode from "api/utils/qrcode";
 
@@ -18,9 +19,6 @@ app.use(express.static(__dirname + '/views/public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-const beneficiaryAddress = config.current_phase == "presale" ? config.seeds_wallet_address : config.crowdsale_address;
-updateQRcode(beneficiaryAddress);
 
 app.listen(config.port, () => winston.info(`Listening port ${config.port}`));
 
@@ -39,6 +37,7 @@ app.use(session({
 
 app.get("/", index);
 app.use("/contribute", contribute);
+app.get("/thanks", thanks);
 app.get("/email", indexAskEmail);
 app.use("/faq", (req, res) => {
   res.render('faq', { tokenAddress: config.seeds_token_address });
