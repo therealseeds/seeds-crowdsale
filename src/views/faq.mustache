@@ -37,7 +37,7 @@
 
 	<title>Seeds token sale</title>
 </head>
-<body>
+<body onload="initConverter({{price}}, {{discount}})" onresize="adjustCross({{discount}})">
   <div id="logo"><a href="/"><img class="logo-img-small" src="images/seeds-logo.png" alt="Logo"></a></div>
   <div id="faq">
 
@@ -81,6 +81,22 @@
       <p><sup>*</sup>If it’s been more than a few days and they still aren’t there, please email us at <a href="mailto:team@playseeds.com">team@playseeds.com</a>, and we’ll do whatever we can to help.</p>
       <p>Thank you so much!</p>
     </div>
+    <div>
+      <h6>How much does a Seeds Token cost?</h6>
+      <p>You can use the calculator below to determine how many SEEDS Tokens to purchase at the current price!</p>
+      <div id="price-converter">
+         <div><label for="sds" class="currency">SEEDS</label><input type="number" id="sds" class="currency-input" value="1"></div>
+         <span id="equal">=</span>
+         <div><label for="eth" class="currency">ETH</label><input type="number" id="eth" class="currency-input" value="{{price}}">
+           {{#onDiscount}}
+           <div id="red-cross"></div>
+           <!-- <label for="eth-discount" id="discount-label">DISCOUNT PRICE</label> -->
+           <input type="number" id="eth-discount" class="currency-input" value="{{price}}">
+           {{/onDiscount}}
+         </div>
+      </div>
+    </div>
   </div>
+  <script src="js/init.js"></script>
 </body>
 </html>

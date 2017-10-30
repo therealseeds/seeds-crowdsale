@@ -6,6 +6,7 @@ import winston from "winston";
 import config from "config";
 import { index, indexAskEmail } from "api/controllers/index";
 import contribute from "api/controllers/contribute";
+import faq from "api/controllers/faq";
 import thanks from "api/controllers/thanks";
 import bodyParser from "body-parser";
 import updateQRcode from "api/utils/qrcode";
@@ -39,9 +40,7 @@ app.get("/", index);
 app.use("/contribute", contribute);
 app.get("/thanks", thanks);
 app.get("/email", indexAskEmail);
-app.use("/faq", (req, res) => {
-  res.render('faq', { tokenAddress: config.seeds_token_address });
-});
+app.use("/faq", faq);
 
 app.get("/ping", healthcheck());
 app.use((req, res) => {
