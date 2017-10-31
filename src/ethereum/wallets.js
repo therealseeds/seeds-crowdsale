@@ -2,6 +2,7 @@ import bip39 from "bip39";
 import hdkey from "ethereumjs-wallet/hdkey";
 import WalletSubprovider from "ethereumjs-wallet/provider-engine";
 import tx from 'ethereumjs-tx';
+import winston from "winston";
 import config from "config";
 import { web3 } from "./index";
 
@@ -35,7 +36,7 @@ export const withdrawFromWallet = (index, address) => {
 
   const balance = web3.eth.getBalance(address);
   if (balance == 0) {
-    return false;
+    return { transactionHash: false };
   }
 
   const wallet = getWallet(index);
@@ -43,7 +44,7 @@ export const withdrawFromWallet = (index, address) => {
 
   const gasLimit = 21000;
   const gasPrice = web3.toWei(20, "gwei");
-  const value = balance - (gasLimit * gasPrice) ;
+  const value = balance - (gasLimit * gasPrice);
 
   const rawTx = {
     nonce: web3.toHex(web3.eth.getTransactionCount(address)),
@@ -54,17 +55,18 @@ export const withdrawFromWallet = (index, address) => {
     value: web3.toHex(value)
   };
 
-  console.log(rawTx);
-
   var transaction = new tx(rawTx);
   transaction.sign(privateKey);
   var serializedTx = transaction.serialize().toString('hex');
 
-  web3.eth.sendRawTransaction("0x" + serializedTx, function(err, transactionHash) {
-    console.log(transactionHash);
-    console.log(err);
-  });
+  try {
+    const transactionHash = web3.eth.sendRawTransaction("0x" + serializedTx);
+    winston.info(`Transaction ${transactionHash} initiated`);
 
-  return true;
+    return { transactionHash, balance: balance.toNumber() };
 
+  } catch (err) {
+    winston.error(err);
+    return { transactionHash: false };
+  }
 };

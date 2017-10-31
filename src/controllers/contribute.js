@@ -7,17 +7,18 @@ export default async (req, res) => {
     return res.redirect("/?signin=true&errorMessage=badInput");
   }
 
-  if (config.current_phase == "presale") {
+  const errorMessage = req.query.errorMessage;
 
-    const data = {
-      price: config.initialPriceInWei * config.sds / config.ether,
-      onDiscount: false,
-      discount: config.presaleDiscount,
-      showAddress: req.session.address == true
-    };
+  const data = {
+    price: config.initialPriceInWei * config.sds / config.ether,
+    onDiscount: false,
+    discount: config.presaleDiscount,
+    showAddress: req.session.address == true,
+    transactionFailed: errorMessage == "transactionFailed",
+  };
 
-    res.render('contribute_closed', data);
-  }
+  res.render('contribute', data);
+
   // } else if (config.current_phase == "crowdsale") {
   //
   //   const crowdsalePriceInfo = await getCrowdsalePriceInfo();

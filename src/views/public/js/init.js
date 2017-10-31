@@ -101,6 +101,6 @@ function init(deadline, percentageCompleted, sdsSold, showSignin, showSignup) {
   if (showSignup) $('#modalSignupForm').modal('show');
 
   initializeClock(deadline);
-  try {initProgressBar(percentageCompleted / 100, sdsSold);} catch(e) {}
+  // try {initProgressBar(percentageCompleted / 100, sdsSold);} catch(e) {}
   try {initTokenSold(sdsSold);} catch(e) {}
 }

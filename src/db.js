@@ -44,3 +44,31 @@ export const addWalletAddress = async (email, address) => {
     { "$set": { "walletAddress": address } },
   );
 };
+
+export const addPendingPurchase = async (email, price, value, transactionHash) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$push": {
+       "purchases": {
+         "price" : price,
+         "value" : value,
+         "transaction": transactionHash,
+         "createdAt" : Date.now(),
+         "status": "pending"
+       }
+    }}
+  );
+};
+
+export const updatePurchase = async (transactionHash, status) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    {
+      "purchases.transaction": transactionHash
+    },
+    { "$set": {
+       "purchases.$.status": status
+    }}
+  );
+};

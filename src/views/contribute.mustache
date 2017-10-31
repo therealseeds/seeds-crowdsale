@@ -84,13 +84,15 @@
     <h2>Step 2: buy SEEDS</h2>
     <div id="buy-seeds">
       <div><span class="deposited">ETH deposited: </span><span class="deposited" id="balance">0</div>
+        <!-- <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-refresh"></span> Refresh</button> -->
       <!-- <div><label for="address">Address where to receive SEEDS:</label><br><br><input type="string" id="address-input" placeholder="Enter address"></div> -->
       <div><form action="/buy" method="get"><button id="buy-seeds-btn" class="btn btn-green-1 waves-effect">BUY SEEDS</button></form></div>
+      {{#transactionFailed}}<p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>{{/transactionFailed}}
     </div>
     <p id="note">NOTE: We cannot send SEEDS tokens to Kraken or Coinbase accounts <sup>*</sup></p>
   </div>
 
-  <div id="bottom-text">
+  <div class="centered-text">
     <p>MINIMUM CAP: A minimum of 1 million SEEDS must be sold. If not, all token purchases will be refunded.</p>
     <p><sup>*</sup>Check our <a target="_blank" href="/faq">FAQ</a> for more information.</p>
   </div>
