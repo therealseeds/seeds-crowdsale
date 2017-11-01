@@ -32,7 +32,7 @@ export default async (req, res) => {
     const data = {
       beneficiaryAddress: config.seeds_wallet_address,
       price: config.initialPriceInWei * config.sds / config.ether,
-      onDiscount: true,
+      onDiscount: false,
       discount: config.presaleDiscount
     };
 
