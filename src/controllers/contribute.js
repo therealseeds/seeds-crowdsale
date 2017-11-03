@@ -12,7 +12,7 @@ export default async (req, res) => {
   const data = {
     price: config.initialPriceInWei * config.sds / config.ether,
     onDiscount: false,
-    discount: config.presaleDiscount,
+    discount: 0,
     showAddress: req.session.address == true,
     transactionFailed: errorMessage == "transactionFailed",
   };

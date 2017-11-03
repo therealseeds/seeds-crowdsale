@@ -3,9 +3,11 @@ import { getUser, addWalletAddress } from "api/db";
 
 export default async (req, res) => {
 
+  res.setHeader('Content-Type', 'application/json');
+
   if (!req.session.email) {
     res.status(400);
-    return res.send({ status: "Bad Request" });
+    return res.send(JSON.stringify({ status: "Bad Request" }));
   }
 
   const user = await getUser(req.session.email);
@@ -20,5 +22,5 @@ export default async (req, res) => {
 
   req.session.address = true;
   res.status(200);
-  return res.send({ address, balance });
+  return res.send(JSON.stringify({ address, balance }));
 };

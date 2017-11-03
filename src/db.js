@@ -2,6 +2,7 @@ import winston from "winston";
 import config from "config";
 import { MongoClient } from 'mongodb';
 import autoIncrement from "mongodb-autoincrement";
+import { transactionStatus } from "api/ethereum/transactions";
 
 const buildMongoUrl = ({ host, port, user, password, database, replica }) => {
   const options = (replica && replica != "null") ? `?replicaSet=${replica}` : '';
@@ -55,7 +56,7 @@ export const addPendingPurchase = async (email, price, value, transactionHash) =
          "value" : value,
          "transaction": transactionHash,
          "createdAt" : Date.now(),
-         "status": "pending"
+         "status": transactionStatus.PENDING
        }
     }}
   );
@@ -72,3 +73,17 @@ export const updatePurchase = async (transactionHash, status) => {
     }}
   );
 };
+
+export const updateTokensRetrieved = async (email, seedsUnits, address) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$push": {
+       "tokensRetrieved": {
+         "units" : seedsUnits,
+         "address" : address,
+         "retrievedAt" : Date.now()
+       }
+    }}
+  );
+}

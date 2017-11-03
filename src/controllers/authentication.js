@@ -7,22 +7,25 @@ export const signIn = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
+  const to = req.body.to;
+  const from = req.body.from;
+
   if (!isValideEmail(email) || (password == "")) {
-    return res.redirect("/?signin=true&errorMessage=badInput");
+    return res.redirect(`/${from}?signin=true&errorMessage=badInput`);
   }
 
   const user = await getUser(email);
   if (!user) {
-    return res.redirect("/?signin=true&errorMessage=wrongCredentials");
+    return res.redirect(`/${from}?signin=true&errorMessage=wrongCredentials`);
   }
 
   const correct = verifyPassword(password, user.password, user.salt);
   if (!correct) {
-    return res.redirect("/?signin=true&errorMessage=wrongCredentials");
+    return res.redirect(`/${from}?signin=true&errorMessage=wrongCredentials`);
   }
 
   req.session.email = email;
-  return res.redirect("/contribute");
+  return res.redirect(`/${to}`);
 };
 
 export const signUp = async (req, res) => {

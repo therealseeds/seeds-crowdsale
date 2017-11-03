@@ -7,6 +7,10 @@ function requestAddress() {
 
   $.get( "/wallet", function( data, statusText, xhr ) {
 
+    if (!data.address) {
+      data = JSON.parse(data);
+    }
+
     if (xhr.status == 200) {
       var loading = document.getElementById('loading');
       loading.style.display = "none";
@@ -22,6 +26,28 @@ function requestAddress() {
 
       var buySeeds = document.getElementById('buy-seeds');
       buySeeds.style.display = "inline-block";
+
+      var balance = document.getElementById('balance');
+      balance.innerHTML = data.balance;
+
+      var buyBtn = document.getElementById("buy-seeds-btn");
+      buyBtn.disabled = (data.balance == 0) ? true : false;
+
+    } else {
+      // Handle error status
+    }
+  });
+}
+
+function refreshBalance() {
+
+  $.get( "/wallet", function( data, statusText, xhr ) {
+
+    if (!data.address) {
+      data = JSON.parse(data);
+    }
+
+    if (xhr.status == 200) {
 
       var balance = document.getElementById('balance');
       balance.innerHTML = data.balance;

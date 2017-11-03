@@ -85,8 +85,8 @@
   <div class="step" id="step-2">
     <h2>Step 2: buy SEEDS</h2>
     <div id="buy-seeds">
-      <div><span class="deposited">ETH deposited: </span><span class="deposited" id="balance">0</div>
-        <!-- <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-refresh"></span> Refresh</button> -->
+      <div><span class="deposited">ETH deposited: </span><span class="deposited" id="balance">0</span></div>
+      <button onclick="refreshBalance()">Refresh <i class="fa fa-refresh" aria-hidden="true"></i></button>
       <!-- <div><label for="address">Address where to receive SEEDS:</label><br><br><input type="string" id="address-input" placeholder="Enter address"></div> -->
       <div><form action="/buy" method="get"><button id="buy-seeds-btn" class="btn btn-green-1 waves-effect">BUY SEEDS</button></form></div>
       {{#transactionFailed}}<p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>{{/transactionFailed}}

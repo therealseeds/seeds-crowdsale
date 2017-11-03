@@ -70,3 +70,5 @@ export const withdrawFromWallet = (index, address) => {
     return { transactionHash: false };
   }
 };
+
+export const isValidAddress = (address) => web3.isAddress(address);
