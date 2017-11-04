@@ -4,6 +4,7 @@ import { isValidAddress } from "api/ethereum/wallets";
 import { getConfirmedPurchases, calculateTotalSeedsUnits } from "api/utils/purchases";
 import { sendTokensTo } from "api/ethereum/token";
 import { validateTransaction, transactionStatus } from "api/ethereum/transactions";
+import { sendTransactionStatusSlack } from "api/utils/slack";
 
 
 export default async (req, res) => {
@@ -33,6 +34,8 @@ export default async (req, res) => {
 
   validateTransaction(transactionHash).then((status) => {
 
+    sendTransactionStatusSlack(transactionHash, status);
+
     if (status == transactionStatus.CONFIRMED) {
       for (let purchase of confirmedPurchases) {
         updatePurchase(purchase.transaction, transactionStatus.COMPLETED);
@@ -40,10 +43,10 @@ export default async (req, res) => {
 
       updateTokensRetrieved(req.session.email, totalSeedsUnits, req.body.address);
     } else {
-      // TODO: send slack if transaction failed
+      // TODO: send email if transaction failed
     }
 
   });
 
-  return res.redirect("/thanks");
+  return res.redirect("/thanks-again");
 }

@@ -1,7 +1,10 @@
 import config from "config";
 import { withdrawFromWallet } from "api/ethereum/wallets";
-import { validateTransaction } from "api/ethereum/transactions";
+import { validateTransaction, transactionStatus } from "api/ethereum/transactions";
 import { getUser, addPendingPurchase, updatePurchase } from "api/db";
+import { sendPurchaseConfirmedEmail } from "api/utils/mailer";
+import { sendTransactionStatusSlack } from "api/utils/slack";
+
 
 export default async (req, res) => {
 
@@ -21,9 +24,13 @@ export default async (req, res) => {
 
   validateTransaction(transactionHash).then((status) => {
     updatePurchase(transactionHash, status);
+    sendTransactionStatusSlack(transactionHash, status);
 
-    // TODO: send email
-    // TODO: send slack if transaction failed
+    if (status == transactionStatus.CONFIRMED) {
+      sendPurchaseConfirmedEmail(req.session.email);
+    } else {
+      // TODO: send purchase failed email
+    }
   });
 
   req.session.purchase = balance;

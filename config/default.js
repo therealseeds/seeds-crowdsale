@@ -19,8 +19,12 @@ module.exports = {
   initialPriceInWei: 20000,
   presaleDeadline: 1510128000000,
   mailchimp: {
-   apiKey: "93fb8869c544c34b692e3f998f35f596-us16",
-   listID: "7226151fd8"
- },
-
+    apiKey: "93fb8869c544c34b692e3f998f35f596-us16",
+    listID: "7226151fd8"
+  },
+  email: {
+    sendEmails: true,
+    sesAccessKeyId: "AKIAI3YCI5E43E2CE5QQ",
+    sesSecretAccessKey: "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"
+  }
 }
