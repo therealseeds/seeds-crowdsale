@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 import sesTransport from 'nodemailer-ses-transport';
 import winston from "winston";
+import fs from "fs";
 import config from "config";
 
 
@@ -29,9 +30,7 @@ export const sendPurchaseConfirmedEmail = async (receiver, retrieveLink) => {
   let message = {
     to: receiver,
     subject: 'Seeds - purchase confirmed',
-    html: 'Your transaction was successful and your purchase is confirmed!' +
-           `<br/><br/>Now you can retrieve your Seeds Tokens <a href="http://localhost:3000/retrieve">here</a>` +
-           '<br/><br/>Thanks,<br/>Seeds team',
+    html: fs.readFileSync(__dirname + '/emails/purchase-confirmed.html')
   };
 
   await sendMail(message);
