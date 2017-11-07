@@ -44,10 +44,10 @@ export const sendTokensTo = (addressTo, totalSeedsUnits) => {
     const transactionHash = web3.eth.sendRawTransaction("0x" + serializedTx);
     winston.info(`Transaction ${transactionHash} initiated`);
 
-    return transactionHash;
+    return { transactionHash };
 
   } catch (err) {
     winston.error(err);
-    return false;
+    return { transactionHash: false, error: err.message };
   }
 };

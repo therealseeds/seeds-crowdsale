@@ -36,7 +36,7 @@ export const withdrawFromWallet = (index, address) => {
 
   const balance = web3.eth.getBalance(address);
   if (balance == 0) {
-    return { transactionHash: false };
+    return { transactionHash: false, balance };
   }
 
   const wallet = getWallet(index);
@@ -67,7 +67,7 @@ export const withdrawFromWallet = (index, address) => {
 
   } catch (err) {
     winston.error(err);
-    return { transactionHash: false };
+    return { transactionHash: false, balance: balance.toNumber(), error: err.message };
   }
 };
 

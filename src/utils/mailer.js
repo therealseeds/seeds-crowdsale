@@ -24,9 +24,9 @@ const sendMail = async (message) => {
   } catch (err) {
     winston.error("Error - send email: ", err);
   }
-}
+};
 
-export const sendPurchaseConfirmedEmail = async (receiver, retrieveLink) => {
+export const sendPurchaseConfirmedEmail = async (receiver) => {
   let message = {
     to: receiver,
     subject: 'Seeds - purchase confirmed',
@@ -34,4 +34,34 @@ export const sendPurchaseConfirmedEmail = async (receiver, retrieveLink) => {
   };
 
   await sendMail(message);
-}
+};
+
+export const sendPurchaseFailedEmail = async (receiver) => {
+  let message = {
+    to: receiver,
+    subject: 'Seeds - purchase failed',
+    html: fs.readFileSync(__dirname + '/emails/purchase-failed.html')
+  };
+
+  await sendMail(message);
+};
+
+export const sendRetrieveConfirmedEmail = async (receiver) => {
+  let message = {
+    to: receiver,
+    subject: 'Seeds - Tokens retrieved successfully',
+    html: fs.readFileSync(__dirname + '/emails/retrieve-confirmed.html')
+  };
+
+  await sendMail(message);
+};
+
+export const sendRetrieveFailedEmail = async (receiver) => {
+  let message = {
+    to: receiver,
+    subject: 'Seeds - Tokens retrieval failed',
+    html: fs.readFileSync(__dirname + '/emails/retrieve-failed.html')
+  };
+
+  await sendMail(message);
+};

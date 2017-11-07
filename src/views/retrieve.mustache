@@ -28,7 +28,7 @@
     &noscript=1"/>
   </noscript>
   <!-- End Facebook Pixel Code -->
-  
+
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -119,7 +119,10 @@
           </div></form>
           <p class="errorMessage" id="address-error">Error: Enter a valid address!</p>
           {{#badInputError}}<p class="errorMessage">Error: bad input!</p>{{/badInputError}}
-          {{#transactionFailed}}<p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>{{/transactionFailed}}
+          {{#transactionFailed}}
+            <p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>
+            <p class="errorMessage">If this happens again contact us!</p>
+          {{/transactionFailed}}
         </div>
         <p id="note">NOTE: We cannot send SEEDS tokens to Kraken or Coinbase accounts <sup>*</sup></p>
       </div>

@@ -10,4 +10,6 @@ const sendSlackMessage = async (message) => {
   }
 };
 
-export const sendTransactionStatusSlack = (transactionHash, status) => sendSlackMessage(`Transaction ${transactionHash}: ${status}`);
+export const sendTransactionStatusSlack = (transactionHash, status, context) => sendSlackMessage(`${context} transaction ${transactionHash}: ${status}`);
+
+export const sendTransactionErrorSlack = (error, context) => sendSlackMessage(`${context} transaction ${error}`);

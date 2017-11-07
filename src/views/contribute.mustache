@@ -89,7 +89,12 @@
       <button onclick="refreshBalance()">Refresh <i class="fa fa-refresh" aria-hidden="true"></i></button>
       <!-- <div><label for="address">Address where to receive SEEDS:</label><br><br><input type="string" id="address-input" placeholder="Enter address"></div> -->
       <div><form action="/buy" method="get"><button id="buy-seeds-btn" class="btn btn-green-1 waves-effect">BUY SEEDS</button></form></div>
-      {{#transactionFailed}}<p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>{{/transactionFailed}}
+      {{#transactionFailed}}
+        <p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>
+        <p class="errorMessage">If this happens again contact us!</p>
+      {{/transactionFailed}}
+      {{#zeroBalance}}<p class="errorMessage">Error: balance not enough!</p>{{/zeroBalance}}
+
     </div>
     <!-- <p id="note">NOTE: We cannot send SEEDS tokens to Kraken or Coinbase accounts <sup>*</sup></p> -->
   </div>

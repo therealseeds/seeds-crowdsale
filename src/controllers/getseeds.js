@@ -4,7 +4,8 @@ import { isValidAddress } from "api/ethereum/wallets";
 import { getConfirmedPurchases, calculateTotalSeedsUnits } from "api/utils/purchases";
 import { sendTokensTo } from "api/ethereum/token";
 import { validateTransaction, transactionStatus } from "api/ethereum/transactions";
-import { sendTransactionStatusSlack } from "api/utils/slack";
+import { sendTransactionStatusSlack, sendTransactionErrorSlack } from "api/utils/slack";
+import { sendRetrieveConfirmedEmail, sendRetrieveFailedEmail } from "api/utils/mailer";
 
 
 export default async (req, res) => {
@@ -26,7 +27,11 @@ export default async (req, res) => {
     return res.redirect("/retrieve?errorMessage=badInput");
   }
 
-  const transactionHash = sendTokensTo(req.body.address, totalSeedsUnits);
+  const { transactionHash, error } = sendTokensTo(req.body.address, totalSeedsUnits);
+
+  if (error) {
+    sendTransactionErrorSlack(error, "Token");
+  }
 
   if (!transactionHash) {
     return res.redirect("/retrieve?errorMessage=transactionFailed");
@@ -34,7 +39,7 @@ export default async (req, res) => {
 
   validateTransaction(transactionHash).then((status) => {
 
-    sendTransactionStatusSlack(transactionHash, status);
+    sendTransactionStatusSlack(transactionHash, status, "Token");
 
     if (status == transactionStatus.CONFIRMED) {
       for (let purchase of confirmedPurchases) {
@@ -42,8 +47,10 @@ export default async (req, res) => {
       }
 
       updateTokensRetrieved(req.session.email, totalSeedsUnits, req.body.address);
+
+      sendRetrieveConfirmedEmail(req.session.email);
     } else {
-      // TODO: send email if transaction failed
+      sendRetrieveFailedEmail(req.session.email);
     }
 
   });
