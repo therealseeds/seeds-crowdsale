@@ -1,5 +1,7 @@
 import Mailchimp from 'mailchimp-api-v3';
+import winston from "winston";
 import config from 'config';
+
 
 const mailchimp = new Mailchimp(config.mailchimp.apiKey);
 
@@ -18,5 +20,5 @@ export const addToMailingList = async (email) => {
       update_existing: false
     }
   })
-  .catch((err) => console.log("Error: " + err));
+  .catch((err) => winston.error("Error: " + err));
 }

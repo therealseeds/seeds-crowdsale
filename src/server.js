@@ -4,12 +4,17 @@ import session from 'cookie-session';
 import healthcheck from "express-healthcheck";
 import winston from "winston";
 import config from "config";
-import { index, indexAskEmail } from "api/controllers/index";
+import index from "api/controllers/index";
+import { signUp, signIn } from "api/controllers/authentication";
 import contribute from "api/controllers/contribute";
 import faq from "api/controllers/faq";
-import thanks from "api/controllers/thanks";
+import { thanks, thanksAgain } from "api/controllers/thanks";
+import getWallet from "api/controllers/wallet";
+import getQRcode from "api/controllers/qrcode";
+import buy from "api/controllers/buy";
+import retrieve from "api/controllers/retrieve";
+import getSeeds from "api/controllers/getseeds";
 import bodyParser from "body-parser";
-import updateQRcode from "api/utils/qrcode";
 
 export const app = express();
 
@@ -32,16 +37,23 @@ app.use((req, res, next) => {
 });
 
 app.use(session({
-  name: 'session',
-  keys: ['key1', 'key2']
+  name: 'seeds-session',
+  keys: ['mfxgayxHnY8kyBJh', 'HMX4tb2yfzAu2fzG']
 }))
 
 app.get("/", index);
+app.post("/signin", signIn);
+app.post("/signup", signUp);
 app.use("/contribute", contribute);
 app.get("/thanks", thanks);
-app.get("/email", indexAskEmail);
+app.get("/thanks-again", thanksAgain);
 app.use("/faq", faq);
+app.get("/wallet", getWallet);
+app.use("/buy", buy);
+app.get("/retrieve", retrieve);
+app.post("/getseeds", getSeeds);
 
+app.get('/qr/:address', getQRcode);
 app.get("/ping", healthcheck());
 app.use((req, res) => {
   res.status(404);

@@ -1,43 +1,26 @@
 import config from "config";
-// import { getCrowdsalePriceInfo } from "api/contracts/crowdsale";
-import { addUserEmail } from "api/db";
 import { addToMailingList } from "api/utils/mailchimp";
-
-const isValideEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-}
 
 export default async (req, res) => {
 
-  const email = req.body.email;
-
-  if (isValideEmail(email)) {
-    addToMailingList(email);
-  }
-
   if (!req.session.email) {
-    if (!(email && isValideEmail(email))) {
-      return res.redirect('/email');
-    }
-
-    req.session.email = email;
-    if (email != "securitycheck@mail.com") {
-      addUserEmail(email);
-    }
+    return res.redirect("/?signin=true&errorMessage=badInput");
   }
 
-  if (config.current_phase == "presale") {
+  const errorMessage = req.query.errorMessage;
 
-    const data = {
-      beneficiaryAddress: config.seeds_wallet_address,
-      price: config.initialPriceInWei * config.sds / config.ether,
-      onDiscount: false,
-      discount: config.presaleDiscount
-    };
+  const data = {
+    price: config.initialPriceInWei * config.sds / config.ether,
+    onDiscount: false,
+    discount: 0,
+    showAddress: req.session.address == true,
+    transactionFailed: errorMessage == "transactionFailed",
+    zeroBalance: errorMessage == "zeroBalance",
+    invalidPromo: errorMessage == "invalidPromo",
+  };
 
-    res.render('contribute_closed', data);
-  }
+  res.render('contribute', data);
+
   // } else if (config.current_phase == "crowdsale") {
   //
   //   const crowdsalePriceInfo = await getCrowdsalePriceInfo();

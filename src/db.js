@@ -1,6 +1,8 @@
 import winston from "winston";
 import config from "config";
 import { MongoClient } from 'mongodb';
+import autoIncrement from "mongodb-autoincrement";
+import { transactionStatus } from "api/ethereum/transactions";
 
 const buildMongoUrl = ({ host, port, user, password, database, replica }) => {
   const options = (replica && replica != "null") ? `?replicaSet=${replica}` : '';
@@ -12,12 +14,77 @@ winston.info(`Trying to connect to ${config.mongo.database}`);
 const mongoDbPromise = new MongoClient.connect(mongoUrl)
   .catch((err) => winston.error(`Could not connect to mongodb ${config.mongo.database}:` + err));
 
-export const addUserEmail = async (email) => {
+export const signUpUser = async (email, hashedPassword, salt) => {
   const mongo = await mongoDbPromise;
-  mongo.collection(`crowdsale_users`).update({ "email": email }, { "email": email }, { upsert: true }).catch((err) => winston.error(`Error occured from mongodb ` + err));
+  const user = await mongo.collection(`tokensale_users`).findOne({ "email": email });
+  if (user) { // User already exists
+    return false;
+  }
+
+  autoIncrement.getNextSequence(mongo, `tokensale_users`, function (err, autoIndex) {
+    mongo.collection(`tokensale_users`).insertOne({
+      "walletID": autoIndex,
+      "email": email,
+      "password": hashedPassword,
+      "salt": salt
+    });
+  });
+
+  return true;
 };
 
-export const addPurchaseConfirmationEmail = async (email) => {
+export const getUser = async (email) => {
   const mongo = await mongoDbPromise;
-  mongo.collection(`crowdsale_confirmed_purchase`).update({ "email": email }, { "email": email }, { upsert: true }).catch((err) => winston.error(`Error occured from mongodb ` + err));
+  return await mongo.collection(`tokensale_users`).findOne({ "email": email });
 };
+
+export const addWalletAddress = async (email, address) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$set": { "walletAddress": address } },
+  );
+};
+
+export const addPendingPurchase = async (email, price, value, transactionHash, promoCode) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$push": {
+       "purchases": {
+         "price" : price,
+         "value" : value,
+         "transaction": transactionHash,
+         "createdAt" : Date.now(),
+         "status": transactionStatus.PENDING,
+         "promoCode": promoCode || null
+       }
+    }}
+  );
+};
+
+export const updatePurchase = async (transactionHash, status) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    {
+      "purchases.transaction": transactionHash
+    },
+    { "$set": {
+       "purchases.$.status": status
+    }}
+  );
+};
+
+export const updateTokensRetrieved = async (email, seedsUnits, address) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$push": {
+       "tokensRetrieved": {
+         "units" : seedsUnits,
+         "address" : address,
+         "retrievedAt" : Date.now()
+       }
+    }}
+  );
+}

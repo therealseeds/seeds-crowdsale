@@ -5,6 +5,6 @@ export default (req, res) => {
     tokenAddress: config.seeds_token_address,
     price: config.initialPriceInWei * config.sds / config.ether,
     onDiscount: false,
-    discount: config.presaleDiscount
+    discount: 0
   });
 }

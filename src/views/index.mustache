@@ -45,7 +45,7 @@
 
 	<title>Seeds token sale</title>
 </head>
-<body onload="init({{deadline}}, {{percentageCompleted}}, {{sdsSold}}, {{askEmail}})">
+<body onload="init({{deadline}}, {{percentageCompleted}}, {{sdsSold}}, {{showSignin}}, {{showSignup}})">
 
   <section class="first-section">
     <div id="logo"><a href="/"><img class="logo-img" src="images/seeds-logo.png" alt="Logo"></a></div>
@@ -55,7 +55,7 @@
     {{/showProgress}}
 
     <div id="clockdiv">
-      <h1>Current price will increase in</h1>
+      <h1>Price will increase in</h1>
       <div id="clockdiv-container">
         <div>
           <span class="days"></span>
@@ -81,13 +81,13 @@
     {{/showProgress}}
 
     <div class="centered-text">
-      <p>The notional value of 1 Seeds Token is ~$0.06</p>
+      <p>The notional value of 1 Seeds Token is ~$0.08</p>
     </div>
 
     <!-- Button trigger modal -->
     <div class="buy-button">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
-          JOIN SALE NOW
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" onclick="isLoggedInAlready({{loggedIn}})">
+          JOIN PRE-SALE NOW
       </button>
     </div>
 
@@ -96,31 +96,92 @@
       <p><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
     </div>
 
-    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalSigninForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog cascading-modal" role="document">
           <!--Content-->
           <div class="modal-content">
 
               <!--Header-->
               <div class="modal-header light-blue darken-3 white-text">
-                  <h4 class="title"><i class="fa fa-pencil"></i> Enter your email address</h4>
+                  <h4 class="title"><i class="fa fa-pencil"></i> Sign in</h4>
                   <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
               </div>
               <!--Body-->
               <div class="modal-body mb-0">
-                 <form role="form" name="modalForm" action="/contribute" method="POST">
+                 <form role="form" name="signInForm" action="/signin" method="POST">
                   <div class="md-form form-sm">
                       <i class="fa fa-envelope prefix"></i>
                       <input type="email" id="email" name="email" class="form-control">
                       <label for="email">Your email</label>
                   </div>
+                  <div class="md-form form-sm">
+                      <i class="fa fa-lock prefix"></i>
+                      <input type="password" id="password" name="password" class="form-control">
+                      <label for="password">Your password</label>
+                  </div>
+
+                  <input type="hidden" name="to" value="contribute">
+                  <input type="hidden" name="from" value="">
+
+                  {{#badInputError}}<p class="errorMessage">Error: Wrong parameters</p>{{/badInputError}}
+                  {{#wrongCredentialsError}}<p class="errorMessage">Error: Email or password are not correct</p>{{/wrongCredentialsError}}
 
                   <div class="text-center mt-1-half">
-                      <button class="btn btn-primary mb-2" onclick="return validateForm();">Continue <i class="fa fa-send ml-1"></i></button>
+                      <button class="btn btn-primary mb-2" onclick="return validateSigninForm();">Continue <i class="fa fa-send ml-1"></i></button>
                   </div>
                 </form>
+
+                <a href="" type="button" data-toggle="modal" data-target="#modalSignupForm" data-dismiss="modal" style="-webkit-appearance: none;">Sign up</a>
+                <!-- <a href="" id=""> -->
+
+              </div>
+          </div>
+          <!--/.Content-->
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalSignupForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog cascading-modal" role="document">
+          <!--Content-->
+          <div class="modal-content">
+
+              <!--Header-->
+              <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title"><i class="fa fa-pencil"></i> Sign up</h4>
+                  <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <!--Body-->
+              <div class="modal-body mb-0">
+                 <form role="form" name="signUpForm" action="/signup" method="POST">
+                  <div class="md-form form-sm">
+                      <i class="fa fa-envelope prefix"></i>
+                      <input type="email" id="new-email" name="email" class="form-control" required>
+                      <label for="email">Your email</label>
+                  </div>
+                  <div class="md-form form-sm">
+                      <i class="fa fa-lock prefix"></i>
+                      <input type="password" id="new-password" name="password" class="form-control" required>
+                      <label for="password">New password</label>
+                  </div>
+                  <div class="md-form form-sm">
+                      <i class="fa fa-lock prefix"></i>
+                      <input type="password" id="confirm-password" name="confirmPassword" class="form-control" required>
+                      <label for="confirm-password">Confirm password</label>
+                  </div>
+
+                  {{#badInputError}}<p class="errorMessage">Error: Wrong parameters</p>{{/badInputError}}
+                  {{#alreadyExistsError}}<p class="errorMessage">Error: Email already registered</p>{{/alreadyExistsError}}
+
+                  <div class="text-center mt-1-half">
+                      <button class="btn btn-primary mb-2" onclick="return validateSignupForm();">Continue <i class="fa fa-send ml-1"></i></button>
+                  </div>
+                </form>
+
+                <a href="" type="button" data-toggle="modal" data-target="#modalSigninForm" data-dismiss="modal" style="-webkit-appearance: none;">Sign in</a>
 
               </div>
           </div>
@@ -145,8 +206,7 @@
 
   <section>
     <h3>What are Seeds Tokens?</h3>
-    <p>Seeds Tokens are a digital currency that can be redeemed within the Seeds system.  When you redeem a token, you can share a request to have a need met.  Our recommendation algorithm will then show your need to the people who - data shows - would most love to help.
-    </p>
+    <p>Seeds Tokens are a digital currency that can be redeemed within the Seeds system. When you redeem a token, you can share a request to have a need met. Our recommendation algorithm will then show your need to the people who - data shows - would most love to help.</p>
 
     <div class="infographic"><img src="images/token-flow.jpg"></div>
 
@@ -154,7 +214,7 @@
 
     <!-- <div id="prices"><img src="images/prices.jpg" alt="prices"></div> -->
 
-    <p>The notional value of SEEDS is set at ~$0.06 per token. The final value will be determined according to the sale stage.</p>
+    <p>The notional value of SEEDS is set at ~$0.08 per token. The final value will be determined according to the sale stage.</p>
 
     <div id="pie-chart"><img src="images/pie-chart.jpg" alt="pie-chart"></div>
 
@@ -212,8 +272,8 @@
     <hr id="call-to-action-hr">
     <h3>Ready to grow with Seeds?</h3>
     <div class="buy-button" style="padding-bottom: 20px;">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalContactForm">
-          JOIN SALE NOW
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" onclick="isLoggedInAlready({{loggedIn}})">
+          JOIN PRE-SALE NOW
       </button>
     </div>
   </section>
@@ -232,7 +292,8 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/mdb.min.js"></script>
-  <script src="js/progressbar.min.js"></script>
+  <!-- <script src="js/progressbar.min.js"></script> -->
   <script src="js/init.js"></script>
+  <script src="js/authentication.js"></script>
 </body>
 </html>

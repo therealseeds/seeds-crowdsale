@@ -1,6 +1,4 @@
 function initProgressBar(progress, sdsSold) {
-  console.log("Progress 0 to 1", progress);
-
   var bar = new ProgressBar.Line("#progressbar", {
   strokeWidth: 4,
   easing: 'easeInOut',
@@ -74,7 +72,6 @@ function getTimeRemaining(endtime) {
 
 function initializeClock(deadline) {
   var endtime = new Date(deadline);
-  console.log("Deadline: " + endtime);
   var clock = document.getElementById('clockdiv-container');
   var daysSpan = clock.querySelector('.days');
   var hoursSpan = clock.querySelector('.hours');
@@ -98,90 +95,12 @@ function initializeClock(deadline) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-function getOffset(el) {
-  el = el.getBoundingClientRect();
-  return {
-    left: el.left + window.scrollX,
-    top: el.top + window.scrollY
-  }
-}
+function init(deadline, percentageCompleted, sdsSold, showSignin, showSignup) {
 
-function adjustCross(discount) {
-  if (discount) {
-    var eth = document.getElementById('eth');
-    var cross = document.getElementById('red-cross');
-    const offset = getOffset(eth);
-    cross.style.left = offset.left;
-    cross.style.top = offset.top;
-  }
-}
-
-function initConverter(sdsPrice, discount) {
-
-  adjustCross(discount);
-
-  console.log("init converter");
-
-  var sds = document.getElementById('sds');
-  var eth = document.getElementById('eth');
-  var ethDiscounted = document.getElementById('eth-discount');
-
-  if (discount) {
-    var sdsPriceDiscounted = sdsPrice * (100 - discount) / 100;
-    ethDiscounted.value = sdsPriceDiscounted;
-    eth.disabled = true;
-  }
-
-  const updateEth = function() {
-    const sdsValue = parseFloat(sds.value);
-    const ethPrice = sdsValue * parseFloat(sdsPrice);
-    eth.value = ethPrice || "";
-
-    if (discount) {
-      const ethPriceDiscounted = sdsValue * parseFloat(sdsPriceDiscounted);
-      ethDiscounted.value = ethPriceDiscounted || "";
-    }
-  }
-
-  sds.oninput = updateEth;
-  sds.onpropertychange = sds.oninput; // for IE8
-
-  const updateSds = function() {
-    const ethValue = parseFloat(eth.value);
-    const sdsValue = ethValue / parseFloat(sdsPrice);
-    sds.value = sdsValue || "";
-  }
-
-  eth.oninput = updateSds;
-  eth.onpropertychange = eth.oninput; // for IE8
-
-  const updateFromDiscount = function() {
-    const ethDiscountedValue = parseFloat(ethDiscounted.value);
-    const sdsValue = ethDiscountedValue / parseFloat(sdsPriceDiscounted);
-    sds.value = sdsValue || "";
-
-    const ethPrice = sdsValue * parseFloat(sdsPrice);
-    eth.value = ethPrice || "";
-  }
-
-  if (discount) {
-    ethDiscounted.oninput = updateFromDiscount;
-    ethDiscounted.onpropertychange = ethDiscounted.oninput; // for IE8
-  }
-}
-
-
-
-function init(deadline, percentageCompleted, sdsSold, askEmail) {
-
-  if (askEmail) $('#modalContactForm').modal('show');
+  if (showSignin) $('#modalSigninForm').modal('show');
+  if (showSignup) $('#modalSignupForm').modal('show');
 
   initializeClock(deadline);
-  try {initProgressBar(percentageCompleted / 100, sdsSold);} catch(e) {}
+  // try {initProgressBar(percentageCompleted / 100, sdsSold);} catch(e) {}
   try {initTokenSold(sdsSold);} catch(e) {}
-}
-
-function validateForm() {
-  const email = document.forms["modalForm"]["email"].value;
-  return !(email == null || email == "");
 }
