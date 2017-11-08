@@ -89,29 +89,26 @@
       <div><span class="deposited">ETH deposited: </span><span class="deposited" id="balance">0</span></div>
       <button onclick="refreshBalance()">Refresh <i class="fa fa-refresh" aria-hidden="true"></i></button>
 
+      <form action="/buy" method="post">
       <div id="promoContainer">
         <div class="space">
           <i class="fa fa-usd"></i> <a href="#" value='click me' id='show' /> Have a promo code?</a>
         </div>
 
-        <div class="right">
-          <form id="promoForm" action="#" method="post">
-            <input type="hidden" name="promocode" id="promocode" value="#">
-
+        <div id="promoForm" class="right">
             <div class="control-group">
               <div class="controls">
                 <label class="label-control" for="promo">Promotion code &nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="" name="promo" id="promo">
-
               </div>
             </div>
-          </form>
         </div>
 
       </div>
 
       <!-- <div><label for="address">Address where to receive SEEDS:</label><br><br><input type="string" id="address-input" placeholder="Enter address"></div> -->
-      <div><form action="/buy" method="get"><button id="buy-seeds-btn" class="btn btn-green-1 waves-effect">BUY SEEDS</button></form></div>
+      <div><button id="buy-seeds-btn" class="btn btn-green-1 waves-effect">BUY SEEDS</button></div>
+      </form>
       {{#transactionFailed}}
         <p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>
         <p class="errorMessage">If this happens again contact us!</p>
