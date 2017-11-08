@@ -16,6 +16,7 @@ export default async (req, res) => {
     showAddress: req.session.address == true,
     transactionFailed: errorMessage == "transactionFailed",
     zeroBalance: errorMessage == "zeroBalance",
+    invalidPromo: errorMessage == "invalidPromo",
   };
 
   res.render('contribute', data);
