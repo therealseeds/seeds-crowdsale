@@ -45,7 +45,7 @@ export const signUp = async (req, res) => {
   }
 
   req.session.email = email;
-  // addToMailingList(email);
+  addToMailingList(email);
   return res.redirect("/contribute");
 };
 
