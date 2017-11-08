@@ -47,8 +47,7 @@
   <div id="logo"><a href="/"><img class="logo-img-small" src="images/seeds-logo.png" alt="Logo"></a></div>
 
   <div class="centered-text" style="padding: 20px 200px 0 200px;">
-    <p>In order to join our token sale and buy Seeds Tokens you need to complete only a few steps. First of all you need to have an Ethereum wallet with some Ethers in it. Then you need to make a deposit of the desired amount of ETH to the address that we provide you. Lastly, you need to confirm the purchase by clicking on the "BUY" button.</p>
-    <p>Use the calculator below to determine how many SEEDS Tokens to purchase at the current price!</p>
+    <p>In order to buy Seeds Tokens, you first need some ETH, and an Ethereum wallet to store it.  If you purchase ETH on a platform like Coinbase, they'll create a wallet for you.  You can use the calculator below to see how many Seeds Tokens an Ether will buy you.  If you need help, check out our <a target="_blank" href="/faq">FAQ</a> </p>
   </div>
 
   <div id="price-converter">
@@ -67,7 +66,7 @@
   <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
 
   <div class="step" id="step-1">
-    <h2>Step 1: make a deposit in ETH</h2>
+    <h2>Step 1: Make a Deposit in ETH</h2>
 
     <div id="request-wallet">
       {{^showAddress}}
@@ -84,10 +83,10 @@
   </div>
 
   <div class="step" id="step-2">
-    <h2>Step 2: buy SEEDS</h2>
+    <h2>Step 2: Buy SEEDS</h2>
     <div id="buy-seeds">
-      <div><span class="deposited">ETH deposited: </span><span class="deposited" id="balance">0</span></div>
-      <button onclick="refreshBalance()">Refresh <i class="fa fa-refresh" aria-hidden="true"></i></button>
+      <div><span class="deposited">ETH Deposited: </span><span class="deposited" id="balance">0</span></div>
+      <button onclick="refreshBalance()">Refresh to see Deposit <i class="fa fa-refresh" aria-hidden="true"></i></button>
 
       <form action="/buy" method="post">
       <div id="promoContainer">
@@ -121,7 +120,7 @@
   </div>
 
   <div class="centered-text">
-    <p style="font-size: 22px; font-weight: 400;">We've exceed our minimum cap of 1 Million tokens sold! Thank you for your support!</p>
+    <p style="font-size: 22px; font-weight: 400;">We've exceeded our minimum cap of 1 million tokens sold. Thank you for your support!</p>
     <p><sup>*</sup>Check our <a target="_blank" href="/faq">FAQ</a> for more information.</p>
   </div>
 

@@ -110,12 +110,12 @@
         <h4>{{seeds}} Seeds Tokens</h4>
       </div>
       <div class="step">
-        <h2>Enter the address where you want us to send you your Seeds Tokens</h2>
+        <h2>Enter the wallet address of your ERC-20 token-compatible wallet</h2>
         <div id="retrieve-seeds">
           <form action="/getseeds" method="post" name="addressForm">
           <div style="margin-top: 20px; margin-bottom: 20px;"><input type="string" name="address" id="address-input" placeholder="Enter address"></div>
           <div>
-            <button id="retrieve-seeds-btn" class="btn btn-green-1 waves-effect" onclick="return validateAddress();">RETRIEVE SEEDS</button>
+            <button id="retrieve-seeds-btn" class="btn btn-green-1 waves-effect" onclick="return validateAddress();">GET YOUR TOKENS</button>
           </div></form>
           <p class="errorMessage" id="address-error">Error: Enter a valid address!</p>
           {{#badInputError}}<p class="errorMessage">Error: bad input!</p>{{/badInputError}}
@@ -124,13 +124,9 @@
             <p class="errorMessage">If this happens again contact us!</p>
           {{/transactionFailed}}
         </div>
-        <p id="note">NOTE: We cannot send SEEDS tokens to Kraken or Coinbase accounts <sup>*</sup></p>
+        <p id="note"><b>Note</b>: We can only send Seeds Tokens to ERC-20 token compatible wallets like <a target="_blank" href="https://themerkle.com/top-5-ethereum-wallets-compatible-with-cryptocurrency-ico-tokens/">these</a>. Most exchange wallets (Coinbase, Kraken, GDAX, etc.) are unfortunately not token-compatible. Check our <a target="_blank" href="/faq">FAQ</a> for more information.</p>
       </div>
 
-    </div>
-
-    <div class="centered-text">
-      <p><sup>*</sup>Check our <a target="_blank" href="/faq">FAQ</a> for more information.</p>
     </div>
 
   {{/isLoggedIn}}

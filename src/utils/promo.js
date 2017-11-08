@@ -3,11 +3,15 @@ const promoCodes = {
     expires: 1510387200000,
     discount: 0.2
   },
-  "CODE4": {
+  "CODE2": {
     expires: 1510387200000,
     discount: 0.2
   },
   "CODE3": {
+    expires: 1510387200000,
+    discount: 0.2
+  },
+  "CODE4": {
     expires: 1510387200000,
     discount: 0.2
   }
