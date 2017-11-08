@@ -1,17 +1,17 @@
 const promoCodes = {
-  "CODE1": {
+  "SEEDSTOKENS": {
     expires: 1510387200000,
     discount: 0.2
   },
-  "CODE2": {
+  "SEEDS2017": {
     expires: 1510387200000,
     discount: 0.2
   },
-  "CODE3": {
+  "TOKENSALE2017": {
     expires: 1510387200000,
     discount: 0.2
   },
-  "CODE4": {
+  "SEEDSGIVES": {
     expires: 1510387200000,
     discount: 0.2
   }
