@@ -4,12 +4,17 @@ import { validateTransaction, transactionStatus } from "api/ethereum/transaction
 import { getUser, addPendingPurchase, updatePurchase } from "api/db";
 import { sendPurchaseConfirmedEmail, sendPurchaseFailedEmail } from "api/utils/mailer";
 import { sendTransactionStatusSlack, sendTransactionErrorSlack } from "api/utils/slack";
+import { getDiscount, isValidCode } from "api/utils/promo";
 
 
 export default async (req, res) => {
 
   if (!req.session.email) {
     return res.redirect("/?signin=true&errorMessage=badInput");
+  }
+
+  if (req.body.promo && !isValidCode(req.body.promo)) {
+    return res.redirect("/contribute?errorMessage=invalidPromo");
   }
 
   const user = await getUser(req.session.email);
@@ -26,7 +31,7 @@ export default async (req, res) => {
   }
 
   const price = getCurrentPriceInWei(req.body.promo);
-  addPendingPurchase(req.session.email, price, balance, transactionHash);
+  addPendingPurchase(req.session.email, price, balance, transactionHash, req.body.promo);
 
   validateTransaction(transactionHash).then((status) => {
     updatePurchase(transactionHash, status);
@@ -44,7 +49,7 @@ export default async (req, res) => {
 }
 
 const getCurrentPriceInWei = (promoCode) => {
-  // TODO: logic for promo codes
   // TODO: logic for increamental price
-  return config.initialPriceInWei;
+  const promoDiscount = getDiscount(promoCode);
+  return config.initialPriceInWei * (1 - promoDiscount);
 };

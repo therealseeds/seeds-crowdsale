@@ -18,7 +18,7 @@ export const validateTransaction = async (transactionHash) => {
 
   if (!transaction.blockNumber) {
     winston.info(`Transaction ${transactionHash} still pending`);
-    await snooze(5000); // Sleep for 5 seconds
+    await snooze(10000); // Sleep for 5 seconds
     return Promise.resolve(validateTransaction(transactionHash));
   } else {
 

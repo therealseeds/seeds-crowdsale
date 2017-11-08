@@ -46,7 +46,7 @@ export const addWalletAddress = async (email, address) => {
   );
 };
 
-export const addPendingPurchase = async (email, price, value, transactionHash) => {
+export const addPendingPurchase = async (email, price, value, transactionHash, promoCode) => {
   const mongo = await mongoDbPromise;
   mongo.collection(`tokensale_users`).updateOne(
     { "email": email },
@@ -56,7 +56,8 @@ export const addPendingPurchase = async (email, price, value, transactionHash) =
          "value" : value,
          "transaction": transactionHash,
          "createdAt" : Date.now(),
-         "status": transactionStatus.PENDING
+         "status": transactionStatus.PENDING,
+         "promoCode": promoCode || null
        }
     }}
   );
