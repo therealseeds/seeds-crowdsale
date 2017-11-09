@@ -412,17 +412,17 @@ footer > p > a > i {
 }
 
 .centered-text {
-  padding-top: 20px;
+  padding: 20px 150px;
   text-align: center;
   font-size: 18px;
   color: #14171a;
 }
 
-#note {
+.note {
   text-align: center;
   color: #14171a;
   font-size: 18px;
-  padding: 0 50px;
+  padding: 0 80px;
 }
 
 .news {

@@ -79,7 +79,7 @@
       <div id="text-address" class="address"><span id="wallet-address"></span></div>
       <div id="qr-address" class="address"><img id="qr-code" src="images/qr-placeholder.png"></div>
     </div>
-    <p id="note">NOTE: We cannot accept Ethereum Classic (ETC)<sup>*</sup></p>
+    <p class="note" style="display: none;">NOTE: We cannot accept Ethereum Classic (ETC)<sup>*</sup></p>
   </div>
 
   <div class="step" id="step-2">
@@ -116,7 +116,7 @@
       {{#invalidPromo}}<p class="errorMessage">Error: promo code is not valid!</p>{{/invalidPromo}}
 
     </div>
-    <!-- <p id="note">NOTE: We cannot send SEEDS tokens to Kraken or Coinbase accounts <sup>*</sup></p> -->
+    <p class="note" style="display: none;">NOTE: It might take some time for the ETH transaction to be completed and to see your deposit balance updated. If you leave this page, you can come back at any time to complete Step 2.</p>
   </div>
 
   <div class="centered-text">

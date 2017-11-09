@@ -33,6 +33,11 @@ function requestAddress() {
       var buyBtn = document.getElementById("buy-seeds-btn");
       buyBtn.disabled = (data.balance == 0) ? true : false;
 
+      var notes = document.getElementsByClassName('note');
+      for (let note of notes) {
+        note.style.display = "inline-block";
+      }
+
     } else {
       // Handle error status
     }
