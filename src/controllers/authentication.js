@@ -29,8 +29,8 @@ export const signIn = async (req, res) => {
 };
 
 export const signUp = async (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  const email = req.body.newEmail;
+  const password = req.body.newPassword;
   const confirmPassword = req.body.confirmPassword;
 
   if (!isValideEmail(email) || (password != confirmPassword)) {

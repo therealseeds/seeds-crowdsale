@@ -103,7 +103,7 @@
 
               <!--Header-->
               <div class="modal-header light-blue darken-3 white-text">
-                  <h4 class="title"><i class="fa fa-pencil"></i> Sign in</h4>
+                  <h4 class="title"><i class="fa fa-pencil"></i> Log in to continue</h4>
                   <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
@@ -129,11 +129,11 @@
                   {{#wrongCredentialsError}}<p class="errorMessage">Error: Email or password are not correct</p>{{/wrongCredentialsError}}
 
                   <div class="text-center mt-1-half">
-                      <button class="btn btn-primary mb-2" onclick="return validateSigninForm();">Continue <i class="fa fa-send ml-1"></i></button>
+                      <button class="btn btn-primary mb-2" onclick="return validateSigninForm();">Log in <i class="fa fa-send ml-1"></i></button>
                   </div>
                 </form>
 
-                <a href="" type="button" data-toggle="modal" data-target="#modalSignupForm" data-dismiss="modal" style="-webkit-appearance: none;">Sign up</a>
+                or <a href="" type="button" data-toggle="modal" data-target="#modalSignupForm" data-dismiss="modal" style="-webkit-appearance: none;">Create new account</a>
                 <!-- <a href="" id=""> -->
 
               </div>
@@ -149,7 +149,7 @@
 
               <!--Header-->
               <div class="modal-header light-blue darken-3 white-text">
-                  <h4 class="title"><i class="fa fa-pencil"></i> Sign up</h4>
+                  <h4 class="title"><i class="fa fa-pencil"></i> Create new account</h4>
                   <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
@@ -159,29 +159,29 @@
                  <form role="form" name="signUpForm" action="/signup" method="POST">
                   <div class="md-form form-sm">
                       <i class="fa fa-envelope prefix"></i>
-                      <input type="email" id="new-email" name="email" class="form-control" required>
-                      <label for="email">Your email</label>
+                      <input type="email" id="newEmail" name="newEmail" class="form-control" required>
+                      <label for="newEmail">Your email</label>
                   </div>
                   <div class="md-form form-sm">
                       <i class="fa fa-lock prefix"></i>
-                      <input type="password" id="new-password" name="password" class="form-control" required>
-                      <label for="password">New password</label>
+                      <input type="password" id="newPassword" name="newPassword" class="form-control" required>
+                      <label for="newPassword">New password</label>
                   </div>
                   <div class="md-form form-sm">
                       <i class="fa fa-lock prefix"></i>
-                      <input type="password" id="confirm-password" name="confirmPassword" class="form-control" required>
-                      <label for="confirm-password">Confirm password</label>
+                      <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                      <label for="confirmPassword">Confirm password</label>
                   </div>
 
                   {{#badInputError}}<p class="errorMessage">Error: Wrong parameters</p>{{/badInputError}}
                   {{#alreadyExistsError}}<p class="errorMessage">Error: Email already registered</p>{{/alreadyExistsError}}
 
                   <div class="text-center mt-1-half">
-                      <button class="btn btn-primary mb-2" onclick="return validateSignupForm();">Continue <i class="fa fa-send ml-1"></i></button>
+                      <button class="btn btn-primary mb-2" onclick="return validateSignupForm();">Sign up <i class="fa fa-send ml-1"></i></button>
                   </div>
                 </form>
 
-                <a href="" type="button" data-toggle="modal" data-target="#modalSigninForm" data-dismiss="modal" style="-webkit-appearance: none;">Sign in</a>
+                Already have an account? <a href="" type="button" data-toggle="modal" data-target="#modalSigninForm" data-dismiss="modal" style="-webkit-appearance: none;">Log in</a>
 
               </div>
           </div>
