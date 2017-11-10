@@ -45,6 +45,7 @@ export default async (req, res) => {
   });
 
   req.session.purchase = balance;
+  req.session.promoDiscount = getDiscount(req.body.promo);
   return res.redirect("/thanks");
 }
 

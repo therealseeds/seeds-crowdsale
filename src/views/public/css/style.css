@@ -510,6 +510,11 @@ footer > p > a > i {
 
 .errorMessage {
   color: red;
+  padding: 0 150px;
+}
+
+.success-message {
+  color: green;
 }
 
 #buy-seeds {

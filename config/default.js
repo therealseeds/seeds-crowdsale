@@ -26,5 +26,9 @@ module.exports = {
     sendEmails: true,
     sesAccessKeyId: "AKIAI3YCI5E43E2CE5QQ",
     sesSecretAccessKey: "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"
+  },
+  slack: {
+    webhook: "https://hooks.slack.com/services/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",
+    sendSlackMessage: false
   }
 }

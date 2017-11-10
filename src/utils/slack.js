@@ -1,8 +1,15 @@
 import { IncomingWebhook } from '@slack/client';
 import winston from "winston";
+import config from "config";
 
-const slackWebhook = new IncomingWebhook("https://hooks.slack.com/services/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");
+
+const slackWebhook = new IncomingWebhook(config.slack.webhook);
 const sendSlackMessage = async (message) => {
+
+  if (!config.slack.sendSlackMessage) {
+    return Promise.resolve();
+  }
+
   try {
     slackWebhook.send(message);
   } catch (err) {
