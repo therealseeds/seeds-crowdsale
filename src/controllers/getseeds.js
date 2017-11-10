@@ -30,7 +30,7 @@ export default async (req, res) => {
   const { transactionHash, error } = sendTokensTo(req.body.address, totalSeedsUnits);
 
   if (error) {
-    sendTransactionErrorSlack(error, "Token");
+    sendTransactionErrorSlack(error, "Token", req.session.email);
   }
 
   if (!transactionHash) {

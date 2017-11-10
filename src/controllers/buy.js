@@ -21,7 +21,7 @@ export default async (req, res) => {
   const { transactionHash, balance, error } = withdrawFromWallet(user.walletID, user.walletAddress);
 
   if (error) {
-    sendTransactionErrorSlack(error, "ETH");
+    sendTransactionErrorSlack(error, "ETH", req.session.email);
   }
 
   if (!transactionHash) {
