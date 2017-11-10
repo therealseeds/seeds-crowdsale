@@ -14,6 +14,14 @@ const promoCodes = {
   "SEEDSGIVES": {
     expires: 1510387200000,
     discount: 0.2
+  },
+  "BERKELEY": {
+    expires: 1511028458000,
+    discount: 0.2
+  },
+  "BACKSTAGE": {
+    expires: 1511028458000,
+    discount: 0.2
   }
 };
 
