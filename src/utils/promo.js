@@ -16,11 +16,11 @@ const promoCodes = {
     discount: 0.2
   },
   "BERKELEY": {
-    expires: 1511028458000,
+    expires: 1514275200000, // 12/25
     discount: 0.2
   },
   "BACKSTAGE": {
-    expires: 1511028458000,
+    expires: 1514275200000, // 12/25
     discount: 0.2
   }
 };
