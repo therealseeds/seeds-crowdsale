@@ -21,6 +21,11 @@ export const signIn = async (req, res) => {
     return res.redirect(`/${from}?signin=true&errorMessage=wrongCredentials`);
   }
 
+  if (!user.emailVerified) {
+    sendVerifyEmail(email, user.verifyToken);
+    return res.render('verify-email', { verified: false, email });
+  }
+
   const correct = verifyPassword(password, user.password, user.salt);
   if (!correct) {
     return res.redirect(`/${from}?signin=true&errorMessage=wrongCredentials`);
