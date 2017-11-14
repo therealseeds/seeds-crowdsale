@@ -12,7 +12,7 @@ const transport = nodemailer.createTransport(sesTransport({
 }));
 
 const sendMail = async (message) => {
-  message.from = message.sender = 'automated@playseeds.com';
+  message.from = '"Rachel at Seeds" <team@playseeds.com>';
 
   if (!config.email.sendEmails) {
     return Promise.resolve();
