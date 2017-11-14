@@ -7,6 +7,7 @@ export default async (req, res) => {
   const showSignin = req.query.signin == "true";
   const showSignup = req.query.signup == "true";
   const errorMessage = req.query.errorMessage;
+  const successMessage = req.query.successMessage;
 
   // const tokenInfo = await getTokenInfo();
   // Balance of seeds at moment of presale should be equal to the amount total minus the token sold
@@ -26,6 +27,7 @@ export default async (req, res) => {
     wrongCredentialsError: errorMessage == "wrongCredentials",
     alreadyExistsError: errorMessage == "alreadyExists",
     badInputError: errorMessage == "badInput",
+    emailVerified: successMessage == "emailVerified"
   };
 
   res.render('index', data);

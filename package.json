@@ -44,6 +44,7 @@
     "nodemailer-ses-transport": "^1.5.1",
     "nodemon": "1.11.0",
     "qr-image": "^3.2.0",
+    "random-token": "0.0.8",
     "sinon": "^1.17.6",
     "web3": "^0.20.2",
     "web3-provider-engine": "^13.3.2",

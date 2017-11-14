@@ -14,7 +14,7 @@ winston.info(`Trying to connect to ${config.mongo.database}`);
 const mongoDbPromise = new MongoClient.connect(mongoUrl)
   .catch((err) => winston.error(`Could not connect to mongodb ${config.mongo.database}:` + err));
 
-export const signUpUser = async (email, hashedPassword, salt) => {
+export const signUpUser = async (email, hashedPassword, salt, verifyToken) => {
   const mongo = await mongoDbPromise;
   const user = await mongo.collection(`tokensale_users`).findOne({ "email": email });
   if (user) { // User already exists
@@ -26,7 +26,9 @@ export const signUpUser = async (email, hashedPassword, salt) => {
       "walletID": autoIndex,
       "email": email,
       "password": hashedPassword,
-      "salt": salt
+      "salt": salt,
+      "verifyToken": verifyToken,
+      "emailVerified": false
     });
   });
 
@@ -87,4 +89,18 @@ export const updateTokensRetrieved = async (email, seedsUnits, address) => {
        }
     }}
   );
-}
+};
+
+export const verifyEmailToken = async (verifyToken) => {
+  const mongo = await mongoDbPromise;
+  const user = await mongo.collection(`tokensale_users`).findOneAndUpdate(
+    {
+      "verifyToken": verifyToken
+    },
+    { "$set": {
+       "emailVerified": true
+    }}
+  );
+
+  return user.value;
+};

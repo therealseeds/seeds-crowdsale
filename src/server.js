@@ -5,7 +5,7 @@ import healthcheck from "express-healthcheck";
 import winston from "winston";
 import config from "config";
 import index from "api/controllers/index";
-import { signUp, signIn } from "api/controllers/authentication";
+import { signUp, signIn, signOut, verifyEmail } from "api/controllers/authentication";
 import contribute from "api/controllers/contribute";
 import faq from "api/controllers/faq";
 import { thanks, thanksAgain } from "api/controllers/thanks";
@@ -42,8 +42,9 @@ app.use(session({
 }))
 
 app.get("/", index);
-app.post("/signin", signIn);
 app.post("/signup", signUp);
+app.post("/signin", signIn);
+app.get("/signout", signOut);
 app.use("/contribute", contribute);
 app.get("/thanks", thanks);
 app.get("/thanks-again", thanksAgain);
@@ -52,6 +53,7 @@ app.get("/wallet", getWallet);
 app.use("/buy", buy);
 app.get("/retrieve", retrieve);
 app.post("/getseeds", getSeeds);
+app.get("/verify-email", verifyEmail);
 
 app.get('/qr/:address', getQRcode);
 app.get("/ping", healthcheck());

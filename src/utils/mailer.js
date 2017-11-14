@@ -65,3 +65,14 @@ export const sendRetrieveFailedEmail = async (receiver) => {
 
   await sendMail(message);
 };
+
+export const sendVerifyEmail = async (receiver, token) => {
+  const html = fs.readFileSync(__dirname + '/emails/verify-email.html', "utf8");
+  let message = {
+    to: receiver,
+    subject: "SEEDS - verify your email address",
+    html: html.replace('REPLACE_TOKEN', token)
+  };
+
+  await sendMail(message);
+};

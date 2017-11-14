@@ -125,6 +125,7 @@
                   <input type="hidden" name="to" value="contribute">
                   <input type="hidden" name="from" value="">
 
+                  {{#emailVerified}}<p class="success-message">Email address verified successfully! Login to continue</p>{{/emailVerified}}
                   {{#badInputError}}<p class="errorMessage">Error: Wrong parameters</p>{{/badInputError}}
                   {{#wrongCredentialsError}}<p class="errorMessage">Error: Email or password are not correct</p>{{/wrongCredentialsError}}
 
