@@ -30,7 +30,7 @@ export default async (req, res) => {
       : res.redirect("/contribute?errorMessage=transactionFailed");
   }
 
-  const price = getCurrentPriceInWei(req.body.promo);
+  const price = getCurrentPriceInWei(req.body.promo, balance);
   addPendingPurchase(req.session.email, price, balance, transactionHash, req.body.promo);
 
   validateTransaction(transactionHash).then((status) => {
@@ -49,8 +49,8 @@ export default async (req, res) => {
   return res.redirect("/thanks");
 }
 
-const getCurrentPriceInWei = (promoCode) => {
+const getCurrentPriceInWei = (promoCode, balance) => {
   // TODO: logic for increamental price
-  const promoDiscount = getDiscount(promoCode);
+  const promoDiscount = getDiscount(promoCode, balance);
   return config.initialPriceInWei * (1 - promoDiscount);
 };
