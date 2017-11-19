@@ -1,5 +1,5 @@
 deploy/secret-env-plain
-config/production.js
+config/s3-production.js
 
 # Logs
 logs
