@@ -17,7 +17,7 @@ module.exports = {
     replica: process.env.MONGO_REPLICA
   },
   initialPriceInWei: 37500,
-  presaleDeadline: 1511283599000,
+  presaleDeadline: 1511326799000,
   mailchimp: {
     apiKey: "93fb8869c544c34b692e3f998f35f596-us16",
     listID: "7226151fd8"
