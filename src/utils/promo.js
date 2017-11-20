@@ -42,11 +42,11 @@ const promoCodes = {
     discount: 0.2,
     threshold: 0
   },
-  "SEEDSTHANKSGIVINGDISCOUNT": {
+  "GIVETHANKS": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1514275200000, // 12/25
-    discount: 0.2,
-    threshold: 15 // Threshold in ETH above which the promo code is valid
+    discount: 0.7,
+    threshold: 7 // Threshold in ETH above which the promo code is valid
   },
   "SEEDSTHANKSYOU": {
     type: promoTypes.MORE_TOKENS,
