@@ -6,7 +6,7 @@ node_modules/forever/bin/forever stopall
 
 killall node
 
-node_modules/forever/bin/forever \
+NODE_ENV='production' node_modules/forever/bin/forever \
 start \
 -al forever.log \
 -ao out.log \
