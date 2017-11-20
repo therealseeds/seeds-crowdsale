@@ -17,7 +17,7 @@ import getSeeds from "api/controllers/getseeds";
 import bodyParser from "body-parser";
 
 export const app = express();
-
+winston.info(process.env.NODE_ENV);
 app.engine("mustache", mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
