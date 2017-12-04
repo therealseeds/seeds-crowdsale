@@ -164,3 +164,20 @@ export const redeemSeedsToken = async (needID, userID) => {
     }}
   );
 };
+
+export const addRedeemedTransaction = async (userID, transactionHash) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`redeemed_transactions`).insertOne({
+    "user_id": userID,
+    "transaction": transactionHash
+  });
+};
+
+export const isTransactionRedeemed = async (transactionHash) => {
+  const mongo = await mongoDbPromise;
+  const transaction = await mongo.collection(`redeemed_transactions`).findOne({
+    "transaction": transactionHash
+  });
+
+  return (transaction) ? true : false;
+};

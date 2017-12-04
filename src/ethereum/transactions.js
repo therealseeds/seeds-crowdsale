@@ -61,9 +61,9 @@ export const validateOneSeedsTransaction = async (transactionHash) => {
       abiDecoder.addABI(tokenABI);
       const decodedData = abiDecoder.decodeMethod(transaction.input);
 
-      if (transaction.to != config.seeds_token_address
-        || decodedData.name != "transfer"
-        || decodedData.params[0].value != config.seeds_token_receiver_address
+      if (transaction.to.toLowerCase() !== config.seeds_token_address.toLowerCase()
+        || decodedData.name !== "transfer"
+        || decodedData.params[0].value.toLowerCase() != config.seeds_token_receiver_address.toLowerCase()
         || decodedData.params[1].value != config.sds
       ) {
         return Promise.resolve(transactionStatus.NOT_VALID);

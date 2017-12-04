@@ -1,5 +1,5 @@
 import config from "config";
-import { getUser, getNeedByUUID } from "api/db";
+import { getUser, getNeedByUUID, isTransactionRedeemed, addRedeemedTransaction, redeemSeedsToken } from "api/db";
 import { validateTransaction, transactionStatus, validateOneSeedsTransaction } from "api/ethereum/transactions";
 
 export const getRedeem = async (req, res) => {
@@ -35,6 +35,7 @@ export const postRedeem = async (req, res) => {
 
   const user = await getUser(req.session.email);
   const need = await getNeedByUUID(req.params.needUUID, user._id);
+  const transactionHash = req.body.tx;
 
   if (!need) {
     return res.redirect('/not-found');
@@ -48,13 +49,21 @@ export const postRedeem = async (req, res) => {
     token_address: config.seeds_token_receiver_address
   };
 
-  const status = await validateTransaction(req.body.tx);
-
-  if (status == transactionStatus.NOT_FOUND) {
+  const alreadyRedeemed = await isTransactionRedeemed(transactionHash);
+  if (alreadyRedeemed) {
     data.txError = true;
-    res.render('redeem', data);
+    return res.render('redeem', data);
   }
 
-  const isValid = await validateOneSeedsTransaction(req.body.tx);
-  console.log(isValid);
+  const status = await validateOneSeedsTransaction(transactionHash);
+
+  if (status == transactionStatus.NOT_FOUND || status == transactionStatus.NOT_VALID) {
+    data.txError = true;
+  } else {
+    addRedeemedTransaction(user._id, transactionHash);
+    redeemSeedsToken(need._id, user._id);
+    data.active = true;
+  }
+
+  res.render('redeem', data);
 };

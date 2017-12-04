@@ -42,7 +42,8 @@
 <body onload="">
   <div id="logo"><a href="/"><img class="logo-img-small" src="/images/seeds-logo-name.png" alt="Logo"></a></div>
 
-  <h1>Redeem your Seeds token to activate your need</h1>
+  {{#active}}<h1>Your need is active in the Seeds system!</h1>{{/active}}
+  {{^active}}<h1>Redeem your Seeds token to activate your need</h1>{{/active}}
   <table id="needTable">
     <tr><td class="greyTd">{{title}}</td></tr>
     <tr><td>{{description}}</td></tr>
@@ -50,6 +51,7 @@
     <tr><td>Active: {{active}}</td></tr>
   </table>
 
+  {{^active}}
   <div class="step">
     <h2>Send 1 Seeds Token to this address</h2>
     <div id="address-container" style="display: block;">
@@ -61,10 +63,10 @@
       <form action="" method="POST">
         <input id="tx-input" type="string" name="tx" placeholder="Paste here the TX hash">
         <button id="redeem-token" class="btn btn-green-1 waves-effect" onclick="">REDEEM</button>
-        {{#txError}}<p class="errorMessage">Error: Wrong transaction</p>{{/txError}}
+        {{#txError}}<p class="errorMessage">Error: transaction not valid</p>{{/txError}}
       </form>
   </div>
-
+  {{/active}}
 
   <footer>
     <p><b>Questions?</b> Check our <a target="_blank" href="/faq">FAQ</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a></p>
