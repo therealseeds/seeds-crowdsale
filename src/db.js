@@ -1,4 +1,6 @@
+import sanitize from "mongo-sanitize";
 import winston from "winston";
+import uuidv4 from 'uuid/v4';
 import config from "config";
 import { MongoClient } from 'mongodb';
 import autoIncrement from "mongodb-autoincrement";
@@ -45,6 +47,14 @@ export const addWalletAddress = async (email, address) => {
   mongo.collection(`tokensale_users`).updateOne(
     { "email": email },
     { "$set": { "walletAddress": address } },
+  );
+};
+
+export const addAcceptedTerms = async (email) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$set": { "termsAccepted": true } },
   );
 };
 
@@ -103,4 +113,54 @@ export const verifyEmailToken = async (verifyToken) => {
   );
 
   return user.value;
+};
+
+export const addUserInfo = async (email, name, gender, age, interests) => {
+  const mongo = await mongoDbPromise;
+
+  let set = {};
+  if (name) set["fullname"] = sanitize(name);
+  if (gender) set["gender"] = sanitize(gender);
+  if (age) set["age"] = sanitize(age);
+  if (interests) set["interests"] = sanitize(interests);
+
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$set": set },
+  );
+};
+
+export const addUserNeed = async (userID, title, description, cost, categories) => {
+  const mongo = await mongoDbPromise;
+  const need = await mongo.collection(`user_needs`).insertOne({
+    "uuid": uuidv4(),
+    "user_id": userID,
+    "title": sanitize(title),
+    "description": sanitize(description),
+    "cost": sanitize(cost),
+    "categories": sanitize(categories),
+    "tokenRedeemed": false
+  });
+  return need.ops[0];
+};
+
+export const getNeedByUUID = async (needUUID, userID) => {
+  const mongo = await mongoDbPromise;
+  return await mongo.collection(`user_needs`).findOne({
+    "uuid": needUUID,
+    "user_id": userID
+  });
+};
+
+export const redeemSeedsToken = async (needID, userID) => {
+  const mongo = await mongoDbPromise;
+  await mongo.collection(`user_needs`).updateOne(
+    {
+      "_id": needID,
+      "user_id": userID
+    },
+    { "$set": {
+       "tokenRedeemed": true
+    }}
+  );
 };

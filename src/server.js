@@ -3,6 +3,7 @@ import mustacheExpress from "mustache-express";
 import session from 'cookie-session';
 import healthcheck from "express-healthcheck";
 import winston from "winston";
+import bodyParser from "body-parser";
 import config from "config";
 import index from "api/controllers/index";
 import { signUp, signIn, signOut, verifyEmail } from "api/controllers/authentication";
@@ -14,7 +15,9 @@ import getQRcode from "api/controllers/qrcode";
 import buy from "api/controllers/buy";
 import retrieve from "api/controllers/retrieve";
 import getSeeds from "api/controllers/getseeds";
-import bodyParser from "body-parser";
+import { getAddNeed, postAddNeed } from "api/controllers/addNeed";
+import { getTerms, postTerms } from "api/controllers/terms";
+import { getRedeem, postRedeem } from "api/controllers/redeem";
 
 export const app = express();
 
@@ -55,8 +58,20 @@ app.get("/retrieve", retrieve);
 app.post("/getseeds", getSeeds);
 app.get("/verify-email", verifyEmail);
 
+app.get("/add-need", getAddNeed);
+app.post("/add-need", postAddNeed);
+app.get("/terms", getTerms)
+app.post("/terms", postTerms);
+
+app.get("/redeem/:needUUID", getRedeem);
+app.post("/redeem/:needUUID", postRedeem);
+
 app.get('/qr/:address', getQRcode);
 app.get("/ping", healthcheck());
+app.use("not-found", (req, res) => {
+  res.status(404);
+  res.render('404');
+});
 app.use((req, res) => {
   res.status(404);
   res.render('404');

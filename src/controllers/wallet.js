@@ -6,11 +6,16 @@ export default async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
   if (!req.session.email) {
-    res.status(400);
-    return res.send(JSON.stringify({ status: "Bad Request" }));
+    res.status(403);
+    return res.send(JSON.stringify({ status: "Permission Denied" }));
   }
 
   const user = await getUser(req.session.email);
+
+  if (!user.termsAccepted) {
+    res.status(403);
+    return res.send(JSON.stringify({ status: "Permission Denied" }));
+  }
 
   const walletID = user.walletID;
   const address = user.walletAddress || getWalletAddress(walletID);

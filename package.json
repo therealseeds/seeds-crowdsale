@@ -18,6 +18,7 @@
   "homepage": "https://github.com/therealseeds/seeds-logic-api#readme",
   "dependencies": {
     "@slack/client": "^3.14.1",
+    "abi-decoder": "^1.0.9",
     "babel-cli": "6.18.0",
     "babel-core": "6.20.0",
     "babel-eslint": "7.1.1",
@@ -36,6 +37,7 @@
     "forever": "^0.15.3",
     "lodash": "^4.17.2",
     "mailchimp-api-v3": "^1.7.1",
+    "mongo-sanitize": "^1.0.0",
     "mongodb": "^2.2.31",
     "mongodb-autoincrement": "^1.0.1",
     "mustache": "^2.3.0",
@@ -46,6 +48,7 @@
     "qr-image": "^3.2.0",
     "random-token": "0.0.8",
     "sinon": "^1.17.6",
+    "uuid": "^3.1.0",
     "web3": "^0.20.2",
     "web3-provider-engine": "^13.3.2",
     "winston": "2.3.0"

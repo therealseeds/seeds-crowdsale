@@ -4,6 +4,7 @@ module.exports = {
   seeds_token_address: "0xcA1b9dF7b15639DA7106932C88de4b1Eab2CF1d1",
   seeds_token_owner_address: "0xA9846646E829362Da66Ac08570Fdf4741ad7779e",
   seeds_token_owner_private_key: "0304e23a2c9af588f39fedba9ddf00f92cc497edd65809595bd5d9e080eaa231",
+  seeds_token_receiver_address: "0xA9846646E829362Da66Ac08570Fdf4741ad7779e",
   seeds_wallet_address: "0xA9846646E829362Da66Ac08570Fdf4741ad7779e",
   seeds_wallet_mnemonic: "parent wrestle vocal museums idea screen open between wrap guide input bridge",
   ether: 1000000000000000000,

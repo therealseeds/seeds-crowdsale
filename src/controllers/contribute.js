@@ -1,11 +1,14 @@
 import config from "config";
 import { addToMailingList } from "api/utils/mailchimp";
+import { getUser } from "api/db";
 
 export default async (req, res) => {
 
   if (!req.session.email) {
     return res.redirect("/?signin=true&errorMessage=badInput");
   }
+
+  const user = await getUser(req.session.email);
 
   const errorMessage = req.query.errorMessage;
 
@@ -14,6 +17,7 @@ export default async (req, res) => {
     onDiscount: false,
     discount: 0,
     showAddress: req.session.address == true,
+    termsAccepted: user.termsAccepted || false,
     transactionFailed: errorMessage == "transactionFailed",
     zeroBalance: errorMessage == "zeroBalance",
     invalidPromo: errorMessage == "invalidPromo",

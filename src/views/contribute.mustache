@@ -65,12 +65,19 @@
 
   <p style="text-align: center;"><a target="_blank" href="/faq" class="btn btn-green-2 btn">Learn how to purchase Ether</a></p>
 
+  {{^termsAccepted}}
+    <div class="step" id="step-0">
+      <h2>Step 0: Accept terms</h2>
+      <a class="btn btn-green-1 waves-effect" href="/terms">VIEW TERMS</a>
+    </div>
+  {{/termsAccepted}}
+
   <div class="step" id="step-1">
     <h2>Step 1: Make a Deposit in ETH</h2>
 
     <div id="request-wallet">
       {{^showAddress}}
-      <button type="button" class="btn btn-green-1 waves-effect" onclick="requestAddress();">REQUEST ADDRESS</button>
+      <button type="button" class="btn btn-green-1 waves-effect" {{^termsAccepted}}disabled {{/termsAccepted}} onclick="requestAddress();">REQUEST ADDRESS</button>
       {{/showAddress}}
     </div>
 

@@ -1,45 +1,44 @@
 function requestAddress() {
   var button = document.getElementById('request-wallet');
-  button.style.display = "none";
-
   var loading = document.getElementById('loading');
+  var address = document.getElementById('wallet-address');
+  var qrCode = document.getElementById('qr-code');
+  var addressContainer = document.getElementById('address-container');
+  var buySeeds = document.getElementById('buy-seeds');
+  var balance = document.getElementById('balance');
+  var buyBtn = document.getElementById("buy-seeds-btn");
+  var notes = document.getElementsByClassName('note');
+
+  button.style.display = "none";
   loading.style.display = "inline-block";
 
-  $.get( "/wallet", function( data, statusText, xhr ) {
+  $.ajax({
+    type: "GET",
+    url: "/wallet",
+    success: function (data) {
+      if (!data.address) {
+        data = JSON.parse(data);
+      }
 
-    if (!data.address) {
-      data = JSON.parse(data);
-    }
-
-    if (xhr.status == 200) {
-      var loading = document.getElementById('loading');
       loading.style.display = "none";
-
-      var address = document.getElementById('wallet-address');
       address.innerHTML = data.address;
-
-      var qrCode = document.getElementById('qr-code');
       qrCode.src = `qr/${data.address}`;
 
-      var addressContainer = document.getElementById('address-container');
       addressContainer.style.display = "inline-block";
-
-      var buySeeds = document.getElementById('buy-seeds');
       buySeeds.style.display = "inline-block";
-
-      var balance = document.getElementById('balance');
       balance.innerHTML = data.balance;
-
-      var buyBtn = document.getElementById("buy-seeds-btn");
       buyBtn.disabled = (data.balance == 0) ? true : false;
 
-      var notes = document.getElementsByClassName('note');
       for (let note of notes) {
         note.style.display = "inline-block";
       }
-
-    } else {
-      // Handle error status
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      if(xhr.status==403) {
+        button.disabled = true;
+        button.style.display = "inline-block";
+        loading.style.display = "none";
+      }
     }
   });
 }

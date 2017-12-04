@@ -45,8 +45,11 @@ export const signUp = async (req, res) => {
   const password = req.body.newPassword;
   const confirmPassword = req.body.confirmPassword;
 
+  const to = req.body.to || '';
+  const from = req.body.from || '';
+
   if (!isValideEmail(email) || (password != confirmPassword)) {
-    return res.redirect("/?signup=true&errorMessage=badInput");
+    return res.redirect(`/${from}?signup=true&errorMessage=badInput`);
   }
 
   const hashed = hashPassword(password);
@@ -54,27 +57,29 @@ export const signUp = async (req, res) => {
   const success = await signUpUser(email, hashed.hash, hashed.salt, verifyToken);
 
   if (!success) {
-    return res.redirect("/?signup=true&errorMessage=alreadyExists");
+    return res.redirect(`/${from}?signup=true&errorMessage=alreadyExists`);
   }
 
-  sendVerifyEmail(email, verifyToken);
+  sendVerifyEmail(email, verifyToken, to);
 
   return res.render('verify-email', { verified: false, email });
 };
 
 export const verifyEmail = async (req, res) => {
 
+  const redirectTo = (!req.query.redirectTo || req.query.redirectTo == 'index') ? '/' : req.query.redirectTo;
+
   if (!req.query.token) {
-    return res.redirect('/');
+    return res.redirect(redirectTo);
   }
 
   const user = await verifyEmailToken(req.query.token);
   if (!user) {
-    return res.redirect('/');
+    return res.redirect(redirectTo);
   }
 
   addToMailingList(user.email);
-  return res.redirect(`/?signin=true&successMessage=emailVerified`);
+  return res.redirect(`${redirectTo}?signin=true&successMessage=emailVerified`);
 };
 
 

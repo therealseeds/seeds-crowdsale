@@ -1,0 +1,55 @@
+body {
+  background-color: #d0d0d0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.new-page {
+  margin-top: 100px;
+}
+
+#wrapper {
+  padding: 100px;
+  margin: 50px auto;
+  width: 70%;
+  text-align: justify;
+  background-color: #fff;
+}
+
+#accept {
+  text-align: center;
+  margin-top: 100px;
+}
+
+button {
+  border: 1px solid #005A04;
+  background-color: #1fa079;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+button:hover {
+  border: 1px solid #005A04;
+  background-color: #28c096;
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.error {
+  color: red;
+}

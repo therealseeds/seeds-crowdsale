@@ -1,0 +1,81 @@
+<html>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107670559-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-107670559-1');
+  </script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1802785866656598');
+      fbq('track', 'PageView');
+  </script>
+  <noscript>
+     <img height="1" width="1"
+    src="https://www.facebook.com/tr?id=1802785866656598&ev=PageView
+    &noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/mdb.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/redeem.css">
+
+	<title>Seeds redeem token</title>
+</head>
+<body onload="">
+  <div id="logo"><a href="/"><img class="logo-img-small" src="/images/seeds-logo-name.png" alt="Logo"></a></div>
+
+  <h1>Redeem your Seeds token to activate your need</h1>
+  <table id="needTable">
+    <tr><td class="greyTd">{{title}}</td></tr>
+    <tr><td>{{description}}</td></tr>
+    <tr><td class="greyTd">${{cost}}</td></tr>
+    <tr><td>Active: {{active}}</td></tr>
+  </table>
+
+  <div class="step">
+    <h2>Send 1 Seeds Token to this address</h2>
+    <div id="address-container" style="display: block;">
+      <div id="text-address" class="address"><span>{{token_address}}</span></div>
+      <div id="qr-address" class="address"><img src="/qr/{{token_address}}"></div>
+    </div>
+    <p class="note" style="margin: 50px 0;">After sending the token, copy the transaction code (TX hash) and paste it below. If you have any doubts check our <a href="/faq">FAQ page</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a>.</p>
+    <h2>Enter the transaction code (TX hash)</h2>
+      <form action="" method="POST">
+        <input id="tx-input" type="string" name="tx" placeholder="Paste here the TX hash">
+        <button id="redeem-token" class="btn btn-green-1 waves-effect" onclick="">REDEEM</button>
+        {{#txError}}<p class="errorMessage">Error: Wrong transaction</p>{{/txError}}
+      </form>
+  </div>
+
+
+  <footer>
+    <p><b>Questions?</b> Check our <a target="_blank" href="/faq">FAQ</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a></p>
+     <p><a target="_blank" href="https://www.facebook.com/seedsgives"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+     <a target="_blank" href="https://www.instagram.com/seedsgives/"><i class="fa fa-instagram fa-2x"></i></a>
+     <a target="_blank" href="https://twitter.com/seedstweets"><i class="fa fa-twitter-square fa-2x"></i></a></p>
+  </footer>
+
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/mdb.min.js"></script>
+</body>
+</html>
