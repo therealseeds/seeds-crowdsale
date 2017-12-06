@@ -8,8 +8,8 @@ const promoTypes = {
 const promoCodes = {
   "SEEDSTOKENS": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1510387200000,
-    discount: 0.2,
+    expires: 1514275200000,
+    discount: 0.6,
     threshold: 0
   },
   "SEEDS2017": {
