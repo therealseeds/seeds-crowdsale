@@ -43,7 +43,7 @@ export const withdrawFromWallet = (index, address) => {
   const privateKey = wallet.getPrivateKey();
 
   const gasLimit = 21000;
-  const gasPrice = web3.toWei(20, "gwei");
+  const gasPrice = web3.toWei(30, "gwei");
   const value = balance - (gasLimit * gasPrice);
 
   const rawTx = {
@@ -66,6 +66,8 @@ export const withdrawFromWallet = (index, address) => {
     return { transactionHash, balance: balance.toNumber() };
 
   } catch (err) {
+    winston.error("Failing when transfering from user wallet to seeds wallet");
+    winston.error("Sending to: " + rawTx.to);
     winston.error(err);
     return { transactionHash: false, balance: balance.toNumber(), error: err.message };
   }
