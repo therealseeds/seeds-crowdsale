@@ -25,9 +25,15 @@ export default async (req, res) => {
   }
 
   if (!transactionHash) {
-    return (balance == 0)
-      ? res.redirect("/contribute?errorMessage=zeroBalance")
-      : res.redirect("/contribute?errorMessage=transactionFailed");
+    if (balance == 0) {
+      return res.redirect("/contribute?errorMessage=zeroBalance");
+    } else {
+      if (error && error.includes("insufficient funds")) {
+        return res.redirect("/contribute?errorMessage=insufficientDeposit");
+      } else {
+        return res.redirect("/contribute?errorMessage=transactionFailed");
+      }
+    }
   }
 
   const price = getCurrentPriceInWei(req.body.promo, balance);

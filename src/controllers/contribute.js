@@ -21,6 +21,7 @@ export default async (req, res) => {
     transactionFailed: errorMessage == "transactionFailed",
     zeroBalance: errorMessage == "zeroBalance",
     invalidPromo: errorMessage == "invalidPromo",
+    insufficientDeposit: errorMessage == "insufficientDeposit",
   };
 
   res.render('contribute', data);

@@ -119,6 +119,10 @@
         <p class="errorMessage">Error: something wrong happened and the transaction failed. Try again!</p>
         <p class="errorMessage">If this happens again contact us!</p>
       {{/transactionFailed}}
+      {{#insufficientDeposit}}
+        <p class="errorMessage">Error: the deposit was not enough to execute the transaction.</p>
+        <p class="errorMessage">Please deposit some more ETH!</p>
+      {{/insufficientDeposit}}
       {{#zeroBalance}}<p class="errorMessage">Error: balance not enough!</p>{{/zeroBalance}}
       {{#invalidPromo}}<p class="errorMessage">Error: promo code is not valid!</p>{{/invalidPromo}}
 
