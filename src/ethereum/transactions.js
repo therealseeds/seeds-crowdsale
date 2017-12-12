@@ -19,24 +19,18 @@ export const transactionStatus = {
 
 export const validateTransaction = async (transactionHash) => {
 
-  try {
+  const transaction = web3.eth.getTransaction(transactionHash);
 
-    const transaction = web3.eth.getTransaction(transactionHash);
+  if (!transaction.blockNumber) {
+    winston.info(`Transaction ${transactionHash} still pending`);
+    await snooze(10000); // Sleep for 5 seconds
+    return Promise.resolve(validateTransaction(transactionHash));
+  } else {
 
-    if (!transaction.blockNumber) {
-      winston.info(`Transaction ${transactionHash} still pending`);
-      await snooze(10000); // Sleep for 5 seconds
-      return Promise.resolve(validateTransaction(transactionHash));
-    } else {
-
-      const transactionReceipt = web3.eth.getTransactionReceipt(transactionHash);
-      const status = web3.toDecimal(transactionReceipt.status) == 0 ? transactionStatus.FAILED : transactionStatus.CONFIRMED;
-      winston.info(`Transaction ${transactionHash} status: ${status}`);
-      return Promise.resolve(status);
-    }
-  } catch (err) {
-    winston.info(`Transaction ${transactionHash} not found`);
-    return Promise.resolve(transactionStatus.NOT_FOUND);
+    const transactionReceipt = web3.eth.getTransactionReceipt(transactionHash);
+    const status = web3.toDecimal(transactionReceipt.status) == 0 ? transactionStatus.FAILED : transactionStatus.CONFIRMED;
+    winston.info(`Transaction ${transactionHash} status: ${status}`);
+    return Promise.resolve(status);
   }
 };
 
@@ -66,8 +60,10 @@ export const validateOneSeedsTransaction = async (transactionHash) => {
         || decodedData.params[0].value.toLowerCase() != config.seeds_token_receiver_address.toLowerCase()
         || decodedData.params[1].value != config.sds
       ) {
+        winston.info(`Transaction ${transactionHash} is valid`);
         return Promise.resolve(transactionStatus.NOT_VALID);
       } else {
+        winston.info(`Transaction ${transactionHash} is not valid`);
         return Promise.resolve(transactionStatus.VALID);
       }
     }
