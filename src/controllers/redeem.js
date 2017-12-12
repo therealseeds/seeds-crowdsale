@@ -1,6 +1,8 @@
 import config from "config";
-import { getUser, getNeedByUUID, isTransactionRedeemed, addRedeemedTransaction, redeemSeedsToken } from "api/db";
+import winston from "winston";
+import { getUser, getNeedByUUID, isTransactionRedeemed, addRedeemedTransaction, redeemSeedsToken, deactivateNeed } from "api/db";
 import { validateTransaction, transactionStatus, validateOneSeedsTransaction } from "api/ethereum/transactions";
+import { sendRedeemSuccessEmail, sendRedeemFailedEmail } from "api/utils/mailer";
 
 export const getRedeem = async (req, res) => {
 
@@ -51,19 +53,25 @@ export const postRedeem = async (req, res) => {
 
   const alreadyRedeemed = await isTransactionRedeemed(transactionHash);
   if (alreadyRedeemed) {
+    winston.info(`Attempt to redeem already redeemed transaction ${transactionHash}`);
     data.txError = true;
     return res.render('redeem', data);
   }
 
-  const status = await validateOneSeedsTransaction(transactionHash);
+  redeemSeedsToken(need._id, user._id);
 
-  if (status == transactionStatus.NOT_FOUND || status == transactionStatus.NOT_VALID) {
-    data.txError = true;
-  } else {
-    addRedeemedTransaction(user._id, transactionHash);
-    redeemSeedsToken(need._id, user._id);
-    data.active = true;
-  }
+  validateOneSeedsTransaction(transactionHash).then(status => {
+    if (status == transactionStatus.NOT_FOUND || status == transactionStatus.NOT_VALID) {
+      deactivateNeed(need._id, user._id);
+      sendRedeemFailedEmail(req.session.email, need.uuid);
+    } else {
+      winston.info(`User ${user.email} redeemed need ${need.uuid}`);
+      addRedeemedTransaction(user._id, transactionHash);
+      sendRedeemSuccessEmail(req.session.email);
+    }
+  });
+
+  data.active = true;
 
   res.render('redeem', data);
 };

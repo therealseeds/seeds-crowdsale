@@ -165,6 +165,19 @@ export const redeemSeedsToken = async (needID, userID) => {
   );
 };
 
+export const deactivateNeed = async (needID, userID) => {
+  const mongo = await mongoDbPromise;
+  await mongo.collection(`user_needs`).updateOne(
+    {
+      "_id": needID,
+      "user_id": userID
+    },
+    { "$set": {
+       "tokenRedeemed": false
+    }}
+  );
+};
+
 export const addRedeemedTransaction = async (userID, transactionHash) => {
   const mongo = await mongoDbPromise;
   mongo.collection(`redeemed_transactions`).insertOne({

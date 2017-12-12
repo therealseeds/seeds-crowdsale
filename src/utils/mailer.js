@@ -66,6 +66,30 @@ export const sendRetrieveFailedEmail = async (receiver) => {
   await sendMail(message);
 };
 
+export const sendRedeemSuccessEmail = async (receiver) => {
+  let message = {
+    to: receiver,
+    subject: 'Your need has been activated!',
+    html: fs.readFileSync(__dirname + '/emails/redeem-confirmed.html')
+  };
+
+  await sendMail(message);
+};
+
+export const sendRedeemFailedEmail = async (receiver, uuid) => {
+
+  const html = fs.readFileSync(__dirname + '/emails/redeem-failed.html', "utf8")
+    .replace('[UUID]', uuid);
+
+  let message = {
+    to: receiver,
+    subject: "Your SEEDS Tokens redemption failed!",
+    html
+  };
+
+  await sendMail(message);
+};
+
 export const sendVerifyEmail = async (receiver, token, redirectTo) => {
 
   if (!redirectTo || redirectTo == '/') {
