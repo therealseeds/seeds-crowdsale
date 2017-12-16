@@ -6,7 +6,7 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "YAY": {
+  "YAYHAROLD": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1514523599000,
     discount: 0.6,
