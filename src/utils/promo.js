@@ -6,9 +6,9 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "SEEDSTOKENS": {
+  "YAYHAROLD": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514275200000,
+    expires: 1514523599000,
     discount: 0.6,
     threshold: 0
   },
