@@ -21,12 +21,11 @@ export const validateTransaction = async (transactionHash) => {
 
   const transaction = web3.eth.getTransaction(transactionHash);
 
-  if (!transaction.blockNumber) {
+  if (!transaction || !transaction.blockNumber) {
     winston.info(`Transaction ${transactionHash} still pending`);
-    await snooze(10000); // Sleep for 5 seconds
+    await snooze(15000); // Sleep for 5 seconds
     return Promise.resolve(validateTransaction(transactionHash));
   } else {
-
     const transactionReceipt = web3.eth.getTransactionReceipt(transactionHash);
     const status = web3.toDecimal(transactionReceipt.status) == 0 ? transactionStatus.FAILED : transactionStatus.CONFIRMED;
     winston.info(`Transaction ${transactionHash} status: ${status}`);
