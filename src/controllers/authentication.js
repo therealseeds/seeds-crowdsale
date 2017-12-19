@@ -1,4 +1,4 @@
-import randomToken from 'random-token';
+import randomToken from "random-token";
 import { signUpUser, getUser, verifyEmailToken } from "api/db";
 import { hashPassword, verifyPassword } from "api/utils/password";
 import { addToMailingList } from "api/utils/mailchimp";

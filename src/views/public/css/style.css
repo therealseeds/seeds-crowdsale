@@ -555,3 +555,21 @@ footer > p > a > i {
   font-size: 20px;
   font-weight: 400;
 }
+
+#email-input {
+  width: 70%;
+  margin: auto;
+}
+
+#link-sent {
+  display: none;
+}
+
+#password-input {
+  width: 60%;
+  margin: auto;
+}
+
+#password-reset {
+  display: none;
+}

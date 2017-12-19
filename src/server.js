@@ -15,6 +15,7 @@ import getQRcode from "api/controllers/qrcode";
 import buy from "api/controllers/buy";
 import retrieve from "api/controllers/retrieve";
 import getSeeds from "api/controllers/getseeds";
+import { getForgotPassword, postForgotPassword, getResetPassword, postResetPassword } from "api/controllers/resetPassword";
 import { getAddNeed, postAddNeed } from "api/controllers/addNeed";
 import { getTerms, postTerms } from "api/controllers/terms";
 import { getRedeem, postRedeem } from "api/controllers/redeem";
@@ -57,6 +58,10 @@ app.use("/buy", buy);
 app.get("/retrieve", retrieve);
 app.post("/getseeds", getSeeds);
 app.get("/verify-email", verifyEmail);
+app.get("/forgot-password", getForgotPassword);
+app.post("/forgot-password", postForgotPassword);
+app.get("/reset-password", getResetPassword);
+app.post("/reset-password", postResetPassword);
 
 app.get("/add-need", getAddNeed);
 app.post("/add-need", postAddNeed);

@@ -42,6 +42,11 @@ export const getUser = async (email) => {
   return await mongo.collection(`tokensale_users`).findOne({ "email": email });
 };
 
+export const getUserByResetPasswordToken = async (token) => {
+  const mongo = await mongoDbPromise;
+  return await mongo.collection(`tokensale_users`).findOne({ "resetPasswordToken": token });
+};
+
 export const addWalletAddress = async (email, address) => {
   const mongo = await mongoDbPromise;
   mongo.collection(`tokensale_users`).updateOne(
@@ -115,6 +120,19 @@ export const verifyEmailToken = async (verifyToken) => {
   return user.value;
 };
 
+export const resetUserPassword = async (email, hashedPassword, salt) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    {
+      "email": email
+    },
+    { "$set": {
+       "password": hashedPassword,
+       "salt": salt
+    } }
+  );
+};
+
 export const addUserInfo = async (email, name, gender, age, interests) => {
   const mongo = await mongoDbPromise;
 
@@ -127,6 +145,14 @@ export const addUserInfo = async (email, name, gender, age, interests) => {
   mongo.collection(`tokensale_users`).updateOne(
     { "email": email },
     { "$set": set },
+  );
+};
+
+export const addResetPasswordToken = async (email, token) => {
+  const mongo = await mongoDbPromise;
+  mongo.collection(`tokensale_users`).updateOne(
+    { "email": email },
+    { "$set": { "resetPasswordToken": token } },
   );
 };
 

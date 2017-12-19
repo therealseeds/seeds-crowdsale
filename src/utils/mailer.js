@@ -108,3 +108,17 @@ export const sendVerifyEmail = async (receiver, token, redirectTo) => {
 
   await sendMail(message);
 };
+
+export const sendResetPasswordEmail = async (receiver, token) => {
+
+  const html = fs.readFileSync(__dirname + '/emails/reset-password.html', "utf8")
+    .replace('REPLACE_TOKEN', token);
+
+  let message = {
+    to: receiver,
+    subject: "SEEDS - reset your password",
+    html
+  };
+
+  await sendMail(message);
+};
