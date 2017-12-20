@@ -36,10 +36,10 @@ const promoCodes = {
     discount: 0.7,
     threshold: 0
   },
-  "BACKSTAGE": {
+  "ANDREWISAWESOME": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1514275200000, // 12/25
-    discount: 0.2,
+    discount: 0.4,
     threshold: 0
   },
   "GIVETHANKS": {
