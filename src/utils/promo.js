@@ -18,10 +18,10 @@ const promoCodes = {
     discount: 0.3,
     threshold: 0
   },
-  "TOKENSALE2017": {
+  "TECHLADIES": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1510387200000,
-    discount: 0.2,
+    discount: 0.4,
     threshold: 0
   },
   "SEEDSGIVES": {
