@@ -20,7 +20,7 @@ const promoCodes = {
   },
   "TECHLADIES": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1510387200000,
+    expires: 1514782799000,
     discount: 0.4,
     threshold: 0
   },
