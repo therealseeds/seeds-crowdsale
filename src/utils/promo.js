@@ -54,6 +54,11 @@ const promoCodes = {
     discount: 0.6,
     threshold: 1 // Threshold in ETH above which the promo code is valid
   }
+    "YAYMAROONS": {
+    type: promoTypes.MORE_TOKENS,
+    expires: 1517461199000, // 1/31
+    discount: 0.5,
+    threshold: .05 // Threshold in ETH above which the promo code is valid
 };
 
 export const isValidCode = (code) => (code != undefined && promoCodes[code] != undefined && Date.now() <= promoCodes[code].expires);
