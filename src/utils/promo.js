@@ -53,6 +53,7 @@ const promoCodes = {
     expires: 1514275200000, // 12/25
     discount: 0.6,
     threshold: 1 // Threshold in ETH above which the promo code is valid
+  },
 };
 
 export const isValidCode = (code) => (code != undefined && promoCodes[code] != undefined && Date.now() <= promoCodes[code].expires);
