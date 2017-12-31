@@ -14,7 +14,7 @@ const promoCodes = {
   },
   "ABUNDANCE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514275200000,
+    expires: 1517461199000,
     discount: 0.3,
     threshold: 0
   },
