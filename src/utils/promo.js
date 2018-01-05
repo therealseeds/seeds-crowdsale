@@ -50,9 +50,9 @@ const promoCodes = {
   },
   "SEEDSTHANKSYOU": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1514275200000, // 12/25
-    discount: 0.6,
-    threshold: 1 // Threshold in ETH above which the promo code is valid
+    expires: 1515387599000, // 1/9
+    discount: 0.5,
+    threshold: 0.2 // Threshold in ETH above which the promo code is valid
   },
 };
 
