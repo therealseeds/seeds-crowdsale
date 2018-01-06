@@ -18,10 +18,8 @@ export default async (req, res) => {
   }
 
   const walletID = user.walletID;
-  const address = user.walletAddress || getWalletAddress(walletID);
-  if (!user.walletAddress) {
-    addWalletAddress(req.session.email, address);
-  }
+  const address = getWalletAddress(walletID);
+  addWalletAddress(req.session.email, address);
 
   const balance = getWalletBalance(address);
 
