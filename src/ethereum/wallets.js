@@ -7,7 +7,7 @@ import config from "config";
 import { web3 } from "./index";
 
 // const mnemonic = bip39.generateMnemonic();
-const seed = bip39.mnemonicToSeed(config.seeds_mnemonic);
+const seed = bip39.mnemonicToSeed(config.seeds_wallet_mnemonic);
 const hdwallet = hdkey.fromMasterSeed(seed);
 
 const getWallet = (index) => {
