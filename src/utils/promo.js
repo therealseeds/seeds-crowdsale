@@ -14,14 +14,14 @@ const promoCodes = {
   },
   "ABUNDANCE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514275200000,
+    expires: 1517461199000,
     discount: 0.3,
     threshold: 0
   },
-  "TOKENSALE2017": {
+  "TECHLADIES": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1510387200000,
-    discount: 0.2,
+    expires: 1514782799000,
+    discount: 0.4,
     threshold: 0
   },
   "SEEDSGIVES": {
@@ -30,30 +30,30 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0
   },
-  "BERKELEY": {
-    type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514275200000, // 12/25
-    discount: 0.2,
-    threshold: 0
-  },
-  "BACKSTAGE": {
-    type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514275200000, // 12/25
-    discount: 0.2,
-    threshold: 0
-  },
-  "GIVETHANKS": {
+  "YAYHOLIDAY": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1514275200000, // 12/25
     discount: 0.7,
-    threshold: 7 // Threshold in ETH above which the promo code is valid
+    threshold: 0
   },
-  "SEEDSTHANKSYOU": {
-    type: promoTypes.MORE_TOKENS,
+  "ANDREWISAWESOME": {
+    type: promoTypes.PRICE_DISCOUNT,
     expires: 1514275200000, // 12/25
-    discount: 0.6,
-    threshold: 1 // Threshold in ETH above which the promo code is valid
-  }
+    discount: 0.4,
+    threshold: 0
+  },
+    "YAYMAROONS": {
+    type: promoTypes.MORE_TOKENS,
+    expires: 1517461199000, // 1/31
+    discount: 0.5,
+    threshold: .05 // Threshold in ETH above which the promo code is valid
+  },
+  "YAYWEEKEND": {
+    type: promoTypes.MORE_TOKENS,
+    expires: 1515387599000, // 1/9
+    discount: 0.5,
+    threshold: 0.2 // Threshold in ETH above which the promo code is valid
+  },
 };
 
 export const isValidCode = (code) => (code != undefined && promoCodes[code] != undefined && Date.now() <= promoCodes[code].expires);
