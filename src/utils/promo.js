@@ -42,11 +42,11 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0
   },
-    "YAYMAROONS": {
+    "MAKINGMONEYHELPS": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1517461199000, // 1/31
+    expires: 1515905999000, // 1/31
     discount: 0.5,
-    threshold: .05 // Threshold in ETH above which the promo code is valid
+    threshold: 1 // Threshold in ETH above which the promo code is valid
   },
   "BILLIONFORGOOD": {
     type: promoTypes.MORE_TOKENS,
