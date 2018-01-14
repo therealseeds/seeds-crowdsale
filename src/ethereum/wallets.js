@@ -42,7 +42,7 @@ export const withdrawFromWallet = (index, address) => {
   const wallet = getWallet(index);
   const privateKey = wallet.getPrivateKey();
 
-  const gasLimit = 200000;
+  const gasLimit = 150000;
   const gasPrice = web3.toWei(30, "gwei");
   const value = balance - (gasLimit * gasPrice);
 
