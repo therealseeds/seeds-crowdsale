@@ -116,7 +116,7 @@ export const sendResetPasswordEmail = async (receiver, token) => {
 
   let message = {
     to: receiver,
-    subject: "Seeds Tokens Password Reset Instructions",
+    subject: "Seeds Tokens Password Reset",
     html
   };
 
