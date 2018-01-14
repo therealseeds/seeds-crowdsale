@@ -30,11 +30,11 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0
   },
-  "YAYHOLIDAY": {
+  "MLK": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514275200000, // 12/25
-    discount: 0.7,
-    threshold: 0
+    expires: 1516233599000, // 1/17
+    discount: 0.5,
+    threshold: 0.25
   },
   "ANDREWISAWESOME": {
     type: promoTypes.PRICE_DISCOUNT,
