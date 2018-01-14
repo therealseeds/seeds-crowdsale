@@ -102,7 +102,7 @@ export const sendVerifyEmail = async (receiver, token, redirectTo) => {
 
   let message = {
     to: receiver,
-    subject: "SEEDS - verify your email address",
+    subject: "Please verify your email to complete your sign-up at Seeds :D",
     html
   };
 
@@ -116,7 +116,7 @@ export const sendResetPasswordEmail = async (receiver, token) => {
 
   let message = {
     to: receiver,
-    subject: "SEEDS - reset your password",
+    subject: "Seeds Tokens Password Reset Instructions",
     html
   };
 
