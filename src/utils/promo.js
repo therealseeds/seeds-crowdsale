@@ -38,7 +38,7 @@ const promoCodes = {
   },
   "ANDREWISAWESOME": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1517461199000, // 12/25
+    expires: 1517461199000, // 1/31
     discount: 0.4,
     threshold: 0
   },
