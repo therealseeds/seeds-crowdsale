@@ -29,7 +29,7 @@ const sendMail = async (message) => {
 export const sendPurchaseConfirmedEmail = async (receiver) => {
   let message = {
     to: receiver,
-    subject: 'Your SEEDS Tokens purchase is confirmed!',
+    subject: 'Your Seeds Tokens purchase is confirmed! Yay!',
     html: fs.readFileSync(__dirname + '/emails/purchase-confirmed.html')
   };
 
@@ -39,7 +39,7 @@ export const sendPurchaseConfirmedEmail = async (receiver) => {
 export const sendPurchaseFailedEmail = async (receiver) => {
   let message = {
     to: receiver,
-    subject: "Your SEEDS Tokens purchase failed - but we're looking into it!",
+    subject: "Unfortunately your Seeds Tokens purchase failed - but we're looking into it!",
     html: fs.readFileSync(__dirname + '/emails/purchase-failed.html')
   };
 
@@ -49,7 +49,7 @@ export const sendPurchaseFailedEmail = async (receiver) => {
 export const sendRetrieveConfirmedEmail = async (receiver) => {
   let message = {
     to: receiver,
-    subject: 'Your SEEDS Tokens have been sent!',
+    subject: 'Your Seeds Tokens have been sent!',
     html: fs.readFileSync(__dirname + '/emails/retrieve-confirmed.html')
   };
 
@@ -59,7 +59,7 @@ export const sendRetrieveConfirmedEmail = async (receiver) => {
 export const sendRetrieveFailedEmail = async (receiver) => {
   let message = {
     to: receiver,
-    subject: "Your SEEDS Tokens retrieval failed - but we're looking into it!",
+    subject: "Unfortunately your Seeds Tokens retrieval failed - but we're looking into it!",
     html: fs.readFileSync(__dirname + '/emails/retrieve-failed.html')
   };
 
@@ -69,7 +69,7 @@ export const sendRetrieveFailedEmail = async (receiver) => {
 export const sendRedeemSuccessEmail = async (receiver) => {
   let message = {
     to: receiver,
-    subject: 'Your need has been activated!',
+    subject: 'Your Needs Request has been activated!',
     html: fs.readFileSync(__dirname + '/emails/redeem-confirmed.html')
   };
 
@@ -83,7 +83,7 @@ export const sendRedeemFailedEmail = async (receiver, uuid) => {
 
   let message = {
     to: receiver,
-    subject: "Your SEEDS Tokens redemption failed!",
+    subject: "Unfortunately your Seeds Tokens redemption failed :(",
     html
   };
 
