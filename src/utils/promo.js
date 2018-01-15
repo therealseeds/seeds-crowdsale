@@ -18,11 +18,11 @@ const promoCodes = {
     discount: 0.3,
     threshold: 0
   },
-  "TECHLADIES": {
+  "COLORINGCRYPTO": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514782799000, 
-    discount: 0.4,
-    threshold: 0
+    expires: 1522555199000, // 3/31
+    discount: 0.3,
+    threshold: 0.1
   },
   "SEEDSGIVES": {
     type: promoTypes.PRICE_DISCOUNT,
