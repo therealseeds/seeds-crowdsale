@@ -12,15 +12,15 @@ const promoCodes = {
     discount: 0.6,
     threshold: 0
   },
-  "ABUNDANCE": {
+  "PROSPERITY": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1517461199000,
+    expires: 1522555199000, // 3/31
     discount: 0.3,
     threshold: 0
   },
   "TECHLADIES": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514782799000,
+    expires: 1514782799000, 
     discount: 0.4,
     threshold: 0
   },
