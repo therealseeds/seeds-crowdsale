@@ -27,7 +27,7 @@ export const validateTransaction = async (transactionHash) => {
     return Promise.resolve(validateTransaction(transactionHash));
   } else {
     const transactionReceipt = web3.eth.getTransactionReceipt(transactionHash);
-    const status = web3.toDecimal(transactionReceipt.status) == 0 ? transactionStatus.FAILED : transactionStatus.CONFIRMED;
+    const status = (!transactionReceipt || web3.toDecimal(transactionReceipt.status) == 0) ? transactionStatus.FAILED : transactionStatus.CONFIRMED;
     winston.info(`Transaction ${transactionHash} status: ${status}`);
     return Promise.resolve(status);
   }
