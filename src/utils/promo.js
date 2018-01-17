@@ -30,7 +30,7 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0
   },
-  "MLK": {
+  "FREEDOM": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1516233599000, // 1/17
     discount: 0.5,
