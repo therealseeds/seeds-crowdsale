@@ -6,11 +6,11 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "YAYHAROLD": {
+  "ABUNDANCE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514523599000,
-    discount: 0.6,
-    threshold: 0
+    expires: 1516424399000, // 1/19
+    discount: 0.5,
+    threshold: 0.2
   },
   "PROSPERITY": {
     type: promoTypes.PRICE_DISCOUNT,
