@@ -68,7 +68,7 @@ export const withdrawFromWallet = (index, address) => {
   } catch (err) {
     winston.error("Failing when transfering from user wallet to seeds wallet");
     winston.error("Sending to: " + rawTx.to);
-    winston.error(err);
+    winston.error(err.message);
     return { transactionHash: false, balance: balance.toNumber(), error: err.message };
   }
 };

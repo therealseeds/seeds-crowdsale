@@ -3,6 +3,9 @@ import { withdrawFromWallet, getWalletBalance } from "api/ethereum/wallets";
 import { validateTransaction, transactionStatus } from "api/ethereum/transactions";
 import { sendPurchaseConfirmedEmail, sendPurchaseFailedEmail } from "api/utils/mailer";
 
+const args = process.argv.slice(2);
+const transfer = (args[0] === "transfer");
+
 const transferAllEthers = async () => {
   const users = await getUsers();
   // console.log(users);
@@ -10,13 +13,14 @@ const transferAllEthers = async () => {
     if (!user.walletAddress) return;
 
     const currBalance = getWalletBalance(user.walletAddress);
-    if (currBalance === 0) return;
 
-    console.log(`Wallet ${user.walletAddress} for user ${user.email} has balance = ${currBalance}`);
+    console.log(`Wallet ${user.walletAddress} has balance = ${currBalance} (${user.email})`);
+
+    if (currBalance === 0) return;
+    if (!transfer) return;
 
     const { transactionHash, balance, error } = withdrawFromWallet(user.walletID, user.walletAddress);
     if (!transactionHash) {
-      console.log(error);
       return;
     }
 

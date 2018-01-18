@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon --watch src/ --watch config/ --exec babel-node -- src/server.js",
     "lint": "eslint src/",
-    "transfer-ethers": "babel-node bin/transferEthers.js"
+    "check-wallets": "babel-node bin/checkWallets.js"
   },
   "repository": {
     "type": "git",
