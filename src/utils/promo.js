@@ -32,7 +32,7 @@ const promoCodes = {
   },
   "FREEDOM": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1516233599000, // 1/17
+    expires: 1516359600000, // 1/19
     discount: 0.5,
     threshold: 0.25
   },
