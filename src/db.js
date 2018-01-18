@@ -42,6 +42,11 @@ export const getUser = async (email) => {
   return await mongo.collection(`tokensale_users`).findOne({ "email": email });
 };
 
+export const getUsers = async () => {
+  const mongo = await mongoDbPromise;
+  return mongo.collection("tokensale_users").find();
+};
+
 export const getUserByResetPasswordToken = async (token) => {
   const mongo = await mongoDbPromise;
   return await mongo.collection(`tokensale_users`).findOne({ "resetPasswordToken": token });

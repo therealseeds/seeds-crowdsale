@@ -4,7 +4,8 @@
   "description": "API with business logic endpoints",
   "scripts": {
     "start": "nodemon --watch src/ --watch config/ --exec babel-node -- src/server.js",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "transfer-ethers": "babel-node bin/transferEthers.js"
   },
   "repository": {
     "type": "git",
