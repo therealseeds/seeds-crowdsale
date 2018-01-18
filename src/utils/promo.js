@@ -6,23 +6,23 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "YAYHAROLD": {
-    type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514523599000,
-    discount: 0.6,
-    threshold: 0
-  },
   "ABUNDANCE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1517461199000,
+    expires: 1516424399000, // 1/19
+    discount: 0.5,
+    threshold: 0.2
+  },
+  "PROSPERITY": {
+    type: promoTypes.PRICE_DISCOUNT,
+    expires: 1522555199000, // 3/31
     discount: 0.3,
     threshold: 0
   },
-  "TECHLADIES": {
+  "COLORINGCRYPTO": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514782799000,
-    discount: 0.4,
-    threshold: 0
+    expires: 1522555199000, // 3/31
+    discount: 0.3,
+    threshold: 0.1
   },
   "SEEDSGIVES": {
     type: promoTypes.PRICE_DISCOUNT,
@@ -30,7 +30,7 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0
   },
-  "MLK": {
+  "FREEDOM": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1516233599000, // 1/17
     discount: 0.5,
