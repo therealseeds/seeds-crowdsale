@@ -48,11 +48,11 @@ const promoCodes = {
     discount: 0.5,
     threshold: 1 // Threshold in ETH above which the promo code is valid
   },
-  "BILLIONFORGOOD": {
+  "GETWHATYOUNEED": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1515905999000, // 1/13
-    discount: 0.67,
-    threshold: 0.3 // Threshold in ETH above which the promo code is valid
+    expires: 1516597200000, // 1/22
+    discount: 0.05,
+    threshold: 0.25 // Threshold in ETH above which the promo code is valid
   },
 };
 
