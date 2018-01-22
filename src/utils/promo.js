@@ -6,11 +6,11 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "ABUNDANCE": {
+  "WELOVEOURCOMMUNITY": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1516424399000, // 1/19
-    discount: 0.5,
-    threshold: 0.2
+    expires: 1516953600000, // 1/25
+    discount: 0.25,
+    threshold: 0
   },
   "PROSPERITY": {
     type: promoTypes.PRICE_DISCOUNT,
