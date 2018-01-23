@@ -50,9 +50,9 @@ const promoCodes = {
   },
   "GETWHATYOUNEED": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1516597200000, // 1/22
-    discount: 0.05,
-    threshold: 0.25 // Threshold in ETH above which the promo code is valid
+    expires: 1522555199000, // 3/31
+    discount: 0.6,
+    threshold: 0.5 // Threshold in ETH above which the promo code is valid
   },
 };
 
