@@ -23,7 +23,7 @@ export const sendTokensTo = (addressTo, totalSeedsUnits) => {
   const addressFrom = config.seeds_token_owner_address;
 
   const gasLimit = 21000;
-  const gasPrice = web3.toWei(140, "gwei");
+  const gasPrice = web3.toWei(60, "gwei");
 
   try {
     const transferData = contract.transfer.getData(addressTo, totalSeedsUnits);
