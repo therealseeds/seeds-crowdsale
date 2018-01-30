@@ -6,11 +6,11 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "WELOVEOURCOMMUNITY": {
+  "FORBES": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1516953600000, // 1/25
+    expires: 11522468799000, // 3/30
     discount: 0.25,
-    threshold: 0
+    threshold: 0.1
   },
   "PROSPERITY": {
     type: promoTypes.PRICE_DISCOUNT,
