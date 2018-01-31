@@ -36,11 +36,11 @@ const promoCodes = {
     discount: 0.5,
     threshold: 0.25
   },
-  "ANDREWISAWESOME": {
+  "THANKSBRITTNEY": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1517461199000, // 1/31
-    discount: 0.4,
-    threshold: 0
+    expires: 1517633999000, // 2/2
+    discount: 0.65,
+    threshold: 0.5
   },
     "MAKINGMONEYHELPS": {
     type: promoTypes.MORE_TOKENS,
