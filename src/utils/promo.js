@@ -42,11 +42,11 @@ const promoCodes = {
     discount: 0.65,
     threshold: 0.5
   },
-    "MAKINGMONEYHELPS": {
+    "WELCOME": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1515905999000, // 1/31
-    discount: 0.5,
-    threshold: 1 // Threshold in ETH above which the promo code is valid
+    expires: 1525147199000, // 4/30
+    discount: 0.4,
+    threshold: 0.2 // Threshold in ETH above which the promo code is valid
   },
   "GETWHATYOUNEED": {
     type: promoTypes.MORE_TOKENS,
