@@ -30,11 +30,11 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0
   },
-  "FREEDOM": {
+  "CLIQUE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1516359600000, // 1/19
+    expires: 1518843599000, // 2/17
     discount: 0.5,
-    threshold: 0.25
+    threshold: 0.2
   },
   "THANKSBRITTNEY": {
     type: promoTypes.PRICE_DISCOUNT,
