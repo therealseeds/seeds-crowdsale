@@ -36,11 +36,11 @@ const promoCodes = {
     discount: 0.5,
     threshold: 0.2
   },
-  "THANKSBRITTNEY": {
+  "THANKSIBC": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1517633999000, // 2/2
-    discount: 0.65,
-    threshold: 0.5
+    expires: 1518843599000, // 2/16
+    discount: 0.5,
+    threshold: 0.2
   },
     "WELCOME": {
     type: promoTypes.MORE_TOKENS,
