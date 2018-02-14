@@ -58,10 +58,10 @@
       <div id="text-address" class="address"><span>{{token_address}}</span></div>
       <div id="qr-address" class="address"><img src="/qr/{{token_address}}"></div>
     </div>
-    <p class="note" style="margin: 50px 0;">Please note that because Seeds is an Ethereum-based token, you will need a small amount of ETH in the wallet from which you're sending your Seeds token in order to successfully make the transfer for token redemption (typically no more than 50 cents worth, or so, depending on how busy the Ethereum network may be at a given time).  After sending the token, please copy the transaction confirmation, or Tx Hash, and paste it below to complete the redemption process. If you need help, please check our <a href="/faq">FAQ page</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a>.  Thank you!</p>
-    <h2>Enter the transaction code (TX hash)</h2>
+    <p class="note" style="margin: 50px 0;">Please note that because Seeds is an Ethereum-based token, you will need a small amount of ETH in the wallet from which you're sending your Seeds token, in order to successfully make the transfer for token redemption (typically no more than 50 cents worth in USD, or so, but often as little as a few cents worth, depending on how busy the Ethereum network may be at a given time).</p> <p>After sending the token, please copy the transaction confirmation, or TxHash, and paste it below to complete the redemption process. If you need help, please check our <a href="/faq">FAQ page</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a>.  Thank you!</p>
+    <h2>Please enter your transaction confirmation (TxHash)</h2>
       <form action="" method="POST">
-        <input id="tx-input" type="string" name="tx" placeholder="Paste here the TX hash">
+        <input id="tx-input" type="string" name="tx" placeholder="Paste the TxHash here">
         <button id="redeem-token" class="btn btn-green-1 waves-effect" onclick="">REDEEM</button>
         {{#txError}}<p class="errorMessage">Error: transaction not valid</p>{{/txError}}
       </form>
