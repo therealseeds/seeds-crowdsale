@@ -24,11 +24,11 @@ const promoCodes = {
     discount: 0.3,
     threshold: 0.1
   },
-  "SEEDSGIVES": {
+  "GRACE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1514275200000,
-    discount: 0.4,
-    threshold: 0
+    expires: 1522555199000, // 3/31
+    discount: 0.5,
+    threshold: 0.5
   },
   "CLIQUE": {
     type: promoTypes.PRICE_DISCOUNT,
