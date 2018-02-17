@@ -6,11 +6,11 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "FORBES": {
+  "HUZZAH": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 11522468799000, // 3/30
-    discount: 0.25,
-    threshold: 0.1
+    discount: 0.3,
+    threshold: 0.3
   },
   "PROSPERITY": {
     type: promoTypes.PRICE_DISCOUNT,
