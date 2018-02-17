@@ -30,11 +30,11 @@ const promoCodes = {
     discount: 0.5,
     threshold: 0.5
   },
-  "CLIQUE": {
+  "THANKS": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1518843599000, // 2/17
-    discount: 0.5,
-    threshold: 0.2
+    expires: 1522555199000, // 3/31
+    discount: 0.4,
+    threshold: 0.4
   },
   "WELOVESHARON": {
     type: promoTypes.PRICE_DISCOUNT,
