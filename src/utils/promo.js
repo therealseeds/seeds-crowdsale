@@ -12,11 +12,11 @@ const promoCodes = {
     discount: 0.3,
     threshold: 0.3
   },
-  "PROSPERITY": {
+  "WOOT": {
     type: promoTypes.PRICE_DISCOUNT,
     expires: 1522555199000, // 3/31
-    discount: 0.3,
-    threshold: 0
+    discount: 0.2,
+    threshold: 0.2
   },
   "COLORINGCRYPTO": {
     type: promoTypes.PRICE_DISCOUNT,
@@ -48,11 +48,11 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0.4 // Threshold in ETH above which the promo code is valid
   },
-  "GETWHATYOUNEED": {
+  "FUN": {
     type: promoTypes.MORE_TOKENS,
     expires: 1522555199000, // 3/31
-    discount: 0.6,
-    threshold: 0.5 // Threshold in ETH above which the promo code is valid
+    discount: 0.1,
+    threshold: 0.1 // Threshold in ETH above which the promo code is valid
   },
 };
 
