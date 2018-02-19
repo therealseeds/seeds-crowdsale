@@ -38,7 +38,7 @@ const promoCodes = {
   },
   "WELOVESHARON": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1519880399000, // 2/28
+    expires: 1519275599000, // 2/21
     discount: 0.6,
     threshold: 0.2
   },
