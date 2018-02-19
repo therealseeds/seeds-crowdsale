@@ -18,11 +18,11 @@ const promoCodes = {
     discount: 0.2,
     threshold: 0.2
   },
-  "COLORINGCRYPTO": {
+  "WELOVEMARKIE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1522555199000, // 3/31
-    discount: 0.3,
-    threshold: 0.1
+    expires: 1519275599000, // 2/21
+    discount: 0.6,
+    threshold: 0
   },
   "GRACE": {
     type: promoTypes.PRICE_DISCOUNT,
