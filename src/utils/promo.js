@@ -20,7 +20,7 @@ const promoCodes = {
   },
   "WELOVEMARKIE": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1519275599000, // 2/21
+    expires: 1520744399000, // 3/10
     discount: 0.6,
     threshold: 0
   },
