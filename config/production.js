@@ -1,4 +1,4 @@
 module.exports = {
-  initialPriceInWei: 40000,
-  presaleDeadline: 1520398799000
+  initialPriceInWei: 41000,
+  presaleDeadline: 1520978138000
 }
