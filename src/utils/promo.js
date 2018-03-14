@@ -36,10 +36,10 @@ const promoCodes = {
     discount: 0.4,
     threshold: 0.4
   },
-  "WELOVESHARON": {
+  "1000GIVERS": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1519275599000, // 2/21
-    discount: 0.6,
+    expires: 1525147199000, // 4/30
+    discount: 0.5,
     threshold: 0.2
   },
    "WELCOME": {
