@@ -18,11 +18,11 @@ const promoCodes = {
     discount: 0.2,
     threshold: 0.2
   },
-  "WELOVEMARKIE": {
+  "SEEDSGIVES": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1520744399000, // 3/10
-    discount: 0.6,
-    threshold: 0
+    expires: 1525157999000, // 4/30
+    discount: 0.3,
+    threshold: 0.5
   },
   "GRACE": {
     type: promoTypes.PRICE_DISCOUNT,
