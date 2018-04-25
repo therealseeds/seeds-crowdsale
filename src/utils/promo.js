@@ -6,10 +6,10 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "HUZZAH": {
+  "REDDIT": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 11522468799000, // 3/30
-    discount: 0.3,
+    expires: 1524974399000, // 4/28
+    discount: 0.6,
     threshold: 0.3
   },
   "WOOT": {
