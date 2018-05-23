@@ -44,7 +44,7 @@ const promoCodes = {
   },
    "WELCOME": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1525147199000, // 4/30
+    expires: 1530428399000, // 6/30
     discount: 0.4,
     threshold: 0.4 // Threshold in ETH above which the promo code is valid
   },
