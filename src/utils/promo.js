@@ -42,11 +42,11 @@ const promoCodes = {
     discount: 0.5,
     threshold: 0.2 // Threshold in ETH above which the promo code is valid
   },
-   "WELCOME": {
+   "INDEPENDENCE": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1530428399000, // 6/30
-    discount: 0.4,
-    threshold: 0.4 // Threshold in ETH above which the promo code is valid
+    expires: 1531033199000, // 7/7
+    discount: 0.3,
+    threshold: 0.3 // Threshold in ETH above which the promo code is valid
   },
   "FUN": {
     type: promoTypes.MORE_TOKENS,
