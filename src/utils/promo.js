@@ -14,25 +14,25 @@ const promoCodes = {
   },
   "WOOT": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1522555199000, // 3/31
+    expires: 1533082520000, // 7/31
     discount: 0.2,
     threshold: 0.2
   },
-  "SEEDSGIVES": {
+  "HUZZAH": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1525157999000, // 4/30
+    expires: 1533082520000, // 7/31
     discount: 0.3,
-    threshold: 0.5
+    threshold: 0.3
   },
-  "GRACE": {
+  "YAY": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1522555199000, // 3/31
+    expires: 1533082520000, // 7/31
     discount: 0.5,
     threshold: 0.5
   },
   "THANKS": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1522555199000, // 3/31
+    expires: 1533082520000, // 7/31
     discount: 0.4,
     threshold: 0.4
   },
@@ -50,7 +50,7 @@ const promoCodes = {
   },
   "FUN": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1522555199000, // 3/31
+    expires: 1533082520000, // 7/31
     discount: 0.1,
     threshold: 0.1 // Threshold in ETH above which the promo code is valid
   },
