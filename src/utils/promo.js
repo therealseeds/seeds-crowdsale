@@ -6,11 +6,11 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "FIRST10": {
+  "THANKYOU": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1525665599000, // 5/6
-    discount: 0.5,
-    threshold: 0.5
+    expires: 1532329199000, // 7/22
+    discount: 0.2,
+    threshold: 0.2
   },
   "WOOT": {
     type: promoTypes.PRICE_DISCOUNT,
