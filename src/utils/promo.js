@@ -6,11 +6,11 @@ const promoTypes = {
 };
 
 const promoCodes = {
-  "THANKYOU": {
+  "HELPOUTSEEDS": {
     type: promoTypes.PRICE_DISCOUNT,
-    expires: 1532329199000, // 7/22
-    discount: 0.2,
-    threshold: 0.2
+    expires: 1534316399000, // 8/14
+    discount: 0.3,
+    threshold: 0
   },
   "WOOT": {
     type: promoTypes.PRICE_DISCOUNT,
