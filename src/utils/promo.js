@@ -38,7 +38,7 @@ const promoCodes = {
   },
   "1000GIVERS": {
     type: promoTypes.MORE_TOKENS,
-    expires: 1546329599000, // 12/31
+    expires: 1546318799000, // 12/31
     discount: 0.5,
     threshold: 0.2 // Threshold in ETH above which the promo code is valid
   },
