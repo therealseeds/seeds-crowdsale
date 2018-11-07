@@ -53,13 +53,13 @@
 
   {{^active}}
   <div class="step">
-    <h2>To complete your Request for Help, please send one Seeds Token to this address</h2>
+    <h2>To activate your Request for Help, please send one Seeds Token to this address</h2>
     <div id="address-container" style="display: block;">
       <div id="text-address" class="address"><span>{{token_address}}</span></div>
       <div id="qr-address" class="address"><img src="/qr/{{token_address}}"></div>
     </div>
-    <p class="note" style="margin: 50px 0;">Please note that because Seeds is an Ethereum-based token, you will need a small amount of ETH in the wallet from which you send your Seeds token in order to make the transfer (typically no more than 50 cents or so in USD, but often as little as a few cents worth, depending on how busy the Ethereum network is).</p> <p>After sending the token, please copy the transaction confirmation, or TxHash, and paste it below to complete the redemption process.  If you need help, please check our <a href="/faq">FAQ page</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a>.  Thank you!</p>
-    <h2>Please enter your transaction confirmation (TxHash)</h2>
+    <p class="note" style="margin: 50px 0;">Please note that because Seeds is an Ethereum-based token, you'll need a small amount of ETH in the wallet from which you send your Seeds token in order to transfer it.  Typically no more than 50 cents or so in USD will do it, but it can often be as little as a few cents worth, depending on how busy the Ethereum network is.</p> <p>After sending the token, please copy the transaction confirmation, or TxHash, and paste it below to complete activation.  If you need help, please check our <a href="/faq">FAQ page</a> or contact us at <a href="mailto:team@playseeds.com">team@playseeds.com</a>.  Thank you!</p>
+    <h2>Lastly, enter your transaction confirmation (TxHash)</h2>
       <form action="" method="POST">
         <input id="tx-input" type="string" name="tx" placeholder="Paste the TxHash - beginning with the digits '0x' - here">
         <button id="redeem-token" class="btn btn-green-1 waves-effect" onclick="">REDEEM</button>
